@@ -1,0 +1,55 @@
+@import "tailwindcss";
+
+@theme {
+    --font-sans:
+        "Roboto",
+        ui-sans-serif,
+        system-ui,
+        sans-serif,
+        "Apple Color Emoji",
+        "Segoe UI Emoji",
+        "Segoe UI Symbol",
+        "Noto Color Emoji";
+    --color-dark-gray: #272727;
+    --color-cool-gray: #AAA;
+}
+
+.material-symbols-outlined {
+    font-variation-settings:
+        "FILL" 0,
+        "wght" 200,
+        "GRAD" 0;
+}
+
+.material-symbols-outlined.small {
+    font-size: 16px;
+}
+
+.material-symbols-outlined.active {
+    font-variation-settings:
+        "FILL" 1,
+        "wght" 300,
+        "GRAD" 0;
+}
+
+
+/* hide page scrollbar */
+
+/* Firefox */
+.no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+/* IE and Edge */
+.no-scrollbar::-webkit-scrollbar,
+.no-scrollbar::-webkit-scrollbar-button {
+    display: none;
+}
+
+
+/* Images */
+img {
+    min-height: 0;
+    min-width: 0;
+}

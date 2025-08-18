@@ -1,0 +1,12 @@
+{
+    "name": "Youtube",
+    "start_url": "./",
+    "display": "standalone",
+    "icons": [
+        {
+            "src": "./youtube-app-icon.webp",
+            "sizes": "any",
+            "type": "image/webp"
+        }
+    ]
+}
