@@ -2,6 +2,8 @@
     "name": "Youtube",
     "start_url": "./",
     "display": "standalone",
+    "theme_color": "#000000",
+    "background_color": "#000000",
     "icons": [
         {
             "src": "./youtube-app-icon.webp",
