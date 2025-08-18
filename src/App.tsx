@@ -20,13 +20,6 @@ function App() {
                     <Route path="/notifications" element={<Notifications />}></Route>
                 </Route>
 
-                <Route path="/index.html" element={<Layout />}>
-                    <Route index element={<Home />}></Route>
-                    <Route path="/profile" element={<Profile />}></Route>
-                    <Route path="/subscriptions" element={<Subscriptions />}></Route>
-                    <Route path="/notifications" element={<Notifications />}></Route>
-                </Route>
-
                 <Route path="/search" element={<Search />}></Route>
 
                 {/* 404 */}
