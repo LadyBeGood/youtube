@@ -1,4 +1,5 @@
 import { Link, useLocation } from "react-router-dom"
+import { SearchIcon, ExploreIcon } from "./Icons"
 
 const filters = [
     "All",
@@ -36,7 +37,7 @@ const RecommendationBar = ({ isHomePage = false }: { isHomePage?: boolean }) => 
             {isHomePage &&
                 <>
                     <button className="bg-dark-gray whitespace-nowrap px-2 flex items-center rounded-sm">
-                        <span className="material-symbols-outlined">Explore</span>
+                        <ExploreIcon />
                     </button>
                     <div className="px-[1px] my-0.5 mx-1 bg-dark-gray  select-none"></div>
                 </>
@@ -72,14 +73,9 @@ const TopBar = () => {
                 <Link className="block h-5 mr-auto" to="/">
                     <img src="./youtube-logo-with-text-dark.webp" alt="youtube" className="h-full w-auto" />
                 </Link>
-                <div className="flex gap-5">
-                    <Link to="/notifications">
-                        <span className="material-symbols-outlined">notifications</span>
-                    </Link>
-                    <Link to="/search">
-                        <span className="material-symbols-outlined">search</span>
-                    </Link>
-                </div>
+                <Link to="/search">
+                    <SearchIcon />
+                </Link>
             </div>
 
             {location.pathname === "/" ? <RecommendationBar isHomePage={true} /> :

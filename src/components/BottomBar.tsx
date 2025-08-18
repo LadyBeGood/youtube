@@ -1,20 +1,31 @@
 import { NavLink } from "react-router-dom"
+import { HomeIcon, NotificationsIcon, SubscriptionsIcon } from "./Icons"
 
 const BottomBar = () => {
     return (
         <nav className="flex justify-around items-center p-2 text-[10px] h-12 border-t-1 border-dark-gray">
             <NavLink to="/" end className="flex items-center flex-col">
                 {({ isActive }) =>
-                    isActive ?
-                        <><span className="material-symbols-outlined active">home</span><p>Home</p></> :
-                        <><span className="material-symbols-outlined">home</span><p>Home</p></>
+                    <>
+                        <HomeIcon isActive={isActive} />
+                        <p>Home</p>
+                    </>
                 }
             </NavLink>
             <NavLink to="/subscriptions" className="flex items-center flex-col">
                 {({ isActive }) =>
-                    isActive ?
-                        <><span className="material-symbols-outlined active">subscriptions</span><p>Subscriptions</p></> :
-                        <><span className="material-symbols-outlined">subscriptions</span><p>Subscriptions</p></>
+                    <>
+                        <SubscriptionsIcon isActive={isActive} />
+                        <p>Subscriptions</p>
+                    </>
+                }
+            </NavLink>
+            <NavLink to="/notifications" className="flex items-center flex-col">
+                {({ isActive }) =>
+                    <>
+                        <NotificationsIcon isActive={isActive} />
+                        <p>Notifications</p>
+                    </>
                 }
             </NavLink>
             <NavLink to="/profile" className="flex items-center flex-col">

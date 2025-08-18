@@ -1,3 +1,4 @@
+import { MoreIcon } from "./Icons"
 
 const Video = ({ isMusical = false }: { isMusical?: boolean }) => {
     return (
@@ -21,7 +22,7 @@ const Video = ({ isMusical = false }: { isMusical?: boolean }) => {
                         <span> 4 years ago</span>
                     </div>
                 </div>
-                <span className="material-symbols-outlined">more_vert</span>
+                <MoreIcon />
             </div>
         </button>
     )
