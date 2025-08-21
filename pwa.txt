@@ -1,0 +1,9 @@
+Foundations → Responsive, Performant
+App design → Installability, Standalone app-like behavior
+Assets & data → Caching, service workers, and offline storage
+Service workers → Offline, fast loads, Push notifications, Background sync
+Workbox → Library to simplify caching/routing in service workers.
+Offline data → IndexedDB, Cache API
+Installation → Web App Manifest + Install prompts for OS-level integration.
+Enhancements → Splash screens, shortcuts, sessions.
+Detection & OS integration → Deeper Integration with OS.

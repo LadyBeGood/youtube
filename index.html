@@ -12,9 +12,24 @@
     <link rel="stylesheet" href="./index.css" />
 </head>
 
-<body class="bg-black no-scrollbar">
+<!-- Disable Google Chrome's "Tap to search" feature on mobile (https://stackoverflow.com/a/64619907) -->
+<body class="bg-black min-h-lvh no-scrollbar" tabindex="-1">
     <div id="root" class="text-white h-svh relative no-scrollbar bg-black grid grid-rows-[auto_1fr_auto]"></div>
+    
     <script type="module" src="./src/App.tsx"></script>
+    <script>
+        // After checking whether the client's browser supports the Service Worker API, register the service worker
+        if ("serviceWorker" in navigator) {
+            window.addEventListener("load", async () => {
+                try {
+                    const reg = await navigator.serviceWorker.register("./service-worker.js");
+                    console.log("Service Worker registered");
+                } catch (err) {
+                    console.error("Service Worker registration failed: ", err);
+                }
+            });
+        }
+    </script>
 </body>
 
 </html>
