@@ -1,5 +1,5 @@
-import { Link, useLocation } from "react-router-dom"
-import { SearchIcon, ExploreIcon } from "./Icons"
+import { NavLink, Link, useLocation, useSearchParams } from "react-router-dom"
+import { SearchIcon, ExploreIcon, NotificationsIcon } from "./Icons"
 
 const filters = [
     "All",
@@ -32,18 +32,43 @@ const subscriptions = [
 ]
 
 const RecommendationBar = ({ isHomePage = false }: { isHomePage?: boolean }) => {
+    const [params] = useSearchParams();
+    const activeFilter = params.get("filter") ?? "All";
+
     return (
         <nav className="flex no-scrollbar overflow-y-scroll pb-3 pl-3 flex-nowrap gap-2">
             {isHomePage &&
                 <>
-                    <button className="bg-dark-gray whitespace-nowrap px-2 flex items-center rounded-sm">
+                    <button className="bg-dark-gray whitespace-nowrap px-2 cursor-pointer flex items-center rounded-sm">
                         <ExploreIcon />
                     </button>
                     <div className="px-[1px] my-0.5 mx-1 bg-dark-gray  select-none"></div>
                 </>
             }
 
-            {filters.map((recommendation, index) => <button key={index} className="bg-dark-gray whitespace-nowrap box-content px-3.5 py-1.5 rounded-lg text-sm">{recommendation}</button>)}
+            {filters.map((recommendation) => {
+                const isActive = activeFilter === recommendation;
+
+
+                // special case: "All" should just go home
+                const to = recommendation === "All"
+                    ? "/"
+                    : `?filter=${encodeURIComponent(recommendation)}`;
+
+
+                return (
+                    <NavLink
+                        key={recommendation}
+                        to={to}
+                        className={
+                            `whitespace-nowrap box-content px-3.5 py-1.5 rounded-lg text-sm
+                             ${isActive ? "bg-white text-dark-gray" : "bg-dark-gray text-white"}`
+                        }
+                    >
+                        {recommendation}
+                    </NavLink>
+                );
+            })}
         </nav>
     )
 }
@@ -73,9 +98,14 @@ const TopBar = () => {
                 <Link className="block h-5 mr-auto" to="/">
                     <img src="./youtube-logo-with-text-dark.webp" alt="youtube" className="h-full w-auto" />
                 </Link>
-                <Link to="/search">
-                    <SearchIcon />
-                </Link>
+                <div className="flex items-center content-between gap-5">
+                    <NavLink to="/notifications" className="flex items-center flex-col">
+                        {({ isActive }) => <NotificationsIcon isActive={isActive} />}
+                    </NavLink>
+                    <Link to="/search">
+                        <SearchIcon />
+                    </Link>
+                </div>
             </div>
 
             {location.pathname === "/" ? <RecommendationBar isHomePage={true} /> :
