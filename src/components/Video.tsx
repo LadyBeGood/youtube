@@ -1,5 +1,11 @@
 import { MoreIcon } from "./Icons"
 
+
+function handleClick(event: React.MouseEvent<HTMLButtonElement, MouseEvent>) {
+    console.log(event.type)
+}
+
+
 type VideoParams = {
     isMusical?: boolean;
     title: string;
@@ -12,9 +18,10 @@ type VideoParams = {
 }
 
 const Video = ({ isMusical = false, title, channel, profilePictureURL, thumbnailURL, views, uploadDate, duration }: VideoParams) => {
+    
 
     return (
-        <button>
+        <button className="select-none" onClick={(event) => handleClick(event)}>
             <div className="relative">
                 <img src={thumbnailURL} alt="thumbnail" />
                 <div className="absolute rounded right-2 bottom-1 bg-[#00000090] flex text-[10px] justify-around text-white items-center px-1.5 py-0.5 ">
@@ -39,4 +46,5 @@ const Video = ({ isMusical = false, title, channel, profilePictureURL, thumbnail
         </button>
     )
 }
+
 export default Video

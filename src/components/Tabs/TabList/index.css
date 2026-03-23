@@ -1,0 +1,12 @@
+.react-swipeable-tab-tabList {
+    width: 100%;
+}
+
+.react-swipeable-tab-tabList .ink {
+    position: absolute;
+    bottom: 0;
+    height: 2px;
+    transition-duration: 0.2s;
+    transition-timing-function: ease-in-out;
+    border-radius: 5px;
+}

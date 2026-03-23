@@ -192,5 +192,3 @@ const BottomSheet = ({ children, middleProp, lowProp, isOpen, setIsOpen }: Botto
 
 export default BottomSheet
 
-
-

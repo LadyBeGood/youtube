@@ -36,7 +36,7 @@ const RecommendationBar = ({ isHomePage = false }: { isHomePage?: boolean }) => 
     const activeFilter = params.get("filter") ?? "All";
 
     return (
-        <nav className="flex no-scrollbar overflow-y-scroll pb-3 pl-3 flex-nowrap gap-2">
+        <nav className="flex no-scrollbar overflow-y-auto pb-3 pl-3 flex-nowrap gap-2 select-none">
             {isHomePage &&
                 <>
                     <button className="bg-dark-gray whitespace-nowrap px-2 cursor-pointer flex items-center rounded-sm">
@@ -75,10 +75,10 @@ const RecommendationBar = ({ isHomePage = false }: { isHomePage?: boolean }) => 
 
 const SubscriptionsBar = () => {
     return (
-        <nav className="flex no-scrollbar overflow-x-scroll pb-3 pl-3 flex-nowrap  h-25 ">
+        <nav className="flex no-scrollbar overflow-x-auto pb-3 pl-3 flex-nowrap  h-25 ">
             {subscriptions.map((subscription, index) =>
                 <button key={index} className="grid grid-rows-[1fr_20px] h-full place-items-center aspect-square">
-                    <img src="avatar.webp" alt="" className="h-full w-auto block rounded-full" />
+                    <img src="./src/assets/avatar.webp" alt="" className="h-full w-auto block rounded-full" />
                     <span className="block w-full whitespace-nowrap overflow-hidden px-2 text-xs truncate ">
                         {subscription}
                     </span>
@@ -93,7 +93,7 @@ const TopBar = () => {
     const location = useLocation();
 
     return (
-        <nav className="bg-black overflow-scroll">
+        <nav className="bg-black overflow-auto">
             <div className="h-12 flex px-3 items-center">
                 <Link className="block h-5 mr-auto" to="/">
                     <img src="./youtube-logo-with-text-dark.webp" alt="youtube" className="h-full w-auto" />

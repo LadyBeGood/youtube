@@ -8,7 +8,9 @@ import Layout from "./components/Layout"
 import Search from "./pages/Search"
 import Notifications from "./pages/Notifications"
 
-function App() {
+
+
+export function App() {
     return (
         <BrowserRouter>
             <Routes>
@@ -29,4 +31,15 @@ function App() {
     )
 }
 
-createRoot(document.getElementById("root")!).render(<App />)
+
+
+
+const rootElement = document.getElementById("root");
+if (!rootElement) {
+    throw new Error(
+        "Root element with id 'root' not found in index.html.\n" +
+        "Make sure your index.html contains: <div id=\"root\"></div>"
+    );
+}
+createRoot(rootElement).render(<App />);
+
