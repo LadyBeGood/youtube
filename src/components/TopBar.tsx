@@ -78,7 +78,7 @@ const SubscriptionsBar = () => {
         <nav className="flex no-scrollbar overflow-x-auto pb-3 pl-3 flex-nowrap  h-25 ">
             {subscriptions.map((subscription, index) =>
                 <button key={index} className="grid grid-rows-[1fr_20px] h-full place-items-center aspect-square">
-                    <img src="./src/assets/avatar.webp" alt="" className="h-full w-auto block rounded-full" />
+                    <img src="./avatar.webp" alt="" className="h-full w-auto block rounded-full" />
                     <span className="block w-full whitespace-nowrap overflow-hidden px-2 text-xs truncate ">
                         {subscription}
                     </span>
