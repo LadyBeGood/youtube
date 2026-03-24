@@ -67,3 +67,6 @@ lerna-debug.log*
 *.swn
 *.swp
 *.orig
+
+.vercel
+.env*.local
