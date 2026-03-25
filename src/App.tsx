@@ -7,6 +7,7 @@ import Subscriptions from "./pages/Subscriptions"
 import Layout from "./components/Layout"
 import Search from "./pages/Search"
 import Notifications from "./pages/Notifications"
+import Video from "./pages/Video"
 
 
 
@@ -23,6 +24,7 @@ export function App() {
                 </Route>
 
                 <Route path="/search" element={<Search />}></Route>
+                <Route path="/video" element={<Video />}></Route>
 
                 {/* 404 */}
                 <Route path="*" element={<NotFound />}></Route>

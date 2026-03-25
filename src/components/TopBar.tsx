@@ -87,7 +87,10 @@ const SubscriptionsBar = () => {
         </nav>
     )
 }
-
+const fetchPhotos = async (query: string) => {
+    const res = await fetch(`/api/pexels?q=${query}`);
+    return res.json();
+};
 
 const TopBar = () => {
     const location = useLocation();

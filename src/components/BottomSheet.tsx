@@ -139,7 +139,7 @@ const BottomSheet = ({ children, middleProp, lowProp, isOpen, setIsOpen }: Botto
 
         if (sheetBottom < middle + 1) {
             setIsFullscreen(false)
-            setContentBorderRadius('20px')
+            setContentBorderRadius("20px")
         }
     }, [sheetBottom])
 
@@ -163,7 +163,7 @@ const BottomSheet = ({ children, middleProp, lowProp, isOpen, setIsOpen }: Botto
                 onTouchEnd={dragEnd}
                 style={{
                     bottom: `${sheetBottom}vh`,
-                    transition: isDragging ? 'none' : 'all 0.2s ease-out',
+                    transition: isDragging ? "none" : "all 0.2s ease-out",
 
                 }}
             >

@@ -1,4 +1,14 @@
-export const HomeIcon = ({ isActive }: { isActive: boolean }) => {
+
+type FillableIconProps = {
+    isActive?: boolean;
+}
+
+type ResizableIconProps = {
+    height?: number;
+    width?: number;
+}
+
+export const HomeIcon = ({ isActive = false }: FillableIconProps) => {
     return isActive ? (
         <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="currentColor"><path d="M180-140v-450l300-225.77L780-590v450H556.15v-267.69h-152.3V-140H180Z" /></svg>
     ) : (
@@ -6,8 +16,7 @@ export const HomeIcon = ({ isActive }: { isActive: boolean }) => {
     );
 };
 
-
-export const SubscriptionsIcon = ({ isActive }: { isActive: boolean }) => {
+export const SubscriptionsIcon = ({ isActive = false }: FillableIconProps) => {
     return isActive ? (
         <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="currentColor"><path d="M172.31-100Q142-100 121-121q-21-21-21-51.31v-375.38Q100-578 121-599q21-21 51.31-21h615.38Q818-620 839-599q21 21 21 51.31v375.38Q860-142 839-121q-21 21-51.31 21H172.31ZM410-218.46 622.31-360 410-501.54v283.08ZM170-675.38v-60h620v60H170Zm120-115.39v-60h380v60H290Z" /></svg>
     ) : (
@@ -16,17 +25,29 @@ export const SubscriptionsIcon = ({ isActive }: { isActive: boolean }) => {
 };
 
 
-export const NotificationsIcon = ({ isActive }: { isActive: boolean }) => {
+export const NotificationsIcon = ({ isActive = false, width = 24, height = 24 }: FillableIconProps & ResizableIconProps) => {
     return isActive ? (
-        <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="currentColor"><path d="M180-204.62v-59.99h72.31v-298.47q0-80.69 49.81-142.69 49.8-62 127.88-79.31V-810q0-20.83 14.57-35.42Q459.14-860 479.95-860q20.82 0 35.43 14.58Q530-830.83 530-810v24.92q78.08 17.31 127.88 79.31 49.81 62 49.81 142.69v298.47H780v59.99H180ZM479.93-92.31q-29.85 0-51.04-21.24-21.2-21.24-21.2-51.07h144.62q0 29.93-21.26 51.12-21.26 21.19-51.12 21.19Z" /></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" height={height} viewBox="0 -960 960 960" width={width} fill="currentColor"><path d="M180-204.62v-59.99h72.31v-298.47q0-80.69 49.81-142.69 49.8-62 127.88-79.31V-810q0-20.83 14.57-35.42Q459.14-860 479.95-860q20.82 0 35.43 14.58Q530-830.83 530-810v24.92q78.08 17.31 127.88 79.31 49.81 62 49.81 142.69v298.47H780v59.99H180ZM479.93-92.31q-29.85 0-51.04-21.24-21.2-21.24-21.2-51.07h144.62q0 29.93-21.26 51.12-21.26 21.19-51.12 21.19Z" /></svg>
     ) : (
-        <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="currentColor"><path d="M200-209.23v-40h64.62v-316.92q0-78.39 49.61-137.89 49.62-59.5 125.77-74.11V-800q0-16.67 11.64-28.33Q463.28-840 479.91-840t28.36 11.67Q520-816.67 520-800v21.85q76.15 14.61 125.77 74.11 49.61 59.5 49.61 137.89v316.92H760v40H200Zm280-286.15Zm-.14 390.76q-26.71 0-45.59-18.98-18.89-18.98-18.89-45.63h129.24q0 26.85-19.03 45.73-19.02 18.88-45.73 18.88ZM304.62-249.23h350.76v-316.92q0-72.93-51.23-124.16-51.23-51.23-124.15-51.23-72.92 0-124.15 51.23-51.23 51.23-51.23 124.16v316.92Z" /></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" height={height} viewBox="0 -960 960 960" width={width} fill="currentColor"><path d="M200-209.23v-40h64.62v-316.92q0-78.39 49.61-137.89 49.62-59.5 125.77-74.11V-800q0-16.67 11.64-28.33Q463.28-840 479.91-840t28.36 11.67Q520-816.67 520-800v21.85q76.15 14.61 125.77 74.11 49.61 59.5 49.61 137.89v316.92H760v40H200Zm280-286.15Zm-.14 390.76q-26.71 0-45.59-18.98-18.89-18.98-18.89-45.63h129.24q0 26.85-19.03 45.73-19.02 18.88-45.73 18.88ZM304.62-249.23h350.76v-316.92q0-72.93-51.23-124.16-51.23-51.23-124.15-51.23-72.92 0-124.15 51.23-51.23 51.23-51.23 124.16v316.92Z" /></svg>
     );
 };
 
+export const LikeIcon = ({ isActive = false, width = 24, height = 24}: FillableIconProps & ResizableIconProps) => {
+    return isActive ? (
+        <svg xmlns="http://www.w3.org/2000/svg" height={height} viewBox="0 -960 960 960" width={width} fill="currentColor"><path d="M698.46-160H306.15v-440l250.77-247.69 17.7 17.69q5.46 5.46 9.19 14 3.73 8.54 3.73 15.69v6.31l-40.92 194h268.76q25.08 0 44.85 19.77Q880-560.46 880-535.38v49.23q0 5.46-1.12 11.92-1.11 6.46-3.34 11.92L766.31-203.38q-8.23 18.46-27.69 30.92Q719.15-160 698.46-160ZM266.15-600v440H120v-440h146.15Z" /></svg>
+    ) : (
+        <svg xmlns="http://www.w3.org/2000/svg" height={height} viewBox="0 -960 960 960" width={width} fill="currentColor"><path d="M698.46-160H296.92v-440l250.77-247.69L565.38-830q5.47 5.46 9.2 14 3.73 8.54 3.73 15.69v6.31l-40.93 194h278q25.08 0 44.85 19.77Q880-560.46 880-535.38v49.23q0 5.46-1.23 11.92t-3.23 11.92L766.31-203.38q-8.23 18.46-27.69 30.92Q719.15-160 698.46-160Zm-361.54-40h361.54q8.46 0 17.31-4.62 8.85-4.61 13.46-15.38L840-480v-55.38q0-10.77-6.92-17.7-6.93-6.92-17.7-6.92H487.69L534-778.46 336.92-582.92V-200Zm0-382.92V-200v-382.92Zm-40-17.08v40H160v360h136.92v40H120v-440h176.92Z" /></svg>
+    )
+}
 
-export const BigNotificationsIcon = () =>
-    <svg xmlns="http://www.w3.org/2000/svg" height="150px" viewBox="0 -960 960 960" width="150px" fill="currentColor"><path d="M180-204.62v-59.99h72.31v-298.47q0-80.69 49.81-142.69 49.8-62 127.88-79.31V-810q0-20.83 14.57-35.42Q459.14-860 479.95-860q20.82 0 35.43 14.58Q530-830.83 530-810v24.92q78.08 17.31 127.88 79.31 49.81 62 49.81 142.69v298.47H780v59.99H180ZM479.93-92.31q-29.85 0-51.04-21.24-21.2-21.24-21.2-51.07h144.62q0 29.93-21.26 51.12-21.26 21.19-51.12 21.19Z" /></svg>
+export const DislikeIcon = ({ isActive = false, height = 24, width = 24 }: FillableIconProps & ResizableIconProps) => {
+    return isActive ? (
+        <svg xmlns="http://www.w3.org/2000/svg" height={height} viewBox="0 -960 960 960" width={width} fill="currentColor"><path d="M261.54-767.69h392.31v440L403.08-80l-17.7-17.69q-5.46-5.46-9.19-14-3.73-8.54-3.73-15.69v-6.31l40.92-194H144.62q-25.08 0-44.85-19.77Q80-367.23 80-392.31v-49.23q0-5.46 1.12-11.92 1.11-6.46 3.34-11.92l109.23-258.93q8.23-18.46 27.69-30.92 19.47-12.46 40.16-12.46Zm432.31 440v-440H840v440H693.85Z" /></svg>
+    ) : (
+        <svg xmlns="http://www.w3.org/2000/svg" height={height} viewBox="0 -960 960 960" width={width} fill="currentColor"><path d="M261.54-767.69h401.54v440L412.31-80l-17.69-17.69q-5.47-5.46-9.2-14-3.73-8.54-3.73-15.69v-6.31l40.93-194h-278q-25.08 0-44.85-19.77Q80-367.23 80-392.31v-49.23q0-5.46 1.23-11.92t3.23-11.92l109.23-258.93q8.23-18.46 27.69-30.92 19.47-12.46 40.16-12.46Zm361.54 40H261.54q-8.46 0-17.31 4.61-8.85 4.62-13.46 15.39L120-447.69v55.38q0 10.77 6.92 17.69 6.93 6.93 17.7 6.93h327.69L426-149.23l197.08-195.54v-382.92Zm0 382.92v-382.92 382.92Zm40 17.08v-40H800v-360H663.08v-40H840v440H663.08Z" /></svg>
+    )
+}
 
 
 export const SearchIcon = () =>
