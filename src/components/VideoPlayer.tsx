@@ -89,7 +89,7 @@ const VideoPlayer = ({ source, title, thumbnail }: VideoPlayerProps) => {
                 </div>
 
                 {/* Bottom Controls */}
-                <div className="px-4 pb-2 relative w-full">
+                <div className="pl-4 pr-5 pb-2 relative w-full">
                     <div className="flex justify-between items-baseline text-white text-xs mt-2 mb-2">
                         {/* left */}
                         <button className="cursor-pointer flex items-center gap-4">

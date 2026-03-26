@@ -11,13 +11,13 @@ const Video = () => {
                 <div className="font-semibold text-lg/tight whitespace-nowrap overflow-hidden pt-3 pb-2 text-ellipsis">
                     What Does A Tiny Kitten Do When He Finds A Sleeping Golden Retriever Puppy 
                 </div>
-                <div className="text-xs whitespace-pre py-[3px]  text-white/60">
+                <div className="text-xs whitespace-pre pb-[3px]  text-white/60">
                     <span className="font-medium">@LaffeyandAmy</span>  9.6M Views  8mo ago  #puppy  <span className="text-white font-medium">...more</span>
                 </div>
             </div>
 
             {/* Channel Details */}
-            <div className="px-3 py-2 flex overflow-x-auto gap-2">
+            <div className="px-3 py-2 flex overflow-x-auto gap-2 no-scrollbar">
                 <div className="shrink-0">
                     <img className="rounded-full" src="./avatar1.webp" alt="channel" height="34px" width="34px" />
                 </div>
@@ -25,10 +25,10 @@ const Video = () => {
                     Subscribe
                 </div>
 
-                <div className="flex items-center gap-2 px-3 bg-dark-gray rounded-full ">
+                <div className="flex items-center gap-2 px-3 bg-dark-gray rounded-full">
                     <LikeIcon height={18} width={18}/>
                     <div className="text-[12px] font-medium">129K</div>
-                    <div className="w-0.25 h-4 bg-white/30"></div>
+                    <div className="w-0.25 mx-1 h-4 bg-white/30"></div>
                     <DislikeIcon height={18} width={18}/>
                 </div>
 
