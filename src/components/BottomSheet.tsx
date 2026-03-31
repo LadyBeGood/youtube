@@ -1,186 +1,195 @@
-import { useEffect, useRef, useState, type Dispatch, type ReactNode, type SetStateAction } from "react"
+import { useEffect, useLayoutEffect, useRef, useState } from "react";
 
-/*
- * Dont even try to refactor or cleanup this code, I originally wrote this code for vanilla html, css and js
- * many years ago and refactored it to react since this is the only bottomsheet that actually functions. It takes 
- * me hours to fix a bug; it will take you days. Leave it as it is. This code runs, that too is your fate.
+
+/**
+ * This is a hand crafted Bottom sheet with no dependencies tailored specifically for this project.  
+ * 
+ * **Faetures**:
+ * - It works on all touch, mouse and trackpad devices.
+ * - Customizable snap points (Low, Middle, High).
+ * - GPU-accelerated transforms only, no layout thrashing.
  */
+const BottomSheet = ({ isBottomSheetOpen = false, onBottomSheetClose, children, low = 0, middle = 50, high = 100 }) => {
+    /**********************************
+     * Constants
+     **********************************/
+    // Snap points
+    low    = 100 - low;
+    middle = 100 - middle;
+    high   = 100 - high;
+
+    // Used for snapping the bottom-sheet translate position inside `handleDragEnd`.
+    const SNAP_THRESHOLD = 5;
 
 
-type BottomSheetProps = {
-    children?: ReactNode
-    isOpen: boolean
-    middleProp?: number
-    lowProp?: number
-    setIsOpen: Dispatch<SetStateAction<boolean>>
-}
 
-const BottomSheet = ({ children, middleProp, lowProp, isOpen, setIsOpen }: BottomSheetProps) => {
-    const contentRef = useRef<HTMLDivElement>(null)
+    /**********************************
+     * Refs
+     **********************************/
+    const bottomSheetRef = useRef<HTMLDivElement>(null);
+    const bottomSheetContentRef = useRef<HTMLDivElement>(null);
 
-    const [low, setLow] = useState(lowProp ?? -105)
-    const [middle, setMiddle] = useState(middleProp ?? 0)
-    const high: number = 0
 
-    const [isSheetVisible, setIsSheetVisible] = useState(false)
-    const [isDragging, setIsDragging] = useState(false)
-    const [isFullscreen, setIsFullscreen] = useState(false)
 
-    const [startY, setStartY] = useState(-10)
-    const [startBottom, setStartBottom] = useState(0)
+    /**********************************
+     * State
+     **********************************/
+    const [isFullscreen, setIsFullscreen] = useState(false);
+    
+    // In pixels
+    const [bottomSheetHeight, setBottomSheetHeight] = useState(0);
 
-    const [sheetBottom, setSheetBottom] = useState(-100)
+    // In percentage
+    const [oldBottomSheetTranslateY, setBottomSheetOldTranslateY] = useState(middle);
 
-    const [contentOverflow, setContentOverflow] = useState("hidden")
-    const [contentBorderRadius, setContentBorderRadius] = useState("20px")
-    const [overlayHeight, setOverlayHeight] = useState(0)
-    const [overlayOpacity, setOverlayOpacity] = useState(0)
+    // Did the user tap of the bottom sheet or not.
+    const [isPointerDown, setIsPointerDown] = useState(false);
 
-    // calculate metrics based on content height
+    // This stores the Y coordinate where the finger/pointer touched
+    const [startY, setStartY] = useState(0);
+
+    // In percentage
+    const [bottomSheetTranslateY, setBottomSheetTranslateY] = useState(bottomSheetHeight);
+
+
+
+    /**********************************
+     * Effects
+     **********************************/
+    // Measure the sheet height after it renders
+    useLayoutEffect(() => {
+        if (bottomSheetRef.current !== null) {
+            const height = bottomSheetRef.current.getBoundingClientRect().height;
+            setBottomSheetHeight(height);
+        }
+    }, [children]); // Re-run if content changes
+   
+    
     useEffect(() => {
-        if (contentRef.current) {
-            const contentHeight = (contentRef.current.clientHeight + 9) * 100 / window.innerHeight
-
-            setLow(-contentHeight) // fully hidden
-            // half-open (you can customize with % attribute if needed)
-        }
-    }, [isOpen])
-
-    const dragStart = (event: React.PointerEvent<HTMLDivElement> | React.TouchEvent<HTMLDivElement>) => {
-        if (isSheetVisible) {
-            setIsDragging(true)
-
-            if ("touches" in event) {
-                setStartY(event.touches[0].pageY)
-            } else {
-                setStartY(event.clientY)
-            }
-
-            setStartBottom(sheetBottom)
-        }
-    }
-
-    const dragging = (event: React.PointerEvent<HTMLDivElement> | React.TouchEvent<HTMLDivElement>) => {
-        if (isSheetVisible && isDragging && contentRef.current && contentRef.current.scrollTop === 0) {
-
-            let delta = 0
-            if ("touches" in event) {
-                delta = startY - event.touches[0].pageY
-            } else {
-                delta = startY - event.clientY
-            }
-
-            const newBottom = startBottom + (delta / window.innerHeight) * 100
-            if (newBottom >= low && newBottom <= high) {
-                setSheetBottom(newBottom)
-            }
-        }
-    }
-
-    const dragEnd = () => {
-        if (isSheetVisible) {
-            setIsDragging(false)
-
-            console.log(sheetBottom, isFullscreen)
-            if (sheetBottom < middle - 5)
-                setIsOpen(false);
-            else if (sheetBottom < high - 5 && isFullscreen)
-                setSheetBottom(middle);
-            else if (sheetBottom > middle + 5)
-                setSheetBottom(high);
-            else
-                setSheetBottom(middle);
-        }
-    }
-
-    useEffect(() => {
-
-        if (contentRef.current) {
-            const contentHeight = (contentRef.current.clientHeight + 9) * 100 / window.innerHeight
-
-            // replicate data attribute logic
-            const calculatedLow = lowProp !== undefined
-                ? -contentHeight + (lowProp / 100) * contentHeight
-                : -contentHeight
-
-            const calculatedMiddle = middleProp !== undefined
-                ? -contentHeight + (middleProp / 100) * contentHeight
-                : 0
-
-            setLow(calculatedLow)
-            setMiddle(calculatedMiddle)
-
-        }
-
-        if (isOpen) {
-            setSheetBottom(middle)
-            if (contentRef.current) contentRef.current.scrollTop = 0
-            setOverlayHeight(100)
-            setOverlayOpacity(1)
-            setIsSheetVisible(true)
+        if (isBottomSheetOpen) {
+            // When the prop opens the sheet, reset translation to 0 (top)
+            setBottomSheetTranslateY(middle);
+            setBottomSheetOldTranslateY(middle);
         } else {
-            setSheetBottom(low)
-            setOverlayOpacity(0)
-            setTimeout(() => setOverlayHeight(0), 200)
-            setIsSheetVisible(false)
+            // When closed, you can keep it at 0 because the CSS 
+            // transform logic handles the 100% slide down
+            setBottomSheetTranslateY(0);
         }
-    }, [isOpen, middleProp, lowProp])
+    }, [isBottomSheetOpen])
+
 
     useEffect(() => {
-        if (sheetBottom === high) {
-            setIsFullscreen(true)
-            setContentOverflow("auto")
-            setContentBorderRadius("0")
+        // When the bottom sheet is fullscreen, turn off overscroll behaviour, otherwise the page will try to "pull to refresh" in mobile browsers
+        if (isFullscreen) {
+            document.body.style.overscrollBehaviorY = "none";
+            document.documentElement.style.overscrollBehaviorY = "none";
+        } else {
+            document.body.style.overscrollBehaviorY = "auto";
+            document.documentElement.style.overscrollBehaviorY = "auto";
         }
+    }, [isFullscreen])
 
-        if (sheetBottom < high) {
-            setContentOverflow("hidden")
+
+
+    /**********************************
+     * Handlers
+     **********************************/
+    function handleDragStart(pageY: number) {
+        // console.log("handleDragStart")
+        // event.currentTarget.setPointerCapture(event.pointerId);
+        setIsPointerDown(true);
+        setStartY(pageY);
+    }
+
+    function handleDragMove(pageY: number) {
+        // If the user has not tapped on the bottom sheet, no need to do any calculations
+
+        if (!isPointerDown) return;
+        if (isFullscreen && bottomSheetContentRef.current?.scrollTop !== 0) return;
+        const currentY = pageY;
+        const dragDistance = currentY - startY;
+
+        const newBottomSheetTranslateY = oldBottomSheetTranslateY + (dragDistance / bottomSheetHeight) * 100;
+        console.log({ oldBottomSheetTranslateY, dragDistance, newBottomSheetTranslateY, scroll: bottomSheetContentRef.current?.scrollTop! })
+        if (newBottomSheetTranslateY <= 100 && newBottomSheetTranslateY >= 0) {
+            // console.log("here")
+            setBottomSheetTranslateY(newBottomSheetTranslateY);
         }
+    }
 
-        if (sheetBottom < middle + 1) {
+    function handleDragEnd() {
+        // If the user started their tab on some other element but ended their tap on the bottom-sheet, then return immediately
+        if (!isPointerDown) return;
+        // console.log({middle, high, low, bottomSheetTranslateY});
+        console.log("Drag ENd");
+        setIsPointerDown(false);
+
+        let snappedBottomSheetTranslateY = middle;
+        if (bottomSheetTranslateY > middle + SNAP_THRESHOLD) {
+            console.log("here")
+            onBottomSheetClose();
+        } else if (bottomSheetTranslateY > high + SNAP_THRESHOLD && isFullscreen) {
+            console.log("here2")
             setIsFullscreen(false)
-            setContentBorderRadius("20px")
+            snappedBottomSheetTranslateY = middle
+        } else if (bottomSheetTranslateY < middle - SNAP_THRESHOLD) {
+            console.log("here3")
+            snappedBottomSheetTranslateY = high
+            setIsFullscreen(true)
         }
-    }, [sheetBottom])
+
+        setBottomSheetTranslateY(snappedBottomSheetTranslateY);
+        setBottomSheetOldTranslateY(snappedBottomSheetTranslateY);
+    }
+
+
 
     return (
         <>
             {/* Overlay */}
-            <div
-                className="fixed top-0 left-0 w-full z-40 bg-[rgba(0,0,0,0.7)] transition-opacity duration-200"
-                onClick={() => setIsOpen(false)}
-                style={{ height: `${overlayHeight}vh`, opacity: overlayOpacity }}
-            ></div>
+            <div 
+                className="fixed bottom-0 left-0 right-0 bg-green-700 opacity-70 z-998"
+                style={{ height: isBottomSheetOpen ? "100svh" : "0"}}
+                onClick={onBottomSheetClose}
+            />
 
-            {/* BottomSheet */}
+
+            {/* Bottom Sheet */}
             <div
-                className="fixed left-0 right-0 max-h-[calc(100svh+9px)] z-50 cursor-grab flex flex-col gap-[5px]"
-                onPointerDown={dragStart}
-                onPointerMove={dragging}
-                onPointerUp={dragEnd}
-                onTouchStart={dragStart}
-                onTouchMove={dragging}
-                onTouchEnd={dragEnd}
+                ref={bottomSheetRef}
+
+                className="bg-[#212121] rounded-xl mx-2 mb-2 py-2 px-4 touch-none select-none max-h-[calc(100svh+9px)] w-auto grid grid-rows-[9px_1fr]  fixed bottom-0 z-999 transition-transform duration-300 ease-out"
                 style={{
-                    bottom: `${sheetBottom}vh`,
-                    transition: isDragging ? "none" : "all 0.2s ease-out",
-
+                    transform: `translateY(${isBottomSheetOpen ? String(bottomSheetTranslateY) : "100"}%)`,
+                    transitionProperty: isPointerDown ? "none" : "transform"
                 }}
+                
+                // For touch devices
+                onTouchStart={(event) => handleDragStart(event.touches[0].pageY)}
+                onTouchMove={(event) => handleDragMove(event.touches[0].pageY)}
+                onTouchEnd={handleDragEnd}
+                
+                // For mouse and trackpad devices
+                onMouseDown={(event) => handleDragStart(event.pageY)}
+                onMouseMove={(event) => handleDragMove(event.pageY)}
+                onMouseUp={handleDragEnd}
+                onMouseLeave={handleDragEnd}
             >
-                {/* Bar */}
-                <div className="grid place-items-center">
-                    <div className="h-1 w-12 bg-stone-500 rounded-full"></div>
+                {/* Drag Handle */}
+                <div className="w-full flex justify-center">
+                    <div className="h-1 w-12 rounded-full bg-[#606060]" />
                 </div>
 
-                {/* Contents */}
-                <div
-                    ref={contentRef}
-                    className="max-h-svh transition-[border-radius] duration-200 ease-out bg-sky-700 rounded-t-[20px]"
-                    style={{
-                        overflow: contentOverflow,
-                        borderTopLeftRadius: contentBorderRadius,
-                        borderTopRightRadius: contentBorderRadius,
-                        userSelect: "none"
+
+                {/* Content */}
+                <div 
+                    ref={bottomSheetContentRef}
+                    
+                    className="w-auto"
+                    style={{ 
+                        // borderTopLeftRadius: isFullscreen ? "0" : "20px", 
+                        // borderTopRightRadius: isFullscreen ? "0" : "20px",
+                        overflow: isFullscreen ? "auto" : "hidden"
                     }}
                 >
                     {children}
