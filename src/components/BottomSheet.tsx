@@ -4,7 +4,7 @@ import { useEffect, useLayoutEffect, useRef, useState } from "react";
 /**
  * This is a hand crafted Bottom sheet with no dependencies tailored specifically for this project.  
  * 
- * **Faetures**:
+ * **Features**:
  * - It works on all touch, mouse and trackpad devices.
  * - Customizable snap points (Low, Middle, High).
  * - GPU-accelerated transforms only, no layout thrashing.
@@ -18,7 +18,7 @@ const BottomSheet = ({ isBottomSheetOpen = false, onBottomSheetClose, children, 
     middle = 100 - middle;
     high   = 100 - high;
 
-    // Used for snapping the bottom-sheet translate position inside `handleDragEnd`.
+    // in percentage, Used for snapping the bottom-sheet translate position inside `handleDragEnd`.
     const SNAP_THRESHOLD = 5;
 
 
@@ -39,9 +39,6 @@ const BottomSheet = ({ isBottomSheetOpen = false, onBottomSheetClose, children, 
     // In pixels
     const [bottomSheetHeight, setBottomSheetHeight] = useState(0);
 
-    // In percentage
-    const [oldBottomSheetTranslateY, setBottomSheetOldTranslateY] = useState(middle);
-
     // Did the user tap of the bottom sheet or not.
     const [isPointerDown, setIsPointerDown] = useState(false);
 
@@ -49,8 +46,10 @@ const BottomSheet = ({ isBottomSheetOpen = false, onBottomSheetClose, children, 
     const [startY, setStartY] = useState(0);
 
     // In percentage
-    const [bottomSheetTranslateY, setBottomSheetTranslateY] = useState(bottomSheetHeight);
+    const [oldBottomSheetTranslateY, setBottomSheetOldTranslateY] = useState(middle);
 
+    // In percentage
+    const [bottomSheetTranslateY, setBottomSheetTranslateY] = useState(bottomSheetHeight);
 
 
     /**********************************
@@ -95,8 +94,6 @@ const BottomSheet = ({ isBottomSheetOpen = false, onBottomSheetClose, children, 
      * Handlers
      **********************************/
     function handleDragStart(pageY: number) {
-        // console.log("handleDragStart")
-        // event.currentTarget.setPointerCapture(event.pointerId);
         setIsPointerDown(true);
         setStartY(pageY);
     }
@@ -110,7 +107,7 @@ const BottomSheet = ({ isBottomSheetOpen = false, onBottomSheetClose, children, 
         const dragDistance = currentY - startY;
 
         const newBottomSheetTranslateY = oldBottomSheetTranslateY + (dragDistance / bottomSheetHeight) * 100;
-        console.log({ oldBottomSheetTranslateY, dragDistance, newBottomSheetTranslateY, scroll: bottomSheetContentRef.current?.scrollTop! })
+        // console.log({ oldBottomSheetTranslateY, dragDistance, newBottomSheetTranslateY, scroll: bottomSheetContentRef.current?.scrollTop! })
         if (newBottomSheetTranslateY <= 100 && newBottomSheetTranslateY >= 0) {
             // console.log("here")
             setBottomSheetTranslateY(newBottomSheetTranslateY);
@@ -144,12 +141,13 @@ const BottomSheet = ({ isBottomSheetOpen = false, onBottomSheetClose, children, 
 
 
 
+
     return (
         <>
             {/* Overlay */}
             <div 
-                className="fixed bottom-0 left-0 right-0 bg-green-700 opacity-70 z-998"
-                style={{ height: isBottomSheetOpen ? "100svh" : "0"}}
+                className="transition-opacity duration-200 fixed opacity-0 bottom-0 left-0 right-0 bg-black/75 z-998"
+                style={{ height: isBottomSheetOpen ? "100svh" : "0", opacity: isBottomSheetOpen ? "70%" : "0" }}
                 onClick={onBottomSheetClose}
             />
 
@@ -158,7 +156,7 @@ const BottomSheet = ({ isBottomSheetOpen = false, onBottomSheetClose, children, 
             <div
                 ref={bottomSheetRef}
 
-                className="bg-[#212121] rounded-xl mx-2 mb-2 py-2 px-4 touch-none select-none max-h-[calc(100svh+9px)] w-auto grid grid-rows-[9px_1fr]  fixed bottom-0 z-999 transition-transform duration-300 ease-out"
+                className="pb-2 px-2 touch-none select-none max-h-[100svh] fixed bottom-0 left-0 right-0 z-999 transition-transform duration-200"
                 style={{
                     transform: `translateY(${isBottomSheetOpen ? String(bottomSheetTranslateY) : "100"}%)`,
                     transitionProperty: isPointerDown ? "none" : "transform"
@@ -173,25 +171,28 @@ const BottomSheet = ({ isBottomSheetOpen = false, onBottomSheetClose, children, 
                 onMouseDown={(event) => handleDragStart(event.pageY)}
                 onMouseMove={(event) => handleDragMove(event.pageY)}
                 onMouseUp={handleDragEnd}
-                onMouseLeave={handleDragEnd}
-            >
-                {/* Drag Handle */}
-                <div className="w-full flex justify-center">
-                    <div className="h-1 w-12 rounded-full bg-[#606060]" />
-                </div>
 
+                // Pointer Capture ensures mouse/trackpad events stay locked to this element
+                // even if the cursor moves outside the viewport during a drag.
+                onPointerDown={(event) => event.currentTarget.setPointerCapture(event.pointerId)}
+                onPointerUp={(event) => event.currentTarget.releasePointerCapture(event.pointerId)}
+            >
 
                 {/* Content */}
                 <div 
                     ref={bottomSheetContentRef}
-                    
-                    className="w-auto"
+                    className="bg-[#212121] py-2 px-2 rounded-xl"
                     style={{ 
                         // borderTopLeftRadius: isFullscreen ? "0" : "20px", 
                         // borderTopRightRadius: isFullscreen ? "0" : "20px",
                         overflow: isFullscreen ? "auto" : "hidden"
                     }}
                 >
+                    {/* Drag Handle */}
+                    <div className="flex justify-center">
+                        <div className="h-1 w-10 rounded-full bg-[#606060]" />
+                    </div>
+
                     {children}
                 </div>
             </div>
