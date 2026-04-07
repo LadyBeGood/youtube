@@ -89,6 +89,13 @@ const BottomSheet = ({ isBottomSheetOpen = false, onBottomSheetClose, children, 
     }, [isFullscreen])
 
 
+    useEffect(() => {
+        if (isPointerDown) {
+            if (bottomSheetRef.current) bottomSheetRef.current.style.cursor = "grabbing";
+        } else {
+            if (bottomSheetRef.current) bottomSheetRef.current.style.cursor = "grab";
+        }
+    }, [isPointerDown])
 
     /**********************************
      * Handlers
@@ -189,7 +196,7 @@ const BottomSheet = ({ isBottomSheetOpen = false, onBottomSheetClose, children, 
                     }}
                 >
                     {/* Drag Handle */}
-                    <div className="flex justify-center">
+                    <div className="flex pb-2 justify-center">
                         <div className="h-1 w-10 rounded-full bg-[#606060]" />
                     </div>
 

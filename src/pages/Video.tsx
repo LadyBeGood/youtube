@@ -1,90 +1,14 @@
-import { useRef, useState, type MouseEvent } from "react";
+import { useRef, useState, type MouseEvent, type RefObject } from "react";
 import { LikeIcon, DislikeIcon } from "../components/Icons"
 import VideoCard from "../components/VideoCard"
 import VideoPlayer from "../components/VideoPlayer"
-import BottomSheet from "../components/BottomSheet";
 
 const Video = () => {
-    const [isQualityBottomSheetOpen, setIsQualityBottomSheetOpen] = useState(false);
-    const [isSettingsBottomSheetOpen, setIsSettingsBottomSheetOpen] = useState(false);
-
-    const playerContainerRef = useRef<HTMLDivElement>(null);
-
-    const availableQualities = [
-        { value: "1080p", selected: false },
-        { value: "720p",  selected: false },
-        { value: "480p",  selected: true  },
-        { value: "360p",  selected: false },
-        { value: "240p",  selected: false },
-        { value: "144p",  selected: false },
-    ]
-
-
-    function toggleFullscreen() {
-        if (playerContainerRef.current) {
-            if (!document.fullscreenElement) {
-                // 1. Request Fullscreen
-                playerContainerRef.current.requestFullscreen().then(() => {
-                    // 2. Lock to Landscape (YouTube Style)
-                    if (screen.orientation && screen.orientation.lock) {
-                        screen.orientation.lock("landscape").catch((err) => {
-                            console.log("Orientation lock failed: ", err);
-                        });
-                    }
-                }).catch((err) => {
-                    console.error(`Error: ${err.message}`);
-                });
-            } else {
-                // Exit Fullscreen and unlock orientation
-                document.exitFullscreen();
-                if (screen.orientation && screen.orientation.unlock) {
-                    screen.orientation.unlock();
-                }
-            }
-        }
-    }
-    
-    function handleVideoPlayerClick(event: MouseEvent<HTMLDivElement>) {
-        // document and window can also be an EventTarget, we only want html button elements
-        // Source - https://stackoverflow.com/a/49632054
-        if (!(event.target instanceof HTMLButtonElement)) return;
-
-        const action = event.target.dataset.action;
-        console.log(action)
-
-        switch (action) {
-            case "settings":
-                setIsSettingsBottomSheetOpen(!isSettingsBottomSheetOpen)
-                break;
-            case "captions":
-                // TODO
-                break;
-            case "minimise":
-
-                break;
-            case "quality":
-                setIsQualityBottomSheetOpen(!isQualityBottomSheetOpen)
-                break;
-            case "fullscreen":
-                toggleFullscreen();
-                break;
-            case "video-length":
-                
-                break;
-            default:
-                null
-        }
-    }
 
     return (
         <>
             <div className="min-w-full">
-                <div 
-                    ref={playerContainerRef}
-                    className="relative w-full aspect-video bg-black flex items-center justify-center fullscreen:w-screen fullscreen:h-screen fullscreen:max-w-none"
-                >
-                    <VideoPlayer source="./dog.mp4" thumbnail="./dog.jpeg" title="Baby elephants playing" onClick={(event) => handleVideoPlayerClick(event)} />
-                </div>
+                <VideoPlayer source="./dog.mp4" thumbnail="./dog.jpeg" title="Baby elephants playing" />
 
                 <div className="px-3">
                     <div className="font-semibold text-lg/tight whitespace-nowrap overflow-hidden pt-3 pb-2 text-ellipsis">
@@ -151,25 +75,7 @@ const Video = () => {
 
             </div>
 
-            {/* Bottom Sheet for quality settings */}
-            <BottomSheet isBottomSheetOpen={isQualityBottomSheetOpen} middle={100} onBottomSheetClose={() => setIsQualityBottomSheetOpen(false)}>
-                <div className="flex flex-col items-start">
-                    {availableQualities.map((quality, index) => 
-                        <button className="h-11 flex items-center gap-3" key={index}>
-                            <span>
-                                <svg className="pointer-events-none" style={{ visibility: quality.selected ? "visible" : "hidden" }} xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="currentColor"><path d="M382-240 154-468l57-57 171 171 367-367 57 57-424 424Z" /></svg>
-                            </span>
-                            
-                            {quality.value}
-                        </button>
-                    )}
-                </div>
-            </BottomSheet>
-            
-            {/* Settings Bottom Sheet */}
-            <BottomSheet isBottomSheetOpen={isSettingsBottomSheetOpen} middle={100} onBottomSheetClose={() => setIsSettingsBottomSheetOpen(false)}>
-                aaa
-            </BottomSheet>
+
         </>
     )
 }
