@@ -63,14 +63,16 @@ const VideoPlayer = ({ source, title, thumbnail }: VideoPlayerProps) => {
             if (!document.fullscreenElement) {
                 await videoContainerRef.current.requestFullscreen();
 
-                if (window.screen.orientation?.lock) {
-                    await window.screen.orientation.lock("landscape").catch(() => { });
-                }
+                // Typescript gives error on this line if not written this way
+                // See: https://github.com/microsoft/TypeScript-DOM-lib-generator/issues/1615#issuecomment-1825510566
+                await window.screen.orientation["lock"]("landscape").catch(() => { });
+                
                 setIsFullscreen(true);
             } else {
-                if (window.screen.orientation?.lock) {
-                    await window.screen.orientation.lock("portrait").catch(() => { });
-                }
+
+                // Typescript gives error on this line if not written this way
+                // See: https://github.com/microsoft/TypeScript-DOM-lib-generator/issues/1615#issuecomment-1825510566
+                await window.screen.orientation["lock"]("portrait").catch(() => { });
 
                 await document.exitFullscreen();
                 setIsFullscreen(false);
