@@ -8,7 +8,7 @@ const Video = () => {
     return (
         <>
             <div className="min-w-full">
-                <VideoPlayer source="./dog.mp4" thumbnail="./dog.jpeg" title="Baby elephants playing" />
+                <VideoPlayer source="./dog.mp4" title="What Does A Tiny Kitten Do When He Finds A Sleeping Golden Retriever Puppy" />
 
                 <div className="px-3">
                     <div className="font-semibold text-lg/tight whitespace-nowrap overflow-hidden pt-3 pb-2 text-ellipsis">

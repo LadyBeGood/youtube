@@ -18,8 +18,12 @@ const BottomSheet = ({ isBottomSheetOpen = false, onBottomSheetClose, children, 
     middle = 100 - middle;
     high   = 100 - high;
 
-    // in percentage, Used for snapping the bottom-sheet translate position inside `handleDragEnd`.
+    // In percentage
+    // Used for snapping the bottom-sheet translate value after the drag is released.
     const SNAP_THRESHOLD = 5;
+
+    // Animation duration in milliseconds
+    const ANIMATION_DURATION = 250;
 
 
 
@@ -28,7 +32,7 @@ const BottomSheet = ({ isBottomSheetOpen = false, onBottomSheetClose, children, 
      **********************************/
     const bottomSheetRef = useRef<HTMLDivElement>(null);
     const bottomSheetContentRef = useRef<HTMLDivElement>(null);
-
+    const overlayRef = useRef<HTMLDivElement>(null);
 
 
     /**********************************
@@ -69,10 +73,16 @@ const BottomSheet = ({ isBottomSheetOpen = false, onBottomSheetClose, children, 
             // When the prop opens the sheet, reset translation to 0 (top)
             setBottomSheetTranslateY(middle);
             setBottomSheetOldTranslateY(middle);
+
+            if (overlayRef.current) overlayRef.current.style.height = "100%";
         } else {
             // When closed, you can keep it at 0 because the CSS 
             // transform logic handles the 100% slide down
             setBottomSheetTranslateY(0);
+
+            setTimeout(() => {
+                if (overlayRef.current) overlayRef.current.style.height = "0";
+            }, ANIMATION_DURATION);
         }
     }, [isBottomSheetOpen])
 
@@ -130,14 +140,11 @@ const BottomSheet = ({ isBottomSheetOpen = false, onBottomSheetClose, children, 
 
         let snappedBottomSheetTranslateY = middle;
         if (bottomSheetTranslateY > middle + SNAP_THRESHOLD) {
-            console.log("here")
             onBottomSheetClose();
         } else if (bottomSheetTranslateY > high + SNAP_THRESHOLD && isFullscreen) {
-            console.log("here2")
             setIsFullscreen(false)
             snappedBottomSheetTranslateY = middle
         } else if (bottomSheetTranslateY < middle - SNAP_THRESHOLD) {
-            console.log("here3")
             snappedBottomSheetTranslateY = high
             setIsFullscreen(true)
         }
@@ -153,8 +160,9 @@ const BottomSheet = ({ isBottomSheetOpen = false, onBottomSheetClose, children, 
         <>
             {/* Overlay */}
             <div 
-                className="transition-opacity duration-200 fixed opacity-0 bottom-0 left-0 right-0 bg-black/75 z-998"
-                style={{ height: isBottomSheetOpen ? "100svh" : "0", opacity: isBottomSheetOpen ? "70%" : "0" }}
+                ref={overlayRef}
+                className={`transition-opacity duration-${ANIMATION_DURATION} fixed opacity-0 bottom-0 left-0 right-0 bg-black/75 z-998`}
+                style={{ opacity: isBottomSheetOpen ? "70%" : "0" }}
                 onClick={onBottomSheetClose}
             />
 
@@ -163,7 +171,7 @@ const BottomSheet = ({ isBottomSheetOpen = false, onBottomSheetClose, children, 
             <div
                 ref={bottomSheetRef}
 
-                className="pb-2 px-2 touch-none select-none max-h-[100svh] fixed bottom-0 left-0 right-0 z-999 transition-transform duration-200"
+                className={`pb-2 px-2 touch-none select-none max-h-[100svh] fixed bottom-0 left-0 right-0 z-999 transition-transform duration-${ANIMATION_DURATION}`}
                 style={{
                     transform: `translateY(${isBottomSheetOpen ? String(bottomSheetTranslateY) : "100"}%)`,
                     transitionProperty: isPointerDown ? "none" : "transform"
@@ -188,7 +196,7 @@ const BottomSheet = ({ isBottomSheetOpen = false, onBottomSheetClose, children, 
                 {/* Content */}
                 <div 
                     ref={bottomSheetContentRef}
-                    className="bg-[#212121] py-2 px-2 rounded-xl"
+                    className="bg-[#212121] py-2 rounded-xl"
                     style={{ 
                         // borderTopLeftRadius: isFullscreen ? "0" : "20px", 
                         // borderTopRightRadius: isFullscreen ? "0" : "20px",

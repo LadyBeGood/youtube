@@ -19,6 +19,10 @@ button {
     cursor: pointer;
 }
 
+svg {
+    pointer-events: none;
+}
+
 /* hide page scrollbar */
 
 /* Firefox */
