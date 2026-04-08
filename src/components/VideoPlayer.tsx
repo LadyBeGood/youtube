@@ -131,7 +131,7 @@ const VideoPlayer = ({ source, title }: VideoPlayerProps) => {
         <>
             <div
                 ref={videoContainerRef}
-                className="relative  w-full grid place-items-center"
+                className="relative w-full grid place-items-center"
                 onClick={handleClick}
             >
                 <video
@@ -150,11 +150,11 @@ const VideoPlayer = ({ source, title }: VideoPlayerProps) => {
                 >
 
                     {/* Top Bar (Title/Buttons could go here) */}
-                    <div className="px-4 py-3 text-white flex justify-between gap-20">
+                    <div className="px-3 py-2 text-white flex justify-between gap-20">
                         {/* Left */}
                         <div className="flex justify-baseline gap-3 min-w-0">
                             {/* Back Button */}
-                            <button data-action="minimise" className="flex-shrink-0">
+                            <button data-action="minimise" className="flex-shrink-0 grid place-content-center hover:bg-white/10 aspect-square">
                                 <svg className="pointer-events-none" xmlns="http://www.w3.org/2000/svg" height="26px" width="26px" viewBox="0 -960 960 960" fill="#fff"><path d="M480-357.85 253.85-584 296-626.15l184 184 184-184L706.15-584 480-357.85Z" /></svg>
                             </button>
 
@@ -163,13 +163,13 @@ const VideoPlayer = ({ source, title }: VideoPlayerProps) => {
 
 
                         {/* Right */}
-                        <div className="flex gap-5">
+                        <div className="flex gap-3">
                             {/* Caption */}
-                            <button data-action="captions">
+                            <button data-action="captions" className="hover:bg-white/10 aspect-square p-1">
                                 <svg xmlns="http://www.w3.org/2000/svg" height="28" viewBox="0 -960 960 960" width="28" fill="currentColor"><path d="M224.62-200q-27.62 0-46.12-18.5Q160-237 160-264.62v-430.76q0-27.62 18.5-46.12Q197-760 224.62-760h510.76q27.62 0 46.12 18.5Q800-723 800-695.38v430.76q0 27.62-18.5 46.12Q763-200 735.38-200H224.62Zm0-40h510.76q9.24 0 16.93-7.69 7.69-7.69 7.69-16.93v-430.76q0-9.24-7.69-16.93-7.69-7.69-16.93-7.69H224.62q-9.24 0-16.93 7.69-7.69 7.69-7.69 16.93v430.76q0 9.24 7.69 16.93 7.69 7.69 16.93 7.69Zm86.15-132.31H400q17.77 0 30.42-12.65 12.66-12.66 12.66-30.42v-15.39h-35.39V-420q0 4.62-3.84 8.46-3.85 3.85-8.47 3.85h-80q-4.61 0-8.46-3.85-3.84-3.84-3.84-8.46v-120q0-4.62 3.84-8.46 3.85-3.85 8.46-3.85h80q4.62 0 8.47 3.85 3.84 3.84 3.84 8.46v12.31h35.39v-16.93q0-17.76-12.66-30.42-12.65-12.65-30.42-12.65h-89.23q-17.77 0-30.42 12.65-12.66 12.66-12.66 30.42v129.24q0 17.76 12.66 30.42 12.65 12.65 30.42 12.65Zm249.23 0h89.23q17.77 0 30.42-12.65 12.66-12.66 12.66-30.42v-15.39h-35.39V-420q0 4.62-3.84 8.46-3.85 3.85-8.46 3.85h-80q-4.62 0-8.47-3.85-3.84-3.84-3.84-8.46v-120q0-4.62 3.84-8.46 3.85-3.85 8.47-3.85h80q4.61 0 8.46 3.85 3.84 3.84 3.84 8.46v12.31h35.39v-16.93q0-17.76-12.66-30.42-12.65-12.65-30.42-12.65H560q-17.77 0-30.42 12.65-12.66 12.66-12.66 30.42v129.24q0 17.76 12.66 30.42 12.65 12.65 30.42 12.65ZM200-240v-480 480Z" /></svg>
                             </button>
                             {/* Settings Button */}
-                            <button data-action="settings" className="">
+                            <button data-action="settings" className="hover:bg-white/10 p-1 aspect-square grid place-items-center">
                                 <svg className="pointer-events-none" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="currentColor" d="m19.59 15.5l-1.82-1.3c.3-1.08.32-2.25 0-3.42l1.82-1.28L18.14 7l-2.03.92c-.79-.8-1.79-1.42-2.96-1.71L12.95 4h-2.9l-.2 2.21c-1.17.29-2.17.91-2.96 1.71L4.86 7L3.41 9.5l1.82 1.28c-.32 1.17-.3 2.34 0 3.42l-1.82 1.3L4.86 18l2.03-.93c.79.79 1.79 1.39 2.96 1.7l.2 2.23h2.9l.2-2.23c1.17-.31 2.17-.91 2.96-1.7l2.03.93zM13.5 3c.27 0 .5.2.5.46l.18 2.04c.76.28 1.44.69 2.05 1.18l1.85-.87c.23-.12.52-.04.66.19l2 3.5c.14.21.06.5-.16.65l-1.67 1.17c.13.8.12 1.59 0 2.36l1.67 1.17c.22.15.3.44.16.65l-2 3.5c-.14.21-.43.29-.66.17l-1.85-.86c-.61.49-1.29.89-2.05 1.19l-.18 2c0 .29-.23.5-.5.5h-4a.5.5 0 0 1-.5-.5l-.18-2c-.76-.3-1.44-.7-2.05-1.19l-1.85.86c-.23.12-.52.04-.66-.17l-2-3.5c-.14-.21-.06-.5.16-.65l1.67-1.17c-.12-.77-.13-1.56 0-2.36l-1.67-1.17c-.22-.15-.3-.44-.16-.65l2-3.5c.14-.23.43-.31.66-.19l1.85.87c.61-.49 1.29-.9 2.05-1.18L9 3.46c0-.26.23-.46.5-.46zm-2 6a3.5 3.5 0 0 1 3.5 3.5a3.5 3.5 0 0 1-3.5 3.5A3.5 3.5 0 0 1 8 12.5A3.5 3.5 0 0 1 11.5 9m0 1A2.5 2.5 0 0 0 9 12.5a2.5 2.5 0 0 0 2.5 2.5a2.5 2.5 0 0 0 2.5-2.5a2.5 2.5 0 0 0-2.5-2.5" /></svg>
                             </button>
                         </div>
@@ -177,36 +177,36 @@ const VideoPlayer = ({ source, title }: VideoPlayerProps) => {
 
                     {/* Center Controls */}
                     <div className="absolute left-0 right-0 top-1/2 -translate-y-1/2  flex items-center justify-center gap-16">
-                        <button data-action="previous" className=" bg-black/30 p-2 rounded-full" onClick={(e) => { videoRef.current!.currentTime -= 10; }}>
+                        <button data-action="previous" className="hover:bg-white/10 p-2 rounded-full" onClick={(e) => { videoRef.current!.currentTime -= 10; }}>
                             <svg className="pointer-events-none" xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#fff"><path d="M220-240v-480h80v480h-80Zm520 0L380-480l360-240v480Z" /></svg>
                         </button>
 
-                        <button data-action="play" onClick={(e) => { togglePlay(); }} className=" bg-black/30 p-2 rounded-full">
+                        <button data-action="play" onClick={(e) => { togglePlay(); }} className="p-2 rounded-full hover:bg-white/10">
                             {isPlaying
                                 ? <svg className="pointer-events-none" xmlns="http://www.w3.org/2000/svg" height="40px" width="40px" viewBox="0 -960 960 960" fill="#fff"><path d="M560-200v-560h160v560H560Zm-320 0v-560h160v560H240Z" /></svg>
                                 : <svg className="pointer-events-none" xmlns="http://www.w3.org/2000/svg" height="40px" width="40px" viewBox="0 -960 960 960" fill="#fff"><path d="M320-200v-560l440 280-440 280Z" /></svg>
                             }
                         </button>
 
-                        <button data-action="next" className=" bg-black/30 p-2 rounded-full" onClick={(e) => { videoRef.current!.currentTime += 10; }}>
+                        <button data-action="next" className="hover:bg-white/10 p-2 rounded-full" onClick={(e) => { videoRef.current!.currentTime += 10; }}>
                             <svg className="pointer-events-none" xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#fff"><path d="M660-240v-480h80v480h-80Zm-440 0v-480l360 240-360 240Z" /></svg>
                         </button>
                     </div>
 
                     {/* Bottom Controls */}
-                    <div className="pl-4 pr-5 pb-2 relative w-full">
+                    <div className="pl-2 pr-3  relative w-full">
                         <div className="flex justify-between items-baseline text-white text-xs mt-2 mb-2">
                             {/* left */}
-                            <button data-action="duration" className=" flex items-center gap-4">
+                            <button data-action="duration" className="px-2 py-1 hover:bg-white/10">
                                 <span className="pointer-events-none">0:07 / {Math.round(videoRef?.current?.duration ?? -1)}</span>
                             </button>
 
                             {/* right */}
-                            <div className="flex gap-7">
-                                <button data-action="quality" className="">
+                            <div className="flex gap-3">
+                                <button data-action="quality" className="hover:bg-white/10 px-2 py-1">
                                     480p
                                 </button>
-                                <button data-action="fullscreen" className="">
+                                <button data-action="fullscreen" className="hover:bg-white/10 h-max p-2">
                                     <svg className="pointer-events-none" width="12" height="12" viewBox="0 0 18 18" fill="#fff" xmlns="http://www.w3.org/2000/svg"><path d="M0 18V11H2V16H7V18H0ZM11 18V16H16V11H18V18H11ZM0 7V0H7V2H2V7H0ZM16 7V2H11V0H18V7H16Z" fill="white" /></svg>
                                 </button>
                             </div>
@@ -304,8 +304,8 @@ const VideoPlayer = ({ source, title }: VideoPlayerProps) => {
 
             {/* Captions Bottom Sheet */}
             <BottomSheet isBottomSheetOpen={isCaptionsBottomSheetOpen} middle={100} onBottomSheetClose={() => setIsCaptionsBottomSheetOpen(false)}>
-                {availableCaptions.map(caption => 
-                <button className="flex w-full h-13 items-center px-4 hover:bg-white/10 gap-3">
+                {availableCaptions.map((caption, index) => 
+                <button key={index} className="flex w-full h-13 items-center px-4 hover:bg-white/10 gap-3">
                     <span>
                         <svg className="pointer-events-none" style={{ visibility: caption.selected ? "visible" : "hidden" }} xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="currentColor"><path d="M382-240 154-468l57-57 171 171 367-367 57 57-424 424Z" /></svg>
                     </span>
