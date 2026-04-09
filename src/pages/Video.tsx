@@ -2,30 +2,36 @@ import { useRef, useState, type MouseEvent, type RefObject } from "react";
 import { LikeIcon, DislikeIcon } from "../components/Icons"
 import VideoCard from "../components/VideoCard"
 import VideoPlayer from "../components/VideoPlayer"
+import BottomSheet from "../components/BottomSheet";
 
 const Video = () => {
+    const [isCommentsBottomSheetOpen, setIsCommentsBottomSheetOpen] = useState(false);
 
     return (
         <>
             <div className="min-w-full">
                 <VideoPlayer source="./dog.mp4" title="What Does A Tiny Kitten Do When He Finds A Sleeping Golden Retriever Puppy" />
 
-                <div className="px-3 pt-3 pb-2">
+                <button className="px-3 pt-3 pb-2 flex text-start select-text">
                     <div className="text-lg/tight font-medium">
-                        What Does A Tiny Kitten Do When He Finds A Sleeping Golden Retriever Puppy
+                        I Redesigned the ENTIRE YouTube UI from Scratch
                     </div>
                     {/* <div className="text-[12px] whitespace-pre py-1 text-white/60">
-                        270K views  •  3 days ago  •  Config 2026  
+                        270K views  •  3 days ago 
                     </div> */}
-                </div>
+                    <div>
+                        <svg className="pointer-events-none" xmlns="http://www.w3.org/2000/svg" height="24px" width="24px" viewBox="0 -960 960 960" fill="#fff"><path d="M480-357.85 253.85-584 296-626.15l184 184 184-184L706.15-584 480-357.85Z" /></svg>
+                    </div>
+                </button>
 
                 {/* Channel Details */}
                 <div className="px-3 h-12 py-2 flex justify-between gap-2 no-scrollbar">
-                    <div className="shrink-0 flex items-center gap-3">
+                    <button className="shrink-0 flex items-center gap-3 select-text">
                         <img className="rounded-full select-none" src="./avatar.webp" alt="channel" height="32px" width="32px" />
                         <span className="font-medium text-sm">Figma</span>
-                        <span className="text-[12px] opacity-80 select-none">62.4K</span>
-                    </div>
+                        {/* This text is smaller than Channel name, hence requires to be translated a few pixels to align to baseline */}
+                        <span className="text-[12px] opacity-80 select-none translate-y-[1.5px]">62.4K</span>
+                    </button>
 
                     <div className="flex gap-2">
                         <button className="font-medium hover:bg-white/20 text-white grid place-items-center px-3 rounded-full text-[13px]">
@@ -37,7 +43,7 @@ const Video = () => {
                     </div>
                 </div>
 
-                <div className="px-3 h-12 py-2 flex overflow-x-auto gap-3 no-scrollbar select-none mb-2">
+                <div className="px-3 h-12 py-2 flex overflow-x-auto gap-3 no-scrollbar select-none mb-4">
                     {/* Like and Dislike Buttons */}
                     <div className="flex items-center gap-2 px-3 bg-dark-gray rounded-full">
                         <button className="flex gap-2">
@@ -54,9 +60,9 @@ const Video = () => {
                     </div>
 
                     {/* Comments Button */}
-                    <button className="pl-3 pr-4 bg-dark-gray rounded-full flex items-center text-[12px] gap-2">
+                    <button className="pl-3 pr-4 bg-dark-gray rounded-full flex items-center text-[12px] gap-2" onClick={() => setIsCommentsBottomSheetOpen(!isCommentsBottomSheetOpen)}>
                         {/* This was created by Gemini */}
-                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.1" stroke-linecap="square" stroke-linejoin="miter">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.3" strokeLinecap="square" strokeLinejoin="miter">
                             <path d="M21 11c0 4.418-4.03 8-9 8a9.4 9.4 0 0 1-3.5-.6L3 21l1.5-4.5C3.5 15.2 3 13.2 3 11c0-4.418 4.03-8 9-8s9 3.582 9 8Z" />
                         </svg>
                         <div className="font-medium">3.1K</div>
@@ -87,12 +93,71 @@ const Video = () => {
                     </button>
                 </div>
 
+
                 <VideoCard title={"How I Animate In Desmos Graphing Calculator"} channel={"CodingHunger"} profilePictureURL={"./avatar1.webp"} views={"12K"} uploadDate={"1 year ago"} thumbnailURL={"./thumbnail1.webp"} duration={"4:17:17"} />
                 <VideoCard title={"How I Animate In Desmos Graphing Calculator"} channel={"CodingHunger"} profilePictureURL={"./avatar1.webp"} views={"12K"} uploadDate={"1 year ago"} thumbnailURL={"./thumbnail1.webp"} duration={"4:17:17"} />
                 <VideoCard title={"How I Animate In Desmos Graphing Calculator"} channel={"CodingHunger"} profilePictureURL={"./avatar1.webp"} views={"12K"} uploadDate={"1 year ago"} thumbnailURL={"./thumbnail1.webp"} duration={"4:17:17"} />
 
             </div>
+            
+            <BottomSheet isBottomSheetOpen={isCommentsBottomSheetOpen} middle={50} high={100} onBottomSheetClose={() => setIsCommentsBottomSheetOpen(false)}>
+                
+                    <div>a</div>
+                    <div>a</div>
+                    <div>a</div>
+                    <div>a</div>
+                    <div>a</div>
+                    <div>a</div>
+                    <div>a</div>
+                    <div>a</div>
+                    <div>a</div>
+                    <div>a</div>
+                    <div>a</div>
+                    <div>a</div>
+                    <div>a</div>
+                    <div>a</div>
+                    <div>a</div>
+                    <div>a</div>
+                    <div>a</div>
+                    <div>a</div>
+                    <div>a</div>
+                    <div>a</div>
+                    <div>a</div>
+                    <div>a</div>
+                    <div>a</div>
+                    <div>a</div>
+                    <div>a</div>
+                    <div>a</div>
+                    <div>a</div>
+                    <div>a</div>
+                    <div>a</div>
+                    <div>a</div>
+                    <div>a</div>
+                    <div>a</div>
+                    <div>a</div>
+                    <div>a</div>
+                    <div>a</div>
+                    <div>a</div>
+                    <div>a</div>
+                    <div>a</div>
+                    <div>a</div>
+                    <div>a</div>
+                    <div>a</div>
+                    <div>a</div>
+                    <div>a</div>
+                    <div>a</div>
+                    <div>a</div>
+                    <div>a</div>
+                    <div>a</div>
+                    <div>a</div>
+                    <div>a</div>
+                    <div>a</div>
+                    <div>a</div>
+      
+           
 
+
+            </BottomSheet>
 
         </>
     )

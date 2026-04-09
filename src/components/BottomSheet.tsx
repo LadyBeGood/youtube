@@ -75,14 +75,17 @@ const BottomSheet = ({ isBottomSheetOpen = false, onBottomSheetClose, children, 
             setBottomSheetOldTranslateY(middle);
 
             if (overlayRef.current) overlayRef.current.style.height = "100%";
+            document.body.style.overflowY = "hidden";
+
         } else {
             // When closed, you can keep it at 0 because the CSS 
             // transform logic handles the 100% slide down
             setBottomSheetTranslateY(0);
-
+            
             setTimeout(() => {
                 if (overlayRef.current) overlayRef.current.style.height = "0";
             }, ANIMATION_DURATION);
+            document.body.style.overflowY = "auto";
         }
     }, [isBottomSheetOpen])
 
@@ -174,7 +177,7 @@ const BottomSheet = ({ isBottomSheetOpen = false, onBottomSheetClose, children, 
                 className={`pb-2 px-2 touch-none select-none max-h-[100svh] fixed bottom-0 left-0 right-0 z-999 transition-transform duration-${ANIMATION_DURATION}`}
                 style={{
                     transform: `translateY(${isBottomSheetOpen ? String(bottomSheetTranslateY) : "100"}%)`,
-                    transitionProperty: isPointerDown ? "none" : "transform"
+                    transitionProperty: isPointerDown ? "none" : "transform",
                 }}
                 
                 // For touch devices
@@ -200,11 +203,11 @@ const BottomSheet = ({ isBottomSheetOpen = false, onBottomSheetClose, children, 
                     style={{ 
                         // borderTopLeftRadius: isFullscreen ? "0" : "20px", 
                         // borderTopRightRadius: isFullscreen ? "0" : "20px",
-                        overflow: isFullscreen ? "auto" : "hidden"
+                        // overflow: isFullscreen ? "auto" : "hidden"
                     }}
                 >
                     {/* Drag Handle */}
-                    <div className="flex pb-2 justify-center">
+                    <div className="flex h-full pb-2 justify-center">
                         <div className="h-1 w-10 rounded-full bg-[#606060]" />
                     </div>
 
