@@ -3,7 +3,7 @@ import { HomeIcon, SubscriptionsIcon } from "./Icons"
 
 const BottomBar = () => {
     return (
-        <nav className="flex justify-around items-center p-2 text-[10px] h-12 border-t-1 border-dark-gray">
+        <nav className="flex justify-around items-center p-2 text-[10px] h-12 border-t-1 border-dark-gray select-none">
             <NavLink to="/" end className="flex items-center flex-col">
                 {({ isActive }) =>
                     <>

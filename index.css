@@ -23,6 +23,9 @@ svg {
     pointer-events: none;
 }
 
+img {
+    user-select: none;
+}
 /* hide page scrollbar */
 
 /* Firefox */
