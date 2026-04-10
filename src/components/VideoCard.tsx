@@ -16,8 +16,7 @@ type VideoParams = {
     duration: string;
     // onClick: () => void;
 }
-
-const VideoCard = ({ isMusical = false, title, channel, profilePictureURL, thumbnailURL, views, uploadDate, duration }: VideoParams) => {
+export default function VideoCard({ isMusical = false, title, channel, profilePictureURL, thumbnailURL, views, uploadDate, duration }: VideoParams) {
     const navigate = useNavigate();
 
     return (
@@ -47,4 +46,3 @@ const VideoCard = ({ isMusical = false, title, channel, profilePictureURL, thumb
     )
 }
 
-export default VideoCard

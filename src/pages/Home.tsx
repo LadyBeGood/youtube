@@ -3,7 +3,7 @@ import VideoCard from "../components/VideoCard"
 
 
 
-const Home = () => {
+export default function Home() {
 
 
     return (
@@ -24,4 +24,3 @@ const Home = () => {
         </div>
     )
 }
-export default Home

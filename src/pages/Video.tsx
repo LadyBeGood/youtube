@@ -4,7 +4,8 @@ import VideoCard from "../components/VideoCard"
 import VideoPlayer from "../components/VideoPlayer"
 import BottomSheet from "../components/BottomSheet";
 
-const Video = () => {
+
+export default function Video() {
     const [isCommentsBottomSheetOpen, setIsCommentsBottomSheetOpen] = useState(false);
 
     return (
@@ -162,4 +163,3 @@ const Video = () => {
         </>
     )
 }
-export default Video

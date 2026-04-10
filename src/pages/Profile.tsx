@@ -1,44 +1,28 @@
 import { useState } from "react";
 import VideoCard from "../components/VideoCard";
+import ScrollableTabs from "../components/ScrollableTabs";
 
 
-const paneListStyle1 = {
-    backgroundColor: "#FEA900"
-};
-const paneListStyle2 = {
-    backgroundColor: "#b3dc4a"
-};
-const paneListStyle3 = {
-    backgroundColor: "#6ac0ff"
-};
-const paneListStyle4 = {
-    backgroundColor: "#ff99c0"
-};
-const paneListStyle5 = {
-    backgroundColor: "#99ff66"
-};
-const paneListStyle6 = {
-    backgroundColor: "#D1D1D1"
-};
-const paneListStyle7 = {
-    backgroundColor: "#D1EEEE"
-};
-const paneListStyle8 = {
-    backgroundColor: "#CDCD00"
-};
-const paneListStyle9 = {
-    backgroundColor: "#836FFF"
-};
+function About() {
 
 
+    return (
+        <div className="">About</div>
+    )
+}
 
-const Profile = () => {
 
-    const [index, setIndex] = useState(0)
+export default function Profile() {
 
-    const onTabChange = newIndex => {
-        setIndex(newIndex)
-    };
+    const tabs = [
+        { label: "About", content: <About /> },
+        { label: "Videos", content: <p>Flights content</p> },
+        { label: "Live", content: <p>Hotels content</p> },
+        { label: "Podcast", content: <p>Hotels content</p> },
+        { label: "Courses", content: <p>Hotels content</p> },
+        { label: "Posts", content: <p>Hotels content</p> },
+        { label: "Shop", content: <p>Hotels content</p> },
+    ];
 
 
     return (
@@ -55,33 +39,17 @@ const Profile = () => {
                     </div>
                 </div>
 
-                <div className="flex justify-end h-8 mt-4 mr-4 gap-2 opacity-0">
-                    <button className="font-medium hover:bg-white/20 text-white grid place-items-center px-3 rounded-full text-sm">
-                        Join
+                <div className="flex justify-end h-8 mt-2 mr-4 gap-2">
+                    <button className="hover:bg-white/20 grid place-items-center aspect-square rounded-full">
+                        <svg xmlns="http://www.w3.org/2000/svg" width={24} height={24} viewBox="0 0 24 24"><path fill="currentColor" d="M6 20.5V5h7.192l.4 2H19v8h-5.192l-.4-2H7v7.5zm8.65-6.5H18V8h-5.25l-.4-2H7v6h7.25z"></path></svg>
                     </button>
-                    <button className="flex font-medium text-eerie-black bg-white items-center px-3  rounded-full text-sm">
-                        Subscribe 
-                        <span className="h-4 w-[1px] bg-black mx-2"></span>
-                        <span>187K</span>
+                    <button className="hover:bg-white/20 grid place-items-center aspect-square rounded-full">
+                        <svg xmlns="http://www.w3.org/2000/svg" width={24} height={24} viewBox="0 0 24 24"><path fill="currentColor" d="M19.59 12L15 7.41v2.46l-.86.13c-4.31.61-7.23 2.87-8.9 6.33c2.32-1.64 5.2-2.43 8.76-2.43h1v2.69m-2-1.69v.02c-4.47.21-7.67 1.82-10 5.08c1-5 4-10 11-11V5l7 7l-7 7v-4.1c-.33 0-.66.01-1 .02Z"></path></svg>
                     </button>
                 </div>
 
-                {/* Improve this section */}
-                {/* <div className="mx-4 mt-6">
-                    <div className="text-xl">
-                        Michael Faraday
-                    </div>
-                    <div className="text-sm text-cool-gray mb-3">@michaelfaraday</div>
-                    <div className="">
-                        182K subscribers • 32 videos
-                    </div>
-                    <div>
-                        Software developer by day, gamer also by day. At night, I sleep.
-                    </div>
-                </div> */}
-
                 {/* Channel Info Section */}
-                <div className="mt-6 space-y-1 px-4">
+                <div className="mt-8 space-y-1 px-4">
                     <h1 className="text-2xl font-bold text-white">
                         Michael Faraday
                     </h1>
@@ -108,14 +76,13 @@ const Profile = () => {
             
 
 
-            <div className="h-full">
-
+            <div className="mt-28">
+                <ScrollableTabs tabs={tabs} defaultIndex={0} onChange={(i) => console.log(i)} />
             </div>
 
         </div>
     )
 }
-export default Profile
 
 
 

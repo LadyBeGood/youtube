@@ -29,9 +29,8 @@ const history = [
 ]
 
 
-const Search = () => {
+export default function Search() {
     const navigate = useNavigate();
-
 
     return (
         <div className="py-3 grid h-full overflow-hidden">
@@ -77,4 +76,3 @@ const Search = () => {
     )
 }
 
-export default Search

@@ -8,7 +8,7 @@ type VideoPlayerProps = {
     title: string;
 }
 
-const VideoPlayer = ({ source, title }: VideoPlayerProps) => {
+export default function VideoPlayer({ source, title }: VideoPlayerProps) {
     const videoRef = useRef<HTMLVideoElement>(null);
     const [isPlaying, setIsPlaying] = useState(false);
     const [progress, setProgress] = useState(0);
@@ -315,5 +315,3 @@ const VideoPlayer = ({ source, title }: VideoPlayerProps) => {
         </>
     );
 };
-
-export default VideoPlayer;

@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import BottomSheet from '../components/BottomSheet';
 
-const NotFound = () => {
+export default function NotFound() {
     const [isSheetOpen, setIsSheetOpen] = useState(false);
 
     return (
@@ -15,5 +15,3 @@ const NotFound = () => {
     );
 }
 
-
-export default NotFound

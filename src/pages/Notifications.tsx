@@ -1,6 +1,7 @@
 import { NotificationsIcon } from "../components/Icons"
 
-const Notifications = () => {
+export default function Notifications() {
+
     return (
         <div className="flex items-center justify-center flex-col h-full mb-12 overflow-y-scroll no-scrollbar">
             <NotificationsIcon isActive={true} height={150} width={150} />
@@ -9,5 +10,3 @@ const Notifications = () => {
         </div>
     )
 }
-
-export default Notifications

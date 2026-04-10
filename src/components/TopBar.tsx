@@ -73,7 +73,7 @@ const RecommendationBar = ({ isHomePage = false }: { isHomePage?: boolean }) => 
     )
 }
 
-const SubscriptionsBar = () => {
+export function SubscriptionsBar() {
     return (
         <nav className="flex no-scrollbar overflow-x-auto pb-3 px-3 flex-nowrap  h-25 ">
             {subscriptions.map((subscription, index) =>
@@ -88,7 +88,7 @@ const SubscriptionsBar = () => {
     )
 }
 
-const TopBar = () => {
+export default function TopBar() {
     const location = useLocation();
 
     return (
@@ -114,5 +114,3 @@ const TopBar = () => {
         </nav>
     )
 }
-
-export default TopBar
