@@ -8,6 +8,7 @@ import Layout from "./components/Layout"
 import Search from "./pages/Search"
 import Notifications from "./pages/Notifications"
 import Video from "./pages/Video"
+import Channel from "./pages/Channel"
 
 
 
@@ -21,6 +22,7 @@ export function App() {
                     <Route path="/profile" element={<Profile />}></Route>
                     <Route path="/subscriptions" element={<Subscriptions />}></Route>
                     <Route path="/notifications" element={<Notifications />}></Route>
+                    <Route path="/channel" element={<Channel />}></Route>
                 </Route>
 
                 <Route path="/search" element={<Search />}></Route>

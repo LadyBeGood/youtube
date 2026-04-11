@@ -1,9 +1,14 @@
+import RecommendationsBar from "../components/RecommendationsBar"
+import SubscriptionsBar from "../components/SubscriptionsBar"
 import VideoCard from "../components/VideoCard"
 
 export default function Subscriptions() {
 
     return (
-        <div className="overflow-y-scroll no-scrollbar">
+        <div className="overflow-y-auto no-scrollbar">
+            <SubscriptionsBar />
+            <RecommendationsBar isHomePage={false} />
+
             <VideoCard title={"How I Animate In Desmos Graphing Calculator"} channel={"CodingHunger"} profilePictureURL={"./avatar1.webp"} views={"12K"} uploadDate={"1 year ago"} thumbnailURL={"./thumbnail1.webp"} duration={"4:17:17"} />
             <VideoCard title={"How I Animate In Desmos Graphing Calculator"} channel={"CodingHunger"} profilePictureURL={"./avatar1.webp"} views={"12K"} uploadDate={"1 year ago"} thumbnailURL={"./thumbnail1.webp"} duration={"4:17:17"} />
             <VideoCard title={"How I Animate In Desmos Graphing Calculator"} channel={"CodingHunger"} profilePictureURL={"./avatar1.webp"} views={"12K"} uploadDate={"1 year ago"} thumbnailURL={"./thumbnail1.webp"} duration={"4:17:17"} />

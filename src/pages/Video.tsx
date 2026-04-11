@@ -3,6 +3,7 @@ import { LikeIcon, DislikeIcon } from "../components/Icons"
 import VideoCard from "../components/VideoCard"
 import VideoPlayer from "../components/VideoPlayer"
 import BottomSheet from "../components/BottomSheet";
+import { NavLink } from "react-router-dom";
 
 
 export default function Video() {
@@ -27,12 +28,12 @@ export default function Video() {
 
                 {/* Channel Details */}
                 <div className="px-3 h-12 py-2 flex justify-between gap-2 no-scrollbar">
-                    <button className="shrink-0 flex items-center gap-3 select-text">
+                    <NavLink to="/channel" className="shrink-0 flex items-center gap-3 select-text" >
                         <img className="rounded-full select-none" src="./avatar.webp" alt="channel" height="32px" width="32px" />
                         <span className="font-medium text-sm">Figma</span>
                         {/* This text is smaller than Channel name, hence requires to be translated a few pixels to align to baseline */}
                         <span className="text-[12px] opacity-80 select-none translate-y-[1.5px]">62.4K</span>
-                    </button>
+                    </NavLink>
 
                     <div className="flex gap-2">
                         <button className="font-medium hover:bg-white/20 text-white grid place-items-center px-3 rounded-full text-[13px]">

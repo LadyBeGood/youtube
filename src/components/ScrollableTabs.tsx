@@ -1,21 +1,29 @@
 import { useEffect, useRef, useState, useCallback } from "react";
 import { type ReactNode, type TouchEvent, type MouseEvent } from "react";
 
-export interface Tab {
+export type Tab = {
     label: string;
     content?: ReactNode;
 }
 
-interface ScrollableTabsProps {
+type ScrollableTabsProps = {
     tabs: Tab[];
     defaultIndex?: number;
     onChange?: (index: number) => void;
 }
 
 export default function ScrollableTabs({ tabs, defaultIndex = 0, onChange }: ScrollableTabsProps) {
+    /**********************************
+     * State
+     **********************************/
     const [active, setActive] = useState(defaultIndex);
     const [indicator, setIndicator] = useState({ left: 0, width: 0 });
 
+
+
+    /**********************************
+     * Refs
+     **********************************/
     const stripRef = useRef<HTMLDivElement>(null);
     const trackRef = useRef<HTMLDivElement>(null);
     const panelsRef = useRef<HTMLDivElement>(null);
@@ -27,6 +35,11 @@ export default function ScrollableTabs({ tabs, defaultIndex = 0, onChange }: Scr
     // swipe state (panel area, touch only)
     const swipe = useRef({ startX: 0, startTime: 0, fromIndex: 0, panelW: 0 });
 
+
+
+    /**********************************
+     * Callbacks
+     **********************************/
     const moveIndicator = useCallback((btn: HTMLButtonElement) => {
         setIndicator({ left: btn.offsetLeft, width: btn.offsetWidth });
     }, []);
@@ -49,6 +62,11 @@ export default function ScrollableTabs({ tabs, defaultIndex = 0, onChange }: Scr
         [moveIndicator, onChange]
     );
 
+
+
+    /**********************************
+     * Effects
+     **********************************/
     // Set indicator on first render and on resize
     useEffect(() => {
         activate(active, false);
@@ -64,35 +82,39 @@ export default function ScrollableTabs({ tabs, defaultIndex = 0, onChange }: Scr
         return () => window.removeEventListener("resize", handleResize);
     }, [active, moveIndicator]);
 
-    // ── Tab strip: mouse drag-to-scroll ──────────────────────────────────────
-    const onStripMouseDown = (e: MouseEvent<HTMLDivElement>) => {
+
+
+    /**********************************
+     * Handlers
+     **********************************/
+    function onStripMouseDown(e: MouseEvent<HTMLDivElement>) {
         drag.current = {
             active: true,
             startX: e.pageX - (stripRef.current?.offsetLeft ?? 0),
             scrollLeft: stripRef.current?.scrollLeft ?? 0,
             moved: false,
         };
-    };
+    }
 
-    const onStripMouseMove = (e: MouseEvent<HTMLDivElement>) => {
+    function onStripMouseMove(e: MouseEvent<HTMLDivElement>) {
         if (!drag.current.active || !stripRef.current) return;
         const dx = e.pageX - (stripRef.current.offsetLeft ?? 0) - drag.current.startX;
         if (Math.abs(dx) > 4) drag.current.moved = true;
         stripRef.current.scrollLeft = drag.current.scrollLeft - dx;
-    };
+    }
 
-    const onStripMouseUp = () => {
+    function onStripMouseUp() {
         drag.current.active = false;
-    };
+    }
 
     // Suppress click on tabs when the strip was dragged
-    const onTabClick = (e: MouseEvent<HTMLButtonElement>, index: number) => {
+    function onTabClick(e: MouseEvent<HTMLButtonElement>, index: number) {
         if (drag.current.moved) { e.preventDefault(); return; }
         activate(index, true);
-    };
+    }
 
-    // ── Panels: touch swipe ───────────────────────────────────────────────────
-    const onPanelTouchStart = (e: TouchEvent<HTMLDivElement>) => {
+    
+    function onPanelTouchStart(e: TouchEvent<HTMLDivElement>) {
         swipe.current = {
             startX: e.touches[0].clientX,
             startTime: Date.now(),
@@ -100,17 +122,17 @@ export default function ScrollableTabs({ tabs, defaultIndex = 0, onChange }: Scr
             panelW: panelsRef.current?.offsetWidth ?? 0,
         };
         if (trackRef.current) trackRef.current.style.transition = "none";
-    };
+    }
 
-    const onPanelTouchMove = (e: TouchEvent<HTMLDivElement>) => {
+    function onPanelTouchMove(e: TouchEvent<HTMLDivElement>) {
         const { startX, fromIndex, panelW } = swipe.current;
         if (!trackRef.current || !panelW) return;
         const dx = e.touches[0].clientX - startX;
         const base = fromIndex * panelW;
         trackRef.current.style.transform = `translateX(-${base - dx}px)`;
-    };
+    }
 
-    const onPanelTouchEnd = (e: TouchEvent<HTMLDivElement>) => {
+    function onPanelTouchEnd(e: TouchEvent<HTMLDivElement>) {
         const { startX, startTime, fromIndex, panelW } = swipe.current;
         const dx = e.changedTouches[0].clientX - startX;
         const dt = Date.now() - startTime;
@@ -125,12 +147,14 @@ export default function ScrollableTabs({ tabs, defaultIndex = 0, onChange }: Scr
             // snap back
             activate(fromIndex, false);
         }
-    };
+    }
+
+
 
     return (
         <div className="w-[100vw]">
-            {/* ── Tab strip ── */}
-            <div className="relative border-b border-white/20  w-[100vw] overflow-auto no-scrollbar">
+            {/* Tab strip */}
+            <div className="border-b h-10 bg-black z-1 border-white/20  w-[100vw] overflow-auto no-scrollbar sticky top-0">
                 <div
                     ref={stripRef}
                     role="tablist"
@@ -149,9 +173,9 @@ export default function ScrollableTabs({ tabs, defaultIndex = 0, onChange }: Scr
                             aria-selected={i === active}
                             onClick={(e) => onTabClick(e, i)}
                             className={[
-                                "flex-shrink-0 h-10 px-6 bg-transparent border-none",
+                                "flex-shrink-0 h-10 px-5 border-none",
                                 "text-sm font-medium whitespace-nowrap",
-                                "hover:bg-white/10",
+                                "hover:bg-white/15",
                                 i === active
                                     ? "text-gray-900 dark:text-gray-100"
                                     : "text-gray-500 dark:text-gray-400",
@@ -164,31 +188,34 @@ export default function ScrollableTabs({ tabs, defaultIndex = 0, onChange }: Scr
 
                 {/* Sliding indicator */}
                 <span
-                    aria-hidden
                     className="absolute bottom-0 h-[3px] rounded-t-sm bg-gray-900 dark:bg-gray-100 transition-[left,width] duration-[250ms] ease-[cubic-bezier(.4,0,.2,1)]"
                     style={{ left: indicator.left, width: indicator.width }}
                 />
             </div>
 
-            {/* ── Panels ── */}
+            {/* Panels */}
             <div
                 ref={panelsRef}
-                className="overflow-hidden"
+                className="relative overflow-hidden"
                 onTouchStart={onPanelTouchStart}
                 onTouchMove={onPanelTouchMove}
                 onTouchEnd={onPanelTouchEnd}
             >
                 <div
                     ref={trackRef}
-                    className="flex transition-transform duration-300 ease-[cubic-bezier(.4,0,.2,1)]"
+                    className="flex transition-transform duration-250 ease-[cubic-bezier(.4,0,.2,1)]"
                     style={{ transform: `translateX(-${active * 100}%)` }}
                 >
                     {tabs.map((tab, i) => (
+                        
                         <div
                             key={i}
-                            role="tabpanel"
-                            aria-hidden={i !== active}
-                            className="flex-shrink-0 w-full py-5 text-sm text-gray-600 dark:text-gray-300"
+
+                            // Minimum height = 100svh - Height of TopBar - Height of BottomBar - Height of Tab strip 
+                            className="flex-shrink-0 w-full min-h-[calc(100svh-48px-48px-40px)]"
+                            
+                            // Ensure that scroll length of each tab is independent of each other
+                            style={{ height: i === active ? "auto" : 0, overflow: "hidden" }}
                         >
                             {tab.content}
                         </div>
