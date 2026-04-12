@@ -39,7 +39,7 @@ export default function Live() {
             <div className="px-4 pt-4 pb-2">
                 <p>Live now</p>
             </div>
-            <LiveCard
+            {/* <LiveCard
                 title="Live Q&A — Your Electromagnetism Questions Answered"
                 viewers="1,204"
                 isLive={true}
@@ -57,7 +57,7 @@ export default function Live() {
                 title="Chemistry of Batteries — Live Experiment"
                 scheduledAt="Sun, Apr 20 · 4:00 PM"
                 isLive={false}
-            />
+            /> */}
         </div>
     );
 }
