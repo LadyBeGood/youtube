@@ -170,15 +170,14 @@ export default function ScrollableTabs({ tabs, defaultIndex = 0, onChange }: Scr
                             key={i}
                             ref={(el) => { tabRefs.current[i] = el; }}
                             role="tab"
-                            aria-selected={i === active}
                             onClick={(e) => onTabClick(e, i)}
                             className={[
                                 "flex-shrink-0 h-10 px-5 border-none",
                                 "text-sm font-medium whitespace-nowrap",
                                 "hover:bg-white/15",
                                 i === active
-                                    ? "text-gray-900 dark:text-gray-100"
-                                    : "text-gray-500 dark:text-gray-400",
+                                    ? "text-gray-100"
+                                    : "text-gray-400",
                             ].join(" ")}
                         >
                             {tab.label}

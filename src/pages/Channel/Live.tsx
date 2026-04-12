@@ -43,7 +43,7 @@ export default function Live() {
                 title="Live Q&A — Your Electromagnetism Questions Answered"
                 viewers="1,204"
                 isLive={true}
-            />
+            /> 
 
             <div className="px-4 pt-4 pb-2">
                 <p>Upcoming</p>

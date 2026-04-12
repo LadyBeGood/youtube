@@ -132,7 +132,7 @@ export function CommentIcon(props: IconProps) {
             viewBox="0 0 24 24"
             fill="none"
             stroke="currentColor"
-            strokeWidth="1.3"
+            strokeWidth="1"
             strokeLinecap="square"
             strokeLinejoin="miter"
             {...props}
@@ -234,6 +234,22 @@ export function TickIcon(props: IconProps) {
     return (
         <IconWrapper {...props}>
             <path d="M382-240 154-468l57-57 171 171 367-367 57 57-424 424Z" />
+        </IconWrapper>
+    )
+}
+
+export function ListViewIcon(props: IconProps) {
+    return (
+        <IconWrapper viewBox="0 0 24 24" fill="transparent" {...props}>
+            <path d="M19.5 16.5V19.5H4.5V16.5H19.5ZM19.5 10.5V13.5H4.5V10.5H19.5ZM19.5 4.5V7.5H4.5V4.5H19.5Z" stroke="white" />
+        </IconWrapper>
+    )
+}
+
+export function GridViewIcon(props: IconProps) {
+    return (
+        <IconWrapper {...props}>
+            <path d="M160-520v-280h280v280H160Zm0 360v-280h280v280H160Zm360-360v-280h280v280H520Zm0 360v-280h280v280H520ZM200-560h200v-200H200v200Zm360 0h200v-200H560v200Zm0 360h200v-200H560v200Zm-360 0h200v-200H200v200Zm360-360Zm0 160Zm-160 0Zm0-160Z" />
         </IconWrapper>
     )
 }
