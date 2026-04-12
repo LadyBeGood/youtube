@@ -1,5 +1,7 @@
 
 const subscriptions = [
+    "melodysheep",
+    "Fireship",
     "SuperSimpleDev",
     "Mud Flaps",
     "David P - Digital Art",
@@ -7,15 +9,6 @@ const subscriptions = [
     "made from dreams",
     "Dandelion Medical Animation",
     "Dreksler Astral",
-    "Dreksler Astral",
-    "Dreksler Astral",
-    "Dreksler Astral",
-    "Dreksler Astral",
-    "Dreksler Astral",
-    "Dreksler Astral",
-    "Dreksler Astral",
-    "Dreksler Astral",
-
 ]
 
 export default function SubscriptionsBar() {

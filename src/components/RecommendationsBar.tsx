@@ -2,7 +2,7 @@ import { NavLink, useSearchParams } from "react-router-dom"
 import { ExploreIcon } from "./Icons";
 
 
-const filters = [
+const HomeFilters = [
     "All",
     "New to You",
     "Gaming",
@@ -10,9 +10,18 @@ const filters = [
     "Music",
     "Mixes",
     "Comedy",
-    "Recently uploaded"
+    "Recently uploaded",
 ]
 
+const subscriptionsFilters = [
+    "All",
+    "Today",
+    "Videos",
+    "Live",
+    "Posts",
+    "Unwatched",
+    "Continue watching",
+]
 
 export default function RecommendationsBar({ isHomePage = false }: { isHomePage?: boolean; }) {
     const [params] = useSearchParams();
@@ -29,7 +38,7 @@ export default function RecommendationsBar({ isHomePage = false }: { isHomePage?
                 </>
             }
 
-            {filters.map((recommendation) => {
+            {(isHomePage ? HomeFilters : subscriptionsFilters).map((recommendation) => {
                 const isActive = activeFilter === recommendation;
 
 

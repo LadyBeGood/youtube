@@ -8,7 +8,7 @@ import Layout from "./components/Layout"
 import Search from "./pages/Search"
 import Notifications from "./pages/Notifications"
 import Video from "./pages/Video"
-import Channel from "./pages/Channel"
+import Channel from "./pages/Channel/Channel"
 
 
 

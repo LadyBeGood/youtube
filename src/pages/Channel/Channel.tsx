@@ -1,61 +1,25 @@
-import ScrollableTabs from "../components/ScrollableTabs";
-
-
-
-
-function About() {
-    
-    return (
-        <div className="">About</div>
-    )
-}
-
-
-function Videos() {
-    return (
-        <div className="">Channel</div>
-    )
-}
-
-
-function Live() {
-    return (
-        <div>Channel</div>
-    )
-}
-
-function Podcasts() {
-    return (
-        <div>Channel</div>
-    )
-}
-function Courses() {
-    return (
-        <div>Channel</div>
-    )
-}
-function Posts() {
-    return (
-        <div>Channel</div>
-    )
-}
-function Shop() {
-    return (
-        <div>Channel</div>
-    )
-}
+import ScrollableTabs from "../../components/ScrollableTabs";
+import About from "./About";
+import Courses from "./Courses";
+import Live from "./Live";
+import Playlists from "./Playlists";
+import Podcasts from "./Podcasts";
+import Posts from "./Posts";
+import Shop from "./Shop";
+import Videos from "./Videos";
 
 
 export default function Channel() {
 
     const tabs = [
-        { label: "About", content: <About /> },
-        { label: "Videos", content: <Videos />},
-        { label: "Live", content: <Live /> },
-        { label: "Podcasts", content: <Podcasts /> },
-        { label: "Courses", content: <Courses /> },
-        { label: "Posts", content: <Posts /> },
-        { label: "Shop", content: <Shop /> },
+        { label: "About",     content: <About />     },
+        { label: "Videos",    content: <Videos />    },
+        { label: "Playlists", content: <Playlists /> },
+        { label: "Live",      content: <Live />      },
+        { label: "Podcasts",  content: <Podcasts />  },
+        { label: "Courses",   content: <Courses />   },
+        { label: "Posts",     content: <Posts />     },
+        { label: "Shop",      content: <Shop />      },
     ];
 
 
@@ -66,10 +30,7 @@ export default function Channel() {
 
                 <div className="absolute -translate-y-[50%] ml-4">
                     <div className="relative">
-                        <img src="./avatar3.jpg" className="rounded-full h-25 w-25 border-black border-5" alt="" />
-                        <div className="absolute left-0 text-black rounded-full bg-white -translate-y-[100%]  border-5 box-content border-black h-5 w-5 grid place-items-center">
-                            <svg xmlns="http://www.w3.org/2000/svg" height="16px" viewBox="0 -960 960 960" width="16px" fill="#000000"><path d="M389-248.91 176.91-460l69.66-70.65L389-388.22l324.43-323.43L783.09-642 389-248.91Z" /></svg>
-                        </div>
+                        <img src="./avatar3.jpg" className="rounded-full h-25 w-25" alt="" />
                     </div>
                 </div>
 

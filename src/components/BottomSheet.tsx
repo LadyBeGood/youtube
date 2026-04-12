@@ -1,5 +1,18 @@
-import { useEffect, useLayoutEffect, useRef, useState } from "react";
+import { useEffect, useLayoutEffect, useRef, useState, createContext, useContext } from "react";
 
+// type BottomSheetContextType = {
+//     onBottomSheetClose: () => void;
+// }
+
+// const BottomSheetContext = createContext<BottomSheetContextType | null>(null);
+
+// export function useBottomSheet() {
+//     const context = useContext(BottomSheetContext);
+//     if (!context) {
+//         throw new Error("useBottomSheet must be used within a BottomSheet");
+//     }
+//     return context;
+// }
 
 /**
  * This is a hand crafted Bottom sheet with no dependencies tailored specifically for this project.  
@@ -53,8 +66,10 @@ const BottomSheet = ({ isBottomSheetOpen = false, onBottomSheetClose, children, 
     const [oldBottomSheetTranslateY, setBottomSheetOldTranslateY] = useState(middle);
 
     // In percentage
-    const [bottomSheetTranslateY, setBottomSheetTranslateY] = useState(bottomSheetHeight);
+    const [bottomSheetTranslateY, setBottomSheetTranslateY] = useState(100);
 
+    const [didDrag, setDidDrag] = useState(false);
+    const [currentButton, setCurrentButton] = useState<undefined | HTMLButtonElement>(undefined)
 
     /**********************************
      * Effects
@@ -80,7 +95,7 @@ const BottomSheet = ({ isBottomSheetOpen = false, onBottomSheetClose, children, 
         } else {
             // When closed, you can keep it at 0 because the CSS 
             // transform logic handles the 100% slide down
-            setBottomSheetTranslateY(0);
+            setBottomSheetTranslateY(100);
             
             setTimeout(() => {
                 if (overlayRef.current) overlayRef.current.style.height = "0";
@@ -123,6 +138,7 @@ const BottomSheet = ({ isBottomSheetOpen = false, onBottomSheetClose, children, 
 
         if (!isPointerDown) return;
         if (isFullscreen && bottomSheetContentRef.current?.scrollTop !== 0) return;
+        setDidDrag(true);
         const currentY = pageY;
         const dragDistance = currentY - startY;
 
@@ -155,7 +171,6 @@ const BottomSheet = ({ isBottomSheetOpen = false, onBottomSheetClose, children, 
         setBottomSheetTranslateY(snappedBottomSheetTranslateY);
         setBottomSheetOldTranslateY(snappedBottomSheetTranslateY);
     }
-
 
 
 
@@ -192,8 +207,24 @@ const BottomSheet = ({ isBottomSheetOpen = false, onBottomSheetClose, children, 
 
                 // Pointer Capture ensures mouse/trackpad events stay locked to this element
                 // even if the cursor moves outside the viewport during a drag.
-                onPointerDown={(event) => event.currentTarget.setPointerCapture(event.pointerId)}
-                onPointerUp={(event) => event.currentTarget.releasePointerCapture(event.pointerId)}
+                onPointerDown={(event) => {
+                    if ((event.target as HTMLElement).tagName === "BUTTON") {
+                        setCurrentButton(event.target as HTMLButtonElement)
+                    }
+                    event.currentTarget.setPointerCapture(event.pointerId)
+                }}
+
+                onPointerUp={(event) => {
+                    event.currentTarget.releasePointerCapture(event.pointerId)
+                    
+                    if (!didDrag && currentButton !== undefined) {
+                        currentButton.click();
+                        console.log("button pressed");
+                        setCurrentButton(undefined);
+                    }
+
+                    setDidDrag(false);
+                }}
             >
 
                 {/* Content */}

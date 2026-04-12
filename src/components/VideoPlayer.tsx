@@ -2,6 +2,7 @@ import { useRef, useState, useEffect, type RefObject } from "react";
 import { type ChangeEvent, type MouseEvent } from "react";
 import BottomSheet from "./BottomSheet";
 import Toggle from "./Toggle";
+import { CaptionIcon, DownArrowIcon, FullscreenIcon, NextIcon, PauseIcon, PlayIcon, PreviousIcon, SettingsIcon, TickIcon } from "./Icons";
 
 type VideoPlayerProps = {
     source: string;
@@ -15,6 +16,9 @@ export default function VideoPlayer({ source, title }: VideoPlayerProps) {
     const [showControls, setShowControls] = useState(true);
     const [isFullscreen, setIsFullscreen] = useState(false);
 
+    const [loopVideo, setLoopVideo] = useState(false);
+    const [ambientMode, setAmbientMode] = useState(true);
+
     const [isQualityBottomSheetOpen, setIsQualityBottomSheetOpen] = useState(false);
     const [isSettingsBottomSheetOpen, setIsSettingsBottomSheetOpen] = useState(false);
     const [isCaptionsBottomSheetOpen, setIsCaptionsBottomSheetOpen] = useState(false);
@@ -23,14 +27,14 @@ export default function VideoPlayer({ source, title }: VideoPlayerProps) {
 
     const videoContainerRef = useRef<HTMLDivElement>(null)
 
-    const availableQualities = [
+    const [availableQualities, setAvailableQualities] = useState([
         { value: "1080p", selected: false },
         { value: "720p", selected: false },
         { value: "480p", selected: true },
         { value: "360p", selected: false },
         { value: "240p", selected: false },
         { value: "144p", selected: false },
-    ]
+    ]);
 
     const availableCaptions = [
         { value: "English", selected: true },
@@ -155,7 +159,7 @@ export default function VideoPlayer({ source, title }: VideoPlayerProps) {
                         <div className="flex justify-baseline gap-3 min-w-0">
                             {/* Back Button */}
                             <button data-action="minimise" className="flex-shrink-0 grid place-content-center hover:bg-white/10 aspect-square">
-                                <svg className="pointer-events-none" xmlns="http://www.w3.org/2000/svg" height="26px" width="26px" viewBox="0 -960 960 960" fill="#fff"><path d="M480-357.85 253.85-584 296-626.15l184 184 184-184L706.15-584 480-357.85Z" /></svg>
+                                <DownArrowIcon size={26} />
                             </button>
 
                             {isFullscreen && <div className="truncate flex-1">{title}</div>}
@@ -166,11 +170,11 @@ export default function VideoPlayer({ source, title }: VideoPlayerProps) {
                         <div className="flex gap-3">
                             {/* Caption */}
                             <button data-action="captions" className="hover:bg-white/10 aspect-square p-1">
-                                <svg xmlns="http://www.w3.org/2000/svg" height="28" viewBox="0 -960 960 960" width="28" fill="currentColor"><path d="M224.62-200q-27.62 0-46.12-18.5Q160-237 160-264.62v-430.76q0-27.62 18.5-46.12Q197-760 224.62-760h510.76q27.62 0 46.12 18.5Q800-723 800-695.38v430.76q0 27.62-18.5 46.12Q763-200 735.38-200H224.62Zm0-40h510.76q9.24 0 16.93-7.69 7.69-7.69 7.69-16.93v-430.76q0-9.24-7.69-16.93-7.69-7.69-16.93-7.69H224.62q-9.24 0-16.93 7.69-7.69 7.69-7.69 16.93v430.76q0 9.24 7.69 16.93 7.69 7.69 16.93 7.69Zm86.15-132.31H400q17.77 0 30.42-12.65 12.66-12.66 12.66-30.42v-15.39h-35.39V-420q0 4.62-3.84 8.46-3.85 3.85-8.47 3.85h-80q-4.61 0-8.46-3.85-3.84-3.84-3.84-8.46v-120q0-4.62 3.84-8.46 3.85-3.85 8.46-3.85h80q4.62 0 8.47 3.85 3.84 3.84 3.84 8.46v12.31h35.39v-16.93q0-17.76-12.66-30.42-12.65-12.65-30.42-12.65h-89.23q-17.77 0-30.42 12.65-12.66 12.66-12.66 30.42v129.24q0 17.76 12.66 30.42 12.65 12.65 30.42 12.65Zm249.23 0h89.23q17.77 0 30.42-12.65 12.66-12.66 12.66-30.42v-15.39h-35.39V-420q0 4.62-3.84 8.46-3.85 3.85-8.46 3.85h-80q-4.62 0-8.47-3.85-3.84-3.84-3.84-8.46v-120q0-4.62 3.84-8.46 3.85-3.85 8.47-3.85h80q4.61 0 8.46 3.85 3.84 3.84 3.84 8.46v12.31h35.39v-16.93q0-17.76-12.66-30.42-12.65-12.65-30.42-12.65H560q-17.77 0-30.42 12.65-12.66 12.66-12.66 30.42v129.24q0 17.76 12.66 30.42 12.65 12.65 30.42 12.65ZM200-240v-480 480Z" /></svg>
+                                <CaptionIcon size={28} />
                             </button>
                             {/* Settings Button */}
                             <button data-action="settings" className="hover:bg-white/10 p-1 aspect-square grid place-items-center">
-                                <svg className="pointer-events-none" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="currentColor" d="m19.59 15.5l-1.82-1.3c.3-1.08.32-2.25 0-3.42l1.82-1.28L18.14 7l-2.03.92c-.79-.8-1.79-1.42-2.96-1.71L12.95 4h-2.9l-.2 2.21c-1.17.29-2.17.91-2.96 1.71L4.86 7L3.41 9.5l1.82 1.28c-.32 1.17-.3 2.34 0 3.42l-1.82 1.3L4.86 18l2.03-.93c.79.79 1.79 1.39 2.96 1.7l.2 2.23h2.9l.2-2.23c1.17-.31 2.17-.91 2.96-1.7l2.03.93zM13.5 3c.27 0 .5.2.5.46l.18 2.04c.76.28 1.44.69 2.05 1.18l1.85-.87c.23-.12.52-.04.66.19l2 3.5c.14.21.06.5-.16.65l-1.67 1.17c.13.8.12 1.59 0 2.36l1.67 1.17c.22.15.3.44.16.65l-2 3.5c-.14.21-.43.29-.66.17l-1.85-.86c-.61.49-1.29.89-2.05 1.19l-.18 2c0 .29-.23.5-.5.5h-4a.5.5 0 0 1-.5-.5l-.18-2c-.76-.3-1.44-.7-2.05-1.19l-1.85.86c-.23.12-.52.04-.66-.17l-2-3.5c-.14-.21-.06-.5.16-.65l1.67-1.17c-.12-.77-.13-1.56 0-2.36l-1.67-1.17c-.22-.15-.3-.44-.16-.65l2-3.5c.14-.23.43-.31.66-.19l1.85.87c.61-.49 1.29-.9 2.05-1.18L9 3.46c0-.26.23-.46.5-.46zm-2 6a3.5 3.5 0 0 1 3.5 3.5a3.5 3.5 0 0 1-3.5 3.5A3.5 3.5 0 0 1 8 12.5A3.5 3.5 0 0 1 11.5 9m0 1A2.5 2.5 0 0 0 9 12.5a2.5 2.5 0 0 0 2.5 2.5a2.5 2.5 0 0 0 2.5-2.5a2.5 2.5 0 0 0-2.5-2.5" /></svg>
+                                <SettingsIcon />
                             </button>
                         </div>
                     </div>
@@ -178,18 +182,18 @@ export default function VideoPlayer({ source, title }: VideoPlayerProps) {
                     {/* Center Controls */}
                     <div className="absolute left-0 right-0 top-1/2 -translate-y-1/2  flex items-center justify-center gap-16">
                         <button data-action="previous" className="hover:bg-white/10 p-2 rounded-full" onClick={(e) => { videoRef.current!.currentTime -= 10; }}>
-                            <svg className="pointer-events-none" xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#fff"><path d="M220-240v-480h80v480h-80Zm520 0L380-480l360-240v480Z" /></svg>
+                            <PreviousIcon />
                         </button>
 
                         <button data-action="play" onClick={(e) => { togglePlay(); }} className="p-2 rounded-full hover:bg-white/10">
                             {isPlaying
-                                ? <svg className="pointer-events-none" xmlns="http://www.w3.org/2000/svg" height="40px" width="40px" viewBox="0 -960 960 960" fill="#fff"><path d="M560-200v-560h160v560H560Zm-320 0v-560h160v560H240Z" /></svg>
-                                : <svg className="pointer-events-none" xmlns="http://www.w3.org/2000/svg" height="40px" width="40px" viewBox="0 -960 960 960" fill="#fff"><path d="M320-200v-560l440 280-440 280Z" /></svg>
+                                ? <PauseIcon size={40} />
+                                : <PlayIcon size={40} />
                             }
                         </button>
 
                         <button data-action="next" className="hover:bg-white/10 p-2 rounded-full" onClick={(e) => { videoRef.current!.currentTime += 10; }}>
-                            <svg className="pointer-events-none" xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#fff"><path d="M660-240v-480h80v480h-80Zm-440 0v-480l360 240-360 240Z" /></svg>
+                            <NextIcon />
                         </button>
                     </div>
 
@@ -204,10 +208,10 @@ export default function VideoPlayer({ source, title }: VideoPlayerProps) {
                             {/* right */}
                             <div className="flex gap-3">
                                 <button data-action="quality" className="hover:bg-white/10 px-2 py-1">
-                                    480p
+                                    {availableQualities.find(quality => quality.selected)!.value}
                                 </button>
                                 <button data-action="fullscreen" className="hover:bg-white/10 h-max p-2">
-                                    <svg className="pointer-events-none" width="12" height="12" viewBox="0 0 18 18" fill="#fff" xmlns="http://www.w3.org/2000/svg"><path d="M0 18V11H2V16H7V18H0ZM11 18V16H16V11H18V18H11ZM0 7V0H7V2H2V7H0ZM16 7V2H11V0H18V7H16Z" fill="white" /></svg>
+                                    <FullscreenIcon size={12} />
                                 </button>
                             </div>
                         </div>
@@ -249,9 +253,22 @@ export default function VideoPlayer({ source, title }: VideoPlayerProps) {
             {/* Bottom Sheet for quality settings */}
             <BottomSheet isBottomSheetOpen={isQualityBottomSheetOpen} middle={100} onBottomSheetClose={() => setIsQualityBottomSheetOpen(false)}>
                 {availableQualities.map((quality, index) =>
-                    <button className="h-13 px-4 w-full hover:bg-white/10 flex items-center gap-3" key={index}>
+                    <button 
+                        data-quality-value={quality.value} 
+                        className="h-13 px-4 w-full hover:bg-white/10 flex items-center gap-3" 
+                        key={index} 
+                        onClick={(event) => {
+                            const selectedValue = event.currentTarget.dataset.qualityValue;
+                            console.log(selectedValue);
+                            setAvailableQualities(availableQualities.map(quality => ({
+                                ...quality,
+                                selected: quality.value === selectedValue
+                            })));
+                            // TODO close the bottomsheet here?
+                        }}
+                    >
                         <span>
-                            <svg className="pointer-events-none" style={{ visibility: quality.selected ? "visible" : "hidden" }} xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="currentColor"><path d="M382-240 154-468l57-57 171 171 367-367 57 57-424 424Z" /></svg>
+                            <TickIcon style={{ visibility: quality.selected ? "visible" : "hidden" }} />
                         </span>
 
                         {quality.value}
@@ -278,7 +295,7 @@ export default function VideoPlayer({ source, title }: VideoPlayerProps) {
 
                 </button>
                 
-                <button className="flex gap-6 h-13 w-full hover:bg-white/10 items-center px-4">
+                <button className="flex gap-6 h-13 w-full hover:bg-white/10 items-center px-4" onClick={() => { setLoopVideo(!loopVideo) }}>
                     <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                         <path d="M7.30775 21L4 17.6923L7.30775 14.3845L8.0155 15.1038L5.927 17.1923H19V13.1923H20V18.1923H5.927L8.0155 20.2808L7.30775 21ZM4 10.8078V5.80775H18.073L15.9845 3.71925L16.6923 3L20 6.30775L16.6923 9.6155L15.9845 8.89625L18.073 6.80775H5V10.8078H4Z" fill="#E3E3E3" />
                     </svg>
@@ -287,17 +304,17 @@ export default function VideoPlayer({ source, title }: VideoPlayerProps) {
                         Loop
                     </div>
 
-                    <Toggle isToggled={false} />
+                    <Toggle isToggled={loopVideo} />
                 </button>
 
-                <button className="flex gap-6 h-13 w-full hover:bg-white/10 items-center px-4">
+                <button className="flex gap-6 h-13 w-full hover:bg-white/10 items-center px-4" onClick={() => setAmbientMode(!ambientMode)}>
                     <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="currentColor"><path d="M89.23-460v-40h200v40h-200ZM330-601.69l-71.69-71.69 28.31-28.31L358.31-630 330-601.69Zm130-69.08v-200h40v200h-40Zm170 69.08L601.69-630l71.69-71.69 28.31 28.31L630-601.69ZM670.77-460v-40h200v40h-200Zm-247.69 36.92Q400-446.15 400-480t23.08-56.92Q446.15-560 480-560t56.92 23.08Q560-513.85 560-480t-23.08 56.92Q513.85-400 480-400t-56.92-23.08Zm250.3 164.77L601.69-330 630-358.31l71.69 71.69-28.31 28.31Zm-386.76 0-28.31-28.31L330-358.31 358.31-330l-71.69 71.69ZM460-89.23v-200h40v200h-40Z" /></svg>
 
                     <div className="mr-auto">
                         Ambient mode
                     </div>
 
-                    <Toggle />
+                    <Toggle isToggled={ambientMode} />
                 </button>
             </BottomSheet>
 

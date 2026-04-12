@@ -188,7 +188,7 @@ export default function ScrollableTabs({ tabs, defaultIndex = 0, onChange }: Scr
 
                 {/* Sliding indicator */}
                 <span
-                    className="absolute bottom-0 h-[3px] rounded-t-sm bg-gray-900 dark:bg-gray-100 transition-[left,width] duration-[250ms] ease-[cubic-bezier(.4,0,.2,1)]"
+                    className="absolute bottom-0 h-[2px]  bg-gray-900 dark:bg-gray-100 transition-[left,width] duration-[250ms] ease-[cubic-bezier(.4,0,.2,1)]"
                     style={{ left: indicator.left, width: indicator.width }}
                 />
             </div>
