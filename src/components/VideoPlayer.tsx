@@ -2,7 +2,7 @@ import { useRef, useState, useEffect, type RefObject } from "react";
 import { type ChangeEvent, type MouseEvent } from "react";
 import BottomSheet from "./BottomSheet";
 import Toggle from "./Toggle";
-import { CaptionIcon, DownArrowIcon, FullscreenIcon, NextIcon, PauseIcon, PlayIcon, PreviousIcon, SettingsIcon, TickIcon } from "./Icons";
+import { AmbientIcon, CaptionIcon, DownArrowIcon, FullscreenIcon, LoopIcon, NextIcon, PauseIcon, PlaybackSpeedIcon, PlayIcon, PreviousIcon, SettingsIcon, TickIcon } from "./Icons";
 
 type VideoPlayerProps = {
     source: string;
@@ -10,6 +10,10 @@ type VideoPlayerProps = {
 }
 
 export default function VideoPlayer({ source, title }: VideoPlayerProps) {
+
+    // in ms
+    const BOTTOM_SHEET_CLOSE_DELAY = 150;
+
     const videoRef = useRef<HTMLVideoElement>(null);
     const [isPlaying, setIsPlaying] = useState(false);
     const [progress, setProgress] = useState(0);
@@ -36,11 +40,11 @@ export default function VideoPlayer({ source, title }: VideoPlayerProps) {
         { value: "144p", selected: false },
     ]);
 
-    const availableCaptions = [
+    const [availableCaptions, setAvailableCaptions] = useState([
         { value: "English", selected: true },
         { value: "Hindi", selected: false },
         { value: "French", selected: false },
-    ]
+    ]);
 
     // Toggle Play/Pause
     const togglePlay = () => {
@@ -264,7 +268,8 @@ export default function VideoPlayer({ source, title }: VideoPlayerProps) {
                                 ...quality,
                                 selected: quality.value === selectedValue
                             })));
-                            // TODO close the bottomsheet here?
+                            
+                            setTimeout(() => setIsQualityBottomSheetOpen(false), BOTTOM_SHEET_CLOSE_DELAY)
                         }}
                     >
                         <span>
@@ -279,11 +284,8 @@ export default function VideoPlayer({ source, title }: VideoPlayerProps) {
             {/* Settings Bottom Sheet */}
             <BottomSheet isBottomSheetOpen={isSettingsBottomSheetOpen} middle={100} onBottomSheetClose={() => setIsSettingsBottomSheetOpen(false)}>
                 <button className="flex gap-6 h-13 w-full hover:bg-white/10 items-center pl-4 pr-2">
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M11 21.9501C9.96033 21.8206 9.02733 21.586 8.201 21.2463C7.37467 20.9065 6.53458 20.4084 5.68075 19.7521L6.375 19.0193C7.07117 19.5527 7.7715 19.9667 8.476 20.2616C9.1805 20.5564 10.0218 20.784 11 20.9443V21.9501ZM4.99425 17.6193L4.2615 18.3136C3.63084 17.5071 3.13184 16.6564 2.7645 15.7616C2.39717 14.8667 2.17183 13.9462 2.0885 13.0001H3.0885C3.17183 13.8116 3.37692 14.6103 3.70375 15.3963C4.03075 16.1822 4.46092 16.9232 4.99425 17.6193ZM4.99425 6.41357C4.48659 7.01991 4.05967 7.74266 3.7135 8.58182C3.36733 9.42099 3.159 10.2271 3.0885 11.0001H2.0885C2.17567 10.0501 2.40517 9.12666 2.777 8.22982C3.14867 7.33299 3.64992 6.48974 4.28075 5.70007L4.99425 6.41357ZM11 3.08857C10.073 3.19757 9.22842 3.41549 8.46625 3.74232C7.70409 4.06932 7.01342 4.49949 6.39425 5.03282L5.68075 4.31932C6.44492 3.67566 7.27533 3.16799 8.172 2.79632C9.06883 2.42449 10.0115 2.18857 11 2.08857V3.08857Z" fill="#E3E3E3" />
-                        <path d="M9.98396 8.46427L10.0224 15.6182L15.5801 12.0113L9.98396 8.46427Z" fill="#E3E3E3" />
-                        <path d="M13.1294 2.08857C14.1685 2.22282 15.1004 2.46167 15.9252 2.80511C16.7499 3.14872 17.9605 3.93989 18.4386 4.31086C18.9166 4.68183 19.653 5.5 19.8512 5.75584C19.5638 6.02565 19.4027 6.17692 19.1153 6.44673C18.6493 5.83259 18.4347 5.57694 17.741 5.04043C17.0472 4.50392 16.3488 4.08664 15.6457 3.78859C14.9425 3.49054 14.1022 3.25911 13.1248 3.09431L13.1294 2.08857ZM19.1153 6.44673C19.4027 6.17692 19.5638 6.02565 19.8512 5.75584C20.4782 6.56521 20.9733 7.41815 21.3365 8.31465C21.6998 9.21115 21.9209 10.1327 21.9999 11.0792C22.0789 12.0257 22.0784 12.1334 21.9908 13.0792C21.6002 13.0774 21.3813 13.0764 20.9908 13.0746C21.0648 12.3019 21.0795 11.8865 20.9999 11.0746C20.9203 10.2628 20.7189 9.46309 20.3956 8.6756C20.0722 7.88828 19.6454 7.14532 19.1153 6.44673ZM19.0641 17.6524C19.5745 17.0484 20.0047 16.3276 20.3547 15.49C20.7047 14.6524 20.9167 13.8473 20.9908 13.0746C21.3813 13.0764 21.6002 13.0774 21.9908 13.0792C21.8993 14.0288 21.6655 14.9511 21.2896 15.8463C20.9138 16.7414 20.3222 17.7115 19.7743 18.3691C19.2265 19.0267 19.1829 19.0634 18.368 19.7435C18.0907 19.4635 17.9351 19.3066 17.6578 19.0267C18.2794 18.4962 18.5536 18.2564 19.0641 17.6524ZM13.0432 20.9499C13.9707 20.8451 14.8163 20.6311 15.5799 20.3077C16.3436 19.9842 17.0362 19.5572 17.6578 19.0267C17.9351 19.3066 18.0907 19.4635 18.368 19.7435C17.6009 20.3836 16.7682 20.8875 15.8698 21.255C14.9713 21.6228 14.0276 21.8544 13.0386 21.9499L13.0432 20.9499Z" fill="#E3E3E3" />
-                    </svg>
+                    <PlaybackSpeedIcon />
+
                     <div className="mr-auto">
                         Playback speed
                     </div>
@@ -296,9 +298,7 @@ export default function VideoPlayer({ source, title }: VideoPlayerProps) {
                 </button>
                 
                 <button className="flex gap-6 h-13 w-full hover:bg-white/10 items-center px-4" onClick={() => { setLoopVideo(!loopVideo) }}>
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M7.30775 21L4 17.6923L7.30775 14.3845L8.0155 15.1038L5.927 17.1923H19V13.1923H20V18.1923H5.927L8.0155 20.2808L7.30775 21ZM4 10.8078V5.80775H18.073L15.9845 3.71925L16.6923 3L20 6.30775L16.6923 9.6155L15.9845 8.89625L18.073 6.80775H5V10.8078H4Z" fill="#E3E3E3" />
-                    </svg>
+                    <LoopIcon />
 
                     <div className="mr-auto">
                         Loop
@@ -307,8 +307,11 @@ export default function VideoPlayer({ source, title }: VideoPlayerProps) {
                     <Toggle isToggled={loopVideo} />
                 </button>
 
-                <button className="flex gap-6 h-13 w-full hover:bg-white/10 items-center px-4" onClick={() => setAmbientMode(!ambientMode)}>
-                    <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="currentColor"><path d="M89.23-460v-40h200v40h-200ZM330-601.69l-71.69-71.69 28.31-28.31L358.31-630 330-601.69Zm130-69.08v-200h40v200h-40Zm170 69.08L601.69-630l71.69-71.69 28.31 28.31L630-601.69ZM670.77-460v-40h200v40h-200Zm-247.69 36.92Q400-446.15 400-480t23.08-56.92Q446.15-560 480-560t56.92 23.08Q560-513.85 560-480t-23.08 56.92Q513.85-400 480-400t-56.92-23.08Zm250.3 164.77L601.69-330 630-358.31l71.69 71.69-28.31 28.31Zm-386.76 0-28.31-28.31L330-358.31 358.31-330l-71.69 71.69ZM460-89.23v-200h40v200h-40Z" /></svg>
+                <button 
+                    className="flex gap-6 h-13 w-full hover:bg-white/10 items-center px-4" 
+                    onClick={() => { setAmbientMode(!ambientMode) }}
+                >
+                    <AmbientIcon />
 
                     <div className="mr-auto">
                         Ambient mode
@@ -322,7 +325,21 @@ export default function VideoPlayer({ source, title }: VideoPlayerProps) {
             {/* Captions Bottom Sheet */}
             <BottomSheet isBottomSheetOpen={isCaptionsBottomSheetOpen} middle={100} onBottomSheetClose={() => setIsCaptionsBottomSheetOpen(false)}>
                 {availableCaptions.map((caption, index) => 
-                <button key={index} className="flex w-full h-13 items-center px-4 hover:bg-white/10 gap-3">
+                <button 
+                    key={index} 
+                    data-caption-value={caption.value} 
+                    className="flex w-full h-13 items-center px-4 hover:bg-white/10 gap-3" 
+                    onClick={(event) => {
+                        const selectedValue = event.currentTarget.dataset.captionValue;
+                        console.log(selectedValue);
+                        setAvailableCaptions(availableCaptions.map(caption => ({
+                            ...caption,
+                            selected: caption.value === selectedValue
+                        })));
+
+                        setTimeout(() => setIsCaptionsBottomSheetOpen(false), BOTTOM_SHEET_CLOSE_DELAY)
+                    }}
+                >
                     <span>
                         <svg className="pointer-events-none" style={{ visibility: caption.selected ? "visible" : "hidden" }} xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="currentColor"><path d="M382-240 154-468l57-57 171 171 367-367 57 57-424 424Z" /></svg>
                     </span>
