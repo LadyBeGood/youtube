@@ -32,7 +32,7 @@ export default function Video() {
                         <img className="rounded-full select-none" src="./avatar.webp" alt="channel" height="32px" width="32px" />
                         <span className="font-medium text-sm">Figma</span>
                         {/* This text is smaller than Channel name, hence requires to be translated a few pixels to align to baseline */}
-                        <span className="text-[12px] opacity-80 select-none translate-y-[1.5px]">62.4K</span>
+                        {/* <span className="text-[12px] opacity-80 select-none translate-y-[1.5px]">62.4K</span> */}
                     </NavLink>
 
                     <div className="flex gap-2">

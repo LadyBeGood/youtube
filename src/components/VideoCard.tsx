@@ -17,8 +17,8 @@ export default function VideoCard({ isMusical = false, title, channel, profilePi
     const navigate = useNavigate();
 
     return (
-        <button className="select-none" onClick={() => navigate("/video")}>
-            <div className="relative">
+        <div className="select-none">
+            <button className="relative" onClick={() => navigate("/video")}>
                 <img src={thumbnailURL} alt="thumbnail" />
                 <div className="absolute rounded right-2 bottom-1 bg-[#00000090] flex text-[10px] justify-around text-white items-center px-1.5 py-0.5 ">
                     {isMusical &&
@@ -26,20 +26,28 @@ export default function VideoCard({ isMusical = false, title, channel, profilePi
                     }
                     <span>{duration}</span>
                 </div>
-            </div>
-            <div className="py-2 px-1 gap-3 pb-5 flex items-start">
-                <img src={profilePictureURL} alt="channel" className="w-12 aspect-square rounded-full mt-2" />
-                <div className="gap-1 flex flex-col">
+            </button>
+
+            <div className="py-2 gap-3 pb-5 flex items-start ml-3 mr-1.5">
+                <button className="shrink-0" onClick={() => navigate("/channel")}>
+                    <img src={profilePictureURL} alt="channel" className="w-8 h-8 aspect-square rounded-full mt-2" />
+                </button> 
+                
+                <button className="gap-1 flex flex-col" onClick={() => navigate("/video")}>
                     <div className="text-left">{title}</div>
                     <div className="text-xs text-left text-cool-gray">
                         <span>{channel}</span> ·
                         <span> {views} views</span> ·
                         <span> {uploadDate}</span>
                     </div>
-                </div>
-                <MoreIcon />
+                </button>
+
+                <button className="shrink-0 p-1.5">
+                    <MoreIcon size={20} />
+                </button>
             </div>
-        </button>
+
+        </div>
     )
 }
 
