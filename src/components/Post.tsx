@@ -16,7 +16,7 @@ export default function Post({ className = "", avatar, name, date, body, likes, 
     return (
         <div className={className}>
             {/* Header */}
-            <div className="mb-3 flex items-center gap-2.5 ml-3 mr-1.5">
+            <div className="mb-3 flex items-center gap-2.5 ml-3 mr-1">
                 <div className="w-8 h-8">
                     <img className="rounded-full" src={avatar} alt="" />
                 </div>
@@ -30,7 +30,7 @@ export default function Post({ className = "", avatar, name, date, body, likes, 
             </div>
 
             {/* Body */}
-            <p className="mx-3 text-sm leading-relaxed mb-3 line-clamp-4 overflow-hidden">{body}</p>
+            <p className="mx-3 text-sm leading-relaxed mb-3 line-clamp-3 overflow-hidden">{body}</p>
 
             {/* Optional image placeholder */}
             {imgSrc && (
