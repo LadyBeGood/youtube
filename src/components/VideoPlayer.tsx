@@ -228,7 +228,7 @@ export default function VideoPlayer({ source, title }: VideoPlayerProps) {
                             <div className="h-full bg-youtube-red w-[30%] relative">
 
                                 {/* The Ball (Scrubber) */}
-                                <div className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-1/2 bg-youtube-red h-3 w-3 rounded-full shadow-md"></div>
+                                <div className="absolute right-0 top-1/2 z-1000 -translate-y-1/2 translate-x-1/2 bg-youtube-red h-3 w-3 rounded-full shadow-md"></div>
 
                             </div>
                         </div>
@@ -292,7 +292,7 @@ export default function VideoPlayer({ source, title }: VideoPlayerProps) {
 
                     <div className=" text-cool-gray flex items-center gap-1 ">
                         1.0
-                        <svg className="pointer-events-none -rotate-90" xmlns="http://www.w3.org/2000/svg" height="26px" width="26px" viewBox="0 -960 960 960" fill="currentColor"><path d="M480-357.85 253.85-584 296-626.15l184 184 184-184L706.15-584 480-357.85Z" /></svg>
+                        <DownArrowIcon className="-rotate-90" />
                     </div>
 
                 </button>
@@ -341,7 +341,7 @@ export default function VideoPlayer({ source, title }: VideoPlayerProps) {
                     }}
                 >
                     <span>
-                        <svg className="pointer-events-none" style={{ visibility: caption.selected ? "visible" : "hidden" }} xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="currentColor"><path d="M382-240 154-468l57-57 171 171 367-367 57 57-424 424Z" /></svg>
+                        <TickIcon style={{ visibility: caption.selected ? "visible" : "hidden" }} />
                     </span>
                     {caption.value}
                 </button>)}

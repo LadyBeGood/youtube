@@ -8,7 +8,7 @@ import { useEffect, useLayoutEffect, useRef, useState, type PointerEvent } from 
  * - Customizable snap points (Low, Middle, High).
  * - GPU-accelerated transforms only, no layout thrashing.
  */
-const BottomSheet = ({ isBottomSheetOpen = false, onBottomSheetClose, children, low = 0, middle = 50, high = 100 }) => {
+const BottomSheet = ({ type = 1, isBottomSheetOpen = false, overlay = true, onBottomSheetClose, children, low = 0, middle = 50, high = 100, height = "", zIndex = 999 }) => {
     console.log("bottomsheet");
     /**********************************
      * Constants
@@ -200,22 +200,25 @@ const BottomSheet = ({ isBottomSheetOpen = false, onBottomSheetClose, children, 
     return (
         <>
             {/* Overlay */}
-            <div 
-                ref={overlayRef}
-                className={`transition-opacity duration-${ANIMATION_DURATION} fixed opacity-0 bottom-0 left-0 right-0 bg-black/75 z-998`}
-                style={{ opacity: isBottomSheetOpen ? "70%" : "0" }}
-                onClick={onBottomSheetClose}
-            />
+            {overlay && 
+                <div
+                    ref={overlayRef}
+                    className={`transition-opacity duration-${ANIMATION_DURATION} fixed opacity-0 bottom-0 left-0 right-0 bg-black/75 z-998`}
+                    style={{ opacity: isBottomSheetOpen ? "70%" : "0" }}
+                    onClick={onBottomSheetClose}
+                />
+            }
 
 
             {/* Bottom Sheet */}
             <div
                 ref={bottomSheetRef}
 
-                className={`pb-2 px-2 touch-none select-none max-h-[100svh] fixed bottom-0 left-0 right-0 z-999 transition-transform duration-${ANIMATION_DURATION}`}
+                className={`touch-none select-none max-h-[100svh] fixed bottom-0 left-0 right-0 z-${zIndex} transition-transform duration-${ANIMATION_DURATION} ` + (type === 1 ? `pb-2 px-2` : "bg-[#212121] p-2")}
                 style={{
                     transform: `translateY(${isBottomSheetOpen ? String(bottomSheetTranslateY) : "100"}%)`,
                     transitionProperty: isPointerDown ? "none" : "transform",
+                    height: height,
                 }}
                 
                 // For touch devices
@@ -248,7 +251,7 @@ const BottomSheet = ({ isBottomSheetOpen = false, onBottomSheetClose, children, 
                 {/* Content */}
                 <div 
                     ref={bottomSheetContentRef}
-                    className="bg-[#212121] py-2 rounded-xl"
+                    className={type === 1 ? "bg-[#212121] py-2 rounded-xl" : ""}
                 >
                     {/* Drag Handle */}
                     <div className="flex h-full pb-2 justify-center">

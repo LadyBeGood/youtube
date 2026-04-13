@@ -1,5 +1,5 @@
 import { NavLink, Link } from "react-router-dom"
-import { SearchIcon, NotificationsIcon } from "./Icons"
+import { SearchIcon, NotificationsIcon, FilledNotificationsIcon } from "./Icons"
 
 
 export default function TopBar() {
@@ -12,7 +12,7 @@ export default function TopBar() {
                 
                 <div className="flex items-center content-between gap-5">
                     <NavLink to="/notifications" className="flex items-center flex-col">
-                        {({ isActive }) => <NotificationsIcon isActive={isActive} />}
+                        {({ isActive }) => isActive ? <FilledNotificationsIcon /> : <NotificationsIcon />}
                     </NavLink>
                     <Link to="/search">
                         <SearchIcon />

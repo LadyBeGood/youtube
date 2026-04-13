@@ -1,3 +1,4 @@
+import { FlagIcon, ShareIcon } from "../../components/Icons";
 import ScrollableTabs from "../../components/ScrollableTabs";
 import About from "./About";
 import Courses from "./Courses";
@@ -36,10 +37,10 @@ export default function Channel() {
 
                 <div className="flex justify-end h-8 mt-2 mr-4 gap-2">
                     <button className="hover:bg-white/20 grid place-items-center aspect-square rounded-full">
-                        <svg xmlns="http://www.w3.org/2000/svg" width={24} height={24} viewBox="0 0 24 24"><path fill="currentColor" d="M6 20.5V5h7.192l.4 2H19v8h-5.192l-.4-2H7v7.5zm8.65-6.5H18V8h-5.25l-.4-2H7v6h7.25z"></path></svg>
+                        <FlagIcon />
                     </button>
                     <button className="hover:bg-white/20 grid place-items-center aspect-square rounded-full">
-                        <svg xmlns="http://www.w3.org/2000/svg" width={24} height={24} viewBox="0 0 24 24"><path fill="currentColor" d="M19.59 12L15 7.41v2.46l-.86.13c-4.31.61-7.23 2.87-8.9 6.33c2.32-1.64 5.2-2.43 8.76-2.43h1v2.69m-2-1.69v.02c-4.47.21-7.67 1.82-10 5.08c1-5 4-10 11-11V5l7 7l-7 7v-4.1c-.33 0-.66.01-1 .02Z"></path></svg>
+                        <ShareIcon />
                     </button>
                 </div>
 

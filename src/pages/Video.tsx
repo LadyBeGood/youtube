@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useLayoutEffect, useRef, useState } from "react";
 import { LikeIcon, DislikeIcon, DownArrowIcon, CommentIcon, ShareIcon, BookmarkIcon, DownloadIcon, FlagIcon } from "../components/Icons"
 import VideoCard from "../components/VideoCard"
 import VideoPlayer from "../components/VideoPlayer"
@@ -8,13 +8,30 @@ import { NavLink } from "react-router-dom";
 
 export default function Video() {
     const [isCommentsBottomSheetOpen, setIsCommentsBottomSheetOpen] = useState(false);
+    const [isDescriptionBottomSheetOpen, setIsDescriptionBottomSheetOpen] = useState(false);
+
+    const videoPlayerRef = useRef<HTMLDivElement>(null);
+    const [videoPlayerHeight, setVideoPlayerHeight] = useState(0);
+
+    useEffect(() => {
+        if (!videoPlayerRef.current) return;
+
+        const observer = new ResizeObserver((entries) => {
+            setVideoPlayerHeight(entries[0].contentRect.height);
+        });
+
+        observer.observe(videoPlayerRef.current);
+        return () => observer.disconnect();
+    }, []);
 
     return (
         <>
             <div className="min-w-full">
-                <VideoPlayer source="./dog.mp4" title="What Does A Tiny Kitten Do When He Finds A Sleeping Golden Retriever Puppy" />
+                <div ref={videoPlayerRef}>
+                    <VideoPlayer source="./dog.mp4" title="What Does A Tiny Kitten Do When He Finds A Sleeping Golden Retriever Puppy" />
+                </div>
 
-                <button className="px-3 pt-3 pb-2 flex text-start select-text">
+                <button className="px-3 pt-3 pb-2 flex text-start select-text" onClick={() => setIsDescriptionBottomSheetOpen(!isDescriptionBottomSheetOpen)}>
                     <div className="text-lg/tight font-medium">
                         I Redesigned the ENTIRE YouTube UI from Scratch
                     </div>
@@ -100,10 +117,52 @@ export default function Video() {
 
             </div>
 
-            <BottomSheet isBottomSheetOpen={isCommentsBottomSheetOpen} middle={50} high={100} onBottomSheetClose={() => setIsCommentsBottomSheetOpen(false)}>
+            <BottomSheet type={2} overlay={false} isBottomSheetOpen={isCommentsBottomSheetOpen} height={"100svh"} middle={((window.innerHeight - videoPlayerHeight) / window.innerHeight) * 100} high={100} onBottomSheetClose={() => setIsCommentsBottomSheetOpen(false)}>
+                <div>TODO</div>
+                <div>TODO</div>
+                <div>TODO</div>
+                <div>TODO</div>
+                <div>TODO</div>
+                <div>TODO</div>
+                <div>TODO</div>
+                <div>TODO</div>
+                <div>TODO</div>
+                <div>TODO</div>
+                <div>TODO</div>
+                <div>TODO</div>
+                <div>TODO</div>
+                <div>TODO</div>
+                <div>TODO</div>
+                <div>TODO</div>
+                <div>TODO</div>
+                <div>TODO</div>
+                <div>TODO</div>
                 <div>TODO</div>
             </BottomSheet>
 
+            {/* Description */}
+            <BottomSheet type={2} overlay={false} isBottomSheetOpen={isDescriptionBottomSheetOpen} height={"100svh"} middle={((window.innerHeight - videoPlayerHeight) / window.innerHeight) * 100} high={100} onBottomSheetClose={() => setIsDescriptionBottomSheetOpen(false)}>
+                <div>TODO</div>
+                <div>TODO</div>
+                <div>TODO</div>
+                <div>TODO</div>
+                <div>TODO</div>
+                <div>TODO</div>
+                <div>TODO</div>
+                <div>TODO</div>
+                <div>TODO</div>
+                <div>TODO</div>
+                <div>TODO</div>
+                <div>TODO</div>
+                <div>TODO</div>
+                <div>TODO</div>
+                <div>TODO</div>
+                <div>TODO</div>
+                <div>TODO</div>
+                <div>TODO</div>
+                <div>TODO</div>
+                <div>TODO</div>
+            </BottomSheet >
         </>
     )
 }
