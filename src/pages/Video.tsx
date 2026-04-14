@@ -4,6 +4,8 @@ import VideoCard from "../components/VideoCard"
 import VideoPlayer from "../components/VideoPlayer"
 import BottomSheet from "../components/BottomSheet";
 import { NavLink } from "react-router-dom";
+import Post from "../components/Post";
+import Comment from "../components/Comment";
 
 
 export default function Video() {
@@ -27,7 +29,7 @@ export default function Video() {
     return (
         <>
             <div className="min-w-full">
-                <div ref={videoPlayerRef}>
+                <div ref={videoPlayerRef} className="sticky top-0 z-1">
                     <VideoPlayer source="./dog.mp4" title="What Does A Tiny Kitten Do When He Finds A Sleeping Golden Retriever Puppy" />
                 </div>
 
@@ -81,7 +83,7 @@ export default function Video() {
                     {/* Comments Button */}
                     <button className="pl-3 pr-4 bg-dark-gray rounded-full flex items-center text-[12px] gap-2" onClick={() => setIsCommentsBottomSheetOpen(!isCommentsBottomSheetOpen)}>
                         {/* This was created by Gemini */}
-                        <CommentIcon height={18} width={18}  />
+                        <CommentIcon height={18} width={18} />
                         <div className="font-medium">3.1K</div>
                     </button>
 
@@ -111,34 +113,28 @@ export default function Video() {
                 </div>
 
 
-                <VideoCard title={"How I Animate In Desmos Graphing Calculator"} channel={"CodingHunger"} profilePictureURL={"./avatar1.webp"} views={"12K"} uploadDate={"1 year ago"} thumbnailURL={"./thumbnail1.webp"} duration={"4:17:17"} />
-                <VideoCard title={"How I Animate In Desmos Graphing Calculator"} channel={"CodingHunger"} profilePictureURL={"./avatar1.webp"} views={"12K"} uploadDate={"1 year ago"} thumbnailURL={"./thumbnail1.webp"} duration={"4:17:17"} />
-                <VideoCard title={"How I Animate In Desmos Graphing Calculator"} channel={"CodingHunger"} profilePictureURL={"./avatar1.webp"} views={"12K"} uploadDate={"1 year ago"} thumbnailURL={"./thumbnail1.webp"} duration={"4:17:17"} />
+                <VideoCard title={"How I Animate In Desmos Graphing Calculator"} channel={"CodingHunger"} profilePictureURL={"./avatar1.webp"} views={"12K"} uploadDate={"1 year ago"} thumbnailURL={"./thumbnail1.webp"} duration={"9:38"} />
+                <VideoCard title={"How I Animate In Desmos Graphing Calculator"} channel={"CodingHunger"} profilePictureURL={"./avatar1.webp"} views={"12K"} uploadDate={"1 year ago"} thumbnailURL={"./thumbnail1.webp"} duration={"9:38"} />
+                <VideoCard title={"How I Animate In Desmos Graphing Calculator"} channel={"CodingHunger"} profilePictureURL={"./avatar1.webp"} views={"12K"} uploadDate={"1 year ago"} thumbnailURL={"./thumbnail1.webp"} duration={"9:38"} />
+                <Post className="mb-6 mt-4" {...{
+                    id: 2,
+                    avatar: "./avatar1.webp", name: "Michael Faraday", date: "1 week ago",
+                    body: "Hot take: most people fundamentally misunderstand what electricity actually is. It's not electrons flowing like water in a pipe. Thread incoming.",
+                    likes: "5.1K", dislikes: "24", comments: "412",
+                }} />
+                <VideoCard title={"How I Animate In Desmos Graphing Calculator"} channel={"CodingHunger"} profilePictureURL={"./avatar1.webp"} views={"12K"} uploadDate={"1 year ago"} thumbnailURL={"./thumbnail1.webp"} duration={"9:38"} />
 
             </div>
 
             <BottomSheet type={2} overlay={false} isBottomSheetOpen={isCommentsBottomSheetOpen} height={"100svh"} middle={((window.innerHeight - videoPlayerHeight) / window.innerHeight) * 100} high={100} onBottomSheetClose={() => setIsCommentsBottomSheetOpen(false)}>
-                <div>TODO</div>
-                <div>TODO</div>
-                <div>TODO</div>
-                <div>TODO</div>
-                <div>TODO</div>
-                <div>TODO</div>
-                <div>TODO</div>
-                <div>TODO</div>
-                <div>TODO</div>
-                <div>TODO</div>
-                <div>TODO</div>
-                <div>TODO</div>
-                <div>TODO</div>
-                <div>TODO</div>
-                <div>TODO</div>
-                <div>TODO</div>
-                <div>TODO</div>
-                <div>TODO</div>
-                <div>TODO</div>
-                <div>TODO</div>
+                <Comment />
+                
             </BottomSheet>
+
+            {/* <BottomSheet type={2} overlay={false} isBottomSheetOpen={isCommentsBottomSheetOpen} height={"80px"} middle={((window.innerHeight - videoPlayerHeight) / window.innerHeight) * 100} high={100} onBottomSheetClose={() => setIsCommentsBottomSheetOpen(false)}>
+                aaaa
+            </BottomSheet> */}
+            
 
             {/* Description */}
             <BottomSheet type={2} overlay={false} isBottomSheetOpen={isDescriptionBottomSheetOpen} height={"100svh"} middle={((window.innerHeight - videoPlayerHeight) / window.innerHeight) * 100} high={100} onBottomSheetClose={() => setIsDescriptionBottomSheetOpen(false)}>

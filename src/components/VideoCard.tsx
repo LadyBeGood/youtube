@@ -20,7 +20,7 @@ export default function VideoCard({ isMusical = false, title, channel, profilePi
         <div className="select-none">
             <button className="relative" onClick={() => navigate("/video")}>
                 <img src={thumbnailURL} alt="thumbnail" />
-                <div className="absolute rounded right-2 bottom-1 bg-[#00000090] flex text-[10px] justify-around text-white items-center px-1.5 py-0.5 ">
+                <div className="absolute rounded right-2 bottom-1 bg-[#00000090] flex text-xs justify-around text-white items-center px-1.5 py-0.5 ">
                     {isMusical &&
                         <span className="material-symbols-outlined" style={{ fontSize: "12px", fontVariationSettings: `"FILL" 1, "wght" 400,"GRAD" 0` }}>music_note</span>
                     }
