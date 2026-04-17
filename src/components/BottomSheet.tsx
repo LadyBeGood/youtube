@@ -257,10 +257,10 @@ const BottomSheet = ({ type = 1, isBottomSheetOpen = false, overlay = true, onBo
                 {/* Content */}
                 <div 
                     ref={bottomSheetContentRef}
-                    className={type === 1 ? "bg-[#212121] pb-2 rounded-xl relative" : ""}
+                    className={type === 1 ? "bg-[#212121] py-2 rounded-xl relative" : ""}
                 >
                     {/* Drag Handle */}
-                    <div className="flex h-full pt-2.5 justify-center ">
+                    <div className="flex h-full pb-2 justify-center ">
                         <div className="h-1 w-10 rounded-full bg-[#606060]" />
                     </div>
 
