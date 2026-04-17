@@ -9,6 +9,8 @@ import Search from "./pages/Search"
 import Notifications from "./pages/Notifications"
 import Video from "./pages/Video"
 import Channel from "./pages/Channel/Channel"
+import Shorts from "./pages/Shorts"
+import Layout2 from "./components/Layout2"
 
 
 
@@ -24,6 +26,11 @@ export function App() {
                     <Route path="/notifications" element={<Notifications />}></Route>
                     <Route path="/channel" element={<Channel />}></Route>
                 </Route>
+                
+                <Route path="/" element={<Layout2 />}>
+                    <Route path="/shorts" element={<Shorts />}></Route>
+                </Route>
+
 
                 <Route path="/search" element={<Search />}></Route>
                 <Route path="/video" element={<Video />}></Route>

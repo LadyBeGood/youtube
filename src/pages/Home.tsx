@@ -9,7 +9,7 @@ export default function Home() {
 
 
     return (
-        <div className="overflow-y-scroll no-scrollbar">
+        <div className="overflow-y-auto no-scrollbar">
             <RecommendationsBar isHomePage={true} />
 
             <VideoCard title={"How I Animate In Desmos Graphing Calculator"} channel={"CodingHunger"} profilePictureURL={"./avatar1.webp"} views={"12K"} uploadDate={"1 year ago"} thumbnailURL={"./thumbnail1.webp"} duration={"9:38"} />

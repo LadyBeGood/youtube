@@ -1,11 +1,9 @@
 import { Outlet } from "react-router-dom"
-import TopBar from "./TopBar"
 import BottomBar from "./BottomBar"
 
 const Layout = () => {
     return (
-        <div className="h-svh overflow-hidden grid grid-rows-[auto_1fr_auto]">
-            <TopBar />
+        <div className="h-svh overflow-hidden grid grid-rows-[1fr_auto]">
             <Outlet />
             <BottomBar />
         </div>

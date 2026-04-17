@@ -2,7 +2,7 @@ import { useRef, useState, useEffect, type RefObject } from "react";
 import { type ChangeEvent, type MouseEvent } from "react";
 import BottomSheet from "./BottomSheet";
 import Toggle from "./Toggle";
-import { AmbientIcon, CaptionIcon, DownArrowIcon, FullscreenIcon, LoopIcon, NextIcon, PauseIcon, PlaybackSpeedIcon, PlayIcon, PreviousIcon, SettingsIcon, TickIcon } from "./Icons";
+import { AmbientIcon, CaptionIcon, DownArrowIcon, MaximiseIcon, LoopIcon, NextIcon, PauseIcon, PlaybackSpeedIcon, PlayIcon, PreviousIcon, SettingsIcon, TickIcon } from "./Icons";
 
 type VideoPlayerProps = {
     source: string;
@@ -72,7 +72,7 @@ export default function VideoPlayer({ source, title }: VideoPlayerProps) {
         }
     };
 
-    
+
     async function toggleFullscreen() {
         if (!videoContainerRef.current) return;
 
@@ -83,7 +83,7 @@ export default function VideoPlayer({ source, title }: VideoPlayerProps) {
                 // Typescript gives error on this line if not written this way
                 // See: https://github.com/microsoft/TypeScript-DOM-lib-generator/issues/1615#issuecomment-1825510566
                 await window.screen.orientation["lock"]("landscape").catch(() => { });
-                
+
                 setIsFullscreen(true);
             } else {
 
@@ -98,9 +98,9 @@ export default function VideoPlayer({ source, title }: VideoPlayerProps) {
             console.error("Fullscreen/Orientation toggle failed:", error);
         }
     }
-    
 
-    
+
+
 
     function handleClick(event: MouseEvent<HTMLDivElement>) {
         // document and window can also be an EventTarget, we only want html button elements
@@ -127,7 +127,7 @@ export default function VideoPlayer({ source, title }: VideoPlayerProps) {
                 toggleFullscreen();
                 break;
             case "duration":
-                
+
                 break;
             default:
                 null
@@ -152,9 +152,9 @@ export default function VideoPlayer({ source, title }: VideoPlayerProps) {
                 />
 
                 {/* Overlay UI */}
-                <div 
+                <div
                     className={`absolute inset-0 bg-black/60 flex flex-col justify-between transition-opacity duration-300 ${showControls ? "opacity-100" : "opacity-0 pointer-events-none"}`}
-                    style={isFullscreen ? {padding: "0px 32px 32px"} : {}}
+                    style={isFullscreen ? { padding: "0px 32px 32px" } : {}}
                 >
 
                     {/* Top Bar (Title/Buttons could go here) */}
@@ -215,15 +215,15 @@ export default function VideoPlayer({ source, title }: VideoPlayerProps) {
                                     {availableQualities.find(quality => quality.selected)!.value}
                                 </button>
                                 <button data-action="fullscreen" className="hover:bg-white/10 h-max p-2">
-                                    <FullscreenIcon size={12} />
+                                    <MaximiseIcon size={12} />
                                 </button>
                             </div>
                         </div>
 
                         {/* YouTube Red Scrubber */}
-                        <div 
+                        <div
                             className="h-0.5 absolute bg-cool-gray/40 bottom-0 left-0 right-0 cursor-pointer"
-                            style={isFullscreen ? { marginInline: "16px"} : {}}>
+                            style={isFullscreen ? { marginInline: "16px" } : {}}>
                             {/* Progress Fill (Optional, but makes it look like YouTube) */}
                             <div className="h-full bg-youtube-red w-[30%] relative">
 
@@ -234,7 +234,7 @@ export default function VideoPlayer({ source, title }: VideoPlayerProps) {
                         </div>
 
                         {/* Bottom */}
-                        {isFullscreen && 
+                        {isFullscreen &&
                             <div>
                                 aaa
                                 aaa
@@ -257,10 +257,10 @@ export default function VideoPlayer({ source, title }: VideoPlayerProps) {
             {/* Bottom Sheet for quality settings */}
             <BottomSheet isBottomSheetOpen={isQualityBottomSheetOpen} middle={100} onBottomSheetClose={() => setIsQualityBottomSheetOpen(false)}>
                 {availableQualities.map((quality, index) =>
-                    <button 
-                        data-quality-value={quality.value} 
-                        className="h-13 px-4 w-full hover:bg-white/10 flex items-center gap-3" 
-                        key={index} 
+                    <button
+                        data-quality-value={quality.value}
+                        className="h-13 px-4 w-full hover:bg-white/10 flex items-center gap-3"
+                        key={index}
                         onClick={(event) => {
                             const selectedValue = event.currentTarget.dataset.qualityValue;
                             console.log(selectedValue);
@@ -268,7 +268,7 @@ export default function VideoPlayer({ source, title }: VideoPlayerProps) {
                                 ...quality,
                                 selected: quality.value === selectedValue
                             })));
-                            
+
                             setTimeout(() => setIsQualityBottomSheetOpen(false), BOTTOM_SHEET_CLOSE_DELAY)
                         }}
                     >
@@ -296,7 +296,7 @@ export default function VideoPlayer({ source, title }: VideoPlayerProps) {
                     </div>
 
                 </button>
-                
+
                 <button className="flex gap-6 h-13 w-full hover:bg-white/10 items-center px-4" onClick={() => { setLoopVideo(!loopVideo) }}>
                     <LoopIcon />
 
@@ -307,8 +307,8 @@ export default function VideoPlayer({ source, title }: VideoPlayerProps) {
                     <Toggle isToggled={loopVideo} />
                 </button>
 
-                <button 
-                    className="flex gap-6 h-13 w-full hover:bg-white/10 items-center px-4" 
+                <button
+                    className="flex gap-6 h-13 w-full hover:bg-white/10 items-center px-4"
                     onClick={() => { setAmbientMode(!ambientMode) }}
                 >
                     <AmbientIcon />
@@ -324,27 +324,27 @@ export default function VideoPlayer({ source, title }: VideoPlayerProps) {
 
             {/* Captions Bottom Sheet */}
             <BottomSheet isBottomSheetOpen={isCaptionsBottomSheetOpen} middle={100} onBottomSheetClose={() => setIsCaptionsBottomSheetOpen(false)}>
-                {availableCaptions.map((caption, index) => 
-                <button 
-                    key={index} 
-                    data-caption-value={caption.value} 
-                    className="flex w-full h-13 items-center px-4 hover:bg-white/10 gap-3" 
-                    onClick={(event) => {
-                        const selectedValue = event.currentTarget.dataset.captionValue;
-                        console.log(selectedValue);
-                        setAvailableCaptions(availableCaptions.map(caption => ({
-                            ...caption,
-                            selected: caption.value === selectedValue
-                        })));
+                {availableCaptions.map((caption, index) =>
+                    <button
+                        key={index}
+                        data-caption-value={caption.value}
+                        className="flex w-full h-13 items-center px-4 hover:bg-white/10 gap-3"
+                        onClick={(event) => {
+                            const selectedValue = event.currentTarget.dataset.captionValue;
+                            console.log(selectedValue);
+                            setAvailableCaptions(availableCaptions.map(caption => ({
+                                ...caption,
+                                selected: caption.value === selectedValue
+                            })));
 
-                        setTimeout(() => setIsCaptionsBottomSheetOpen(false), BOTTOM_SHEET_CLOSE_DELAY)
-                    }}
-                >
-                    <span>
-                        <TickIcon style={{ visibility: caption.selected ? "visible" : "hidden" }} />
-                    </span>
-                    {caption.value}
-                </button>)}
+                            setTimeout(() => setIsCaptionsBottomSheetOpen(false), BOTTOM_SHEET_CLOSE_DELAY)
+                        }}
+                    >
+                        <span>
+                            <TickIcon style={{ visibility: caption.selected ? "visible" : "hidden" }} />
+                        </span>
+                        {caption.value}
+                    </button>)}
             </BottomSheet>
         </>
     );

@@ -240,7 +240,7 @@ export function NextIcon(props: IconProps) {
     )
 }
 
-export function FullscreenIcon(props: IconProps) {
+export function MaximiseIcon(props: IconProps) {
     return (
         <IconWrapper viewBox="0 0 18 18" {...props}>
             <path d="M0 18V11H2V16H7V18H0ZM11 18V16H16V11H18V18H11ZM0 7V0H7V2H2V7H0ZM16 7V2H11V0H18V7H16Z" fill="currentColor" />
@@ -259,7 +259,7 @@ export function TickIcon(props: IconProps) {
 export function ListViewIcon(props: IconProps) {
     return (
         <IconWrapper viewBox="0 0 24 24" fill="transparent" {...props}>
-            <path d="M19.5 16.5V19.5H4.5V16.5H19.5ZM19.5 10.5V13.5H4.5V10.5H19.5ZM19.5 4.5V7.5H4.5V4.5H19.5Z" stroke="white" />
+            <path d="M19.5 16.5V19.5H4.5V16.5H19.5ZM19.5 10.5V13.5H4.5V10.5H19.5ZM19.5 4.5V7.5H4.5V4.5H19.5Z" stroke="currentColor" />
         </IconWrapper>
     )
 }
@@ -326,6 +326,38 @@ export function NorthWestArrowIcon(props: IconProps) {
     return (
         <IconWrapper {...props}>
             <path d="m712.46-268.46-404-403.23V-300h-40v-440h440v40H336.77L740-296l-27.54 27.54Z" />
+        </IconWrapper>
+    )
+}
+
+export function ShortsIcon(props: IconProps) {
+    return (
+        <IconWrapper viewBox="0 0 48 48" {...props}>
+            <g clipPath="url(#clip0_120_686)">
+                <path fillRule="evenodd" clipRule="evenodd" d="M13.1112 16.2237C10.2414 17.8805 9.25819 21.5501 10.915 24.4198C11.7764 25.9117 13.1798 26.8932 14.7356 27.26C15.1346 27.3541 15.4358 27.6822 15.4954 28.0878C15.5551 28.4934 15.3611 28.8944 15.0061 29.0994L12.6112 30.482C9.74148 32.1389 8.75823 35.8084 10.4151 38.6782C12.0719 41.5479 15.7415 42.5312 18.6112 40.8743L34.1997 31.8743C37.0694 30.2175 38.0527 26.5479 36.3958 23.6782C35.5345 22.1864 34.1311 21.2048 32.5753 20.838C32.1763 20.7439 31.8751 20.4158 31.8154 20.0102C31.7558 19.6046 31.9498 19.2036 32.3048 18.9986L34.6997 17.616C37.5694 15.9591 38.5527 12.2896 36.8958 9.41983C35.239 6.55007 31.5694 5.56682 28.6997 7.22368L13.1112 16.2237ZM9.18299 25.4198C6.97385 21.5935 8.28486 16.7008 12.1112 14.4916L27.6997 5.49163C31.526 3.28249 36.4187 4.59349 38.6279 8.41983C40.837 12.2462 39.526 17.1389 35.6997 19.348L35.1018 19.6932C36.3212 20.3731 37.3791 21.3812 38.1279 22.6782C40.337 26.5045 39.026 31.3972 35.1997 33.6064L19.6112 42.6064C15.7849 44.8155 10.8922 43.5045 8.68303 39.6782C6.47389 35.8518 7.78489 30.9591 11.6112 28.75L12.2091 28.4048C10.9897 27.7249 9.93179 26.7168 9.18299 25.4198Z" fill="currentColor" />
+                <path d="M30 24.0001L21 29.1963L21 18.804L30 24.0001Z" fill="currentColor" />
+            </g>
+            <defs>
+                <clipPath id="clip0_120_686">
+                    <rect width="48" height="48" fill="currentColor" />
+                </clipPath>
+            </defs>
+        </IconWrapper>
+    )
+}
+
+export function FilledShortsIcon(props: IconProps) {
+    return (
+        <IconWrapper viewBox="0 0 48 48" {...props}>
+            <path fill-rule="evenodd" clip-rule="evenodd" d="M12.1113 14.4913C8.28491 16.7005 6.97391 21.5932 9.18305 25.4195C9.93185 26.7165 10.9897 27.7247 12.2091 28.4045L11.6113 28.7497C7.78495 30.9588 6.47395 35.8516 8.68309 39.6779C10.8922 43.5042 15.7849 44.8152 19.6113 42.6061L35.1997 33.6061C39.0261 31.397 40.3371 26.5042 38.128 22.6779C37.3792 21.3809 36.3213 20.3728 35.1019 19.6929L35.6997 19.3478C39.5261 17.1386 40.8371 12.2459 38.6279 8.41955C36.4188 4.59321 31.5261 3.28221 27.6997 5.49135L12.1113 14.4913ZM21 29.1961L30 24L21 18.8038L21 29.1961Z" fill="currentColor" />
+        </IconWrapper>
+    )
+}
+
+export function FullscreenIcon(props: IconProps) {
+    return (
+        <IconWrapper {...props}>
+            <path d="M240-240v-200h40v160h160v40H240Zm440-280v-160H520v-40h200v200h-40Z" />
         </IconWrapper>
     )
 }

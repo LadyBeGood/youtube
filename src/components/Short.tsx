@@ -1,0 +1,55 @@
+import { CommentIcon, DislikeIcon, MaximiseIcon, LikeIcon, ShareIcon, FullscreenIcon, DownArrowIcon, BackIcon, MoreIcon, BookmarkIcon } from "./Icons";
+
+export default function Short() {
+    return (
+        <div className="h-full relative">
+            {/* <img src="./yellow.webp" className="h-full object-cover" /> */}
+
+            <div className="absolute top-0 left-0 right-0 flex px-4 justify-between mt-4">
+                <BackIcon />
+                <MoreIcon />
+            </div>
+
+            <div className="absolute bottom-0 left-0 right-0 items-end flex gap-4">
+
+                {/* Left */}
+                <div className="mb-4 shadow-black bg-black/50">
+                    <div className="flex items-center pl-4 gap-2.5 mb-2.5 text-sm">
+                        <img src="./avatar3.jpg" className="w-8 h-8 rounded-full" />
+                        <div>Nikola Tesla</div>
+                    </div>
+                    <div className="pl-4">
+                        I Redesigned the ENTIRE YouTube User Interface from Scratch 
+                        <DownArrowIcon className="inline" size={20}/>
+                    </div>
+                </div>
+
+                {/* Right */}
+                <div className="flex flex-col gap-6 pb-4 pr-4 text-xs items-center">
+                    <button className="flex flex-col items-center gap-1">
+                        <LikeIcon />
+                        34K
+                    </button>
+                    <button className="flex flex-col items-center gap-1">
+                        <DislikeIcon />
+                        326
+                    </button>
+                    <button className="flex flex-col items-center gap-1">
+                        <CommentIcon />
+                        1.3K
+                    </button>
+                    
+                    <button className="flex flex-col items-center gap-1">
+                        <BookmarkIcon />
+                        Save
+                    </button>
+
+                    <button className="flex flex-col items-center gap-1">
+                        <ShareIcon />
+                        Share
+                    </button>
+                </div>
+            </div>
+        </div>
+    )
+}
