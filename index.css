@@ -35,6 +35,7 @@ svg {
 
 img {
     user-select: none;
+    outline-width: 0;
 }
 /* hide page scrollbar */
 

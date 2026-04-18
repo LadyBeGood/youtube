@@ -2,7 +2,7 @@ import { CommentIcon, DislikeIcon, MaximiseIcon, LikeIcon, ShareIcon, Fullscreen
 
 export default function Short() {
     return (
-        <div className="h-full relative">
+        <div className="h-full relative bg-red-900 snap-start snap-always">
             {/* <img src="./yellow.webp" className="h-full object-cover" /> */}
 
             <div className="absolute top-0 left-0 right-0 flex px-4 justify-between mt-4">
@@ -13,7 +13,7 @@ export default function Short() {
             <div className="absolute bottom-0 left-0 right-0 items-end flex gap-4">
 
                 {/* Left */}
-                <div className="mb-4 shadow-black bg-black/50">
+                <div className="mb-4">
                     <div className="flex items-center pl-4 gap-2.5 mb-2.5 text-sm">
                         <img src="./avatar3.jpg" className="w-8 h-8 rounded-full" />
                         <div>Nikola Tesla</div>

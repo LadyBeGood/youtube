@@ -21,7 +21,7 @@ export default function Post({ className = "", avatar, name, date, body, likes, 
                     <img className="rounded-full" src={avatar} alt="" />
                 </div>
                 <div>
-                    <p className="text-sm font-medium text-white leading-none">{name}</p>
+                    <p className="text-sm  text-white leading-none">{name}</p>
                     <p className="text-xs text-cool-gray mt-0.5 select-none">{date}</p>
                 </div>
                 <button className="ml-auto p-1.5">

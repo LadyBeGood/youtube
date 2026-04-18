@@ -42,7 +42,7 @@ export default function VideoCard({ isMusical = false, title, channel, profilePi
                     </div>
                 </button>
 
-                <button className="shrink-0 p-1.5">
+                <button className="shrink-0 px-1.5">
                     <MoreIcon size={20} />
                 </button>
             </div>
