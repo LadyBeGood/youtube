@@ -2,10 +2,10 @@ import { CalendarIcon, InstagramIcon, LocationIcon, PatreonIcon, EarthIcon, Vide
 
 export default function About() {
     return (
-        <div className="px-4 py-6 flex flex-col gap-10">
+        <div className="px-4 py-6 flex flex-col gap-8">
             {/* Description */}
             <div className="space-y-1">
-                <h2 className="text-base font-medium">Description</h2>
+                <h2 className="text-lg font-medium">Description</h2>
                 <div className="flex flex-col gap-3 pt-2 text-sm">
                     <p>
                         Science, electricity, and the invisible forces that shape our world.
@@ -17,13 +17,13 @@ export default function About() {
 
             {/* Links */}
             <div className="space-y-1">
-                <h2 className="text-base font-medium">Links</h2>
+                <h2 className="text-lg font-medium">Links</h2>
                 <div className="flex flex-col gap-3 pt-2 text-sm">
                     {[
-                        { label: "Official Website", url: "branch.education",  icon: EarthIcon},
-                        { label: "Instagram",  url: "instagram.com/faraday", icon: InstagramIcon},
-                        { label: "X",          url: "x.com/faraday",         icon: XIcon},
-                        { label: "Patreon",    url: "patreon.com/faraday",   icon: PatreonIcon},
+                        { label: "Official Website", url: "faraday.me",            icon: EarthIcon },
+                        { label: "Instagram",        url: "instagram.com/faraday", icon: InstagramIcon },
+                        { label: "X",                url: "x.com/faraday",         icon: XIcon },
+                        { label: "Patreon",          url: "patreon.com/faraday",   icon: PatreonIcon },
                     ].map((link) => (
                         <a key={link.label} href="#" className="flex items-center gap-3">
                             <link.icon />
@@ -39,8 +39,8 @@ export default function About() {
 
             {/* Stats */}
             <div className="space-y-1">
-                <h2 className="text-base font-medium">Statistics</h2>
-                <div className="flex flex-col gap-3 pt-2 text-sm">
+                <h2 className="text-lg font-medium">Statistics</h2>
+                <div className="flex flex-col gap-4 pt-2 text-sm">
                     <p className="flex items-center gap-3">
                         <LocationIcon />
                         <span>United Kingdom</span>
