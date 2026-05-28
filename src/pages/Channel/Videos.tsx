@@ -2,16 +2,28 @@ import { GridViewIcon, ListViewIcon } from "../../components/Icons";
 import ThinVideoCard from "../../components/ThinVideoCard";
 
 export default function Videos() {
+    const isActive = false
     return (
-        <div className="">
-            <div className="h-12 flex justify-between items-center">
-                <div>
-
+        <div className=" px-3 ">
+            <div className="h-12 flex justify-between items-center my-2">
+                <div className="flex gap-2 text-sm">
+                    {["Latest", "Popular", "Oldest"].map((item, i) => 
+                        <button className={`whitespace-nowrap box-content px-2.5 py-1.5 rounded-lg text-sm
+                             ${i === 0 ? "bg-white text-dark-gray" : " text-white"}`}>
+                            {item}
+                        </button>
+                    )}
                 </div>
 
-                <div className="flex">
+                <div className="flex gap-1">
+                    <button className="bg-white whitespace-nowrap h-8 px-1 cursor-pointer flex items-center rounded-sm text-black">
+
                     <ListViewIcon />
+                    </button>
+                    <button className="bg-dark-gray whitespace-nowrap h-8 px-1 cursor-pointer flex items-center rounded-sm">
+
                     <GridViewIcon />
+                    </button>
                 </div>
             </div>
 

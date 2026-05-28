@@ -2,6 +2,7 @@ import { FlagIcon, ShareIcon } from "../../components/Icons";
 import ScrollableTabs from "../../components/ScrollableTabs";
 import About from "./About";
 import Courses from "./Courses";
+import Shorts from "./Shorts";
 import Live from "./Live";
 import Playlists from "./Playlists";
 import Podcasts from "./Podcasts";
@@ -15,10 +16,11 @@ export default function Channel() {
     const tabs = [
         { label: "About",     content: <About />     },
         { label: "Videos",    content: <Videos />    },
+        { label: "Shorts",    content: <Shorts /> },
         { label: "Playlists", content: <Playlists /> },
-        { label: "Live",      content: <Live />      },
-        { label: "Podcasts",  content: <Podcasts />  },
-        { label: "Courses",   content: <Courses />   },
+        // { label: "Live",      content: <Live />      },
+        // { label: "Podcasts",  content: <Podcasts />  },
+        // { label: "Courses",   content: <Courses />   },
         { label: "Posts",     content: <Posts />     },
         { label: "Shop",      content: <Shop />      },
     ];

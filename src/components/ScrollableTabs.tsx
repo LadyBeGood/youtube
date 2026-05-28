@@ -237,11 +237,12 @@ export default function ScrollableTabs({ tabs, defaultIndex = 0, onChange }: Scr
     return (
         <div className="w-[100vw]">
             {/* Tab strip */}
-            <div className="border-b h-10 bg-black z-1 border-white/20  w-[100vw] overflow-auto no-scrollbar sticky top-0">
+            <div className="border-b h-10 bg-black z-1 border-white/20  w-[100vw] overflow-x-auto no-scrollbar sticky top-0">
+                {/* This ref is also useless, I will refactor it later */}
                 <div
                     ref={stripRef}
                     role="tablist"
-                    className="flex select-none cursor-grab active:cursor-grabbing"
+                    className="flex select-none h-full"
                     style={{ scrollbarWidth: "none", WebkitOverflowScrolling: "touch" as never }}
                     // onMouseDown={onStripMouseDown}
                     // onMouseMove={onStripMouseMove}
@@ -255,7 +256,7 @@ export default function ScrollableTabs({ tabs, defaultIndex = 0, onChange }: Scr
                             role="tab"
                             onClick={(e) => onTabClick(e, i)}
                             className={[
-                                "flex-shrink-0 h-10 px-5",
+                                "flex-shrink-0 h-full px-5",
                                 "text-sm font-medium whitespace-nowrap",
                                 "hover:bg-white/15",
                                 i === active
