@@ -1,4 +1,4 @@
-import { CalendarIcon, LocationIcon, VideoIcon, ViewIcon } from "../../components/Icons"
+import { CalendarIcon, InstagramIcon, LocationIcon, PatreonIcon, EarthIcon, VideoIcon, ViewIcon, XIcon } from "../../components/Icons"
 
 export default function About() {
     return (
@@ -20,13 +20,14 @@ export default function About() {
                 <h2 className="text-base font-medium">Links</h2>
                 <div className="flex flex-col gap-3 pt-2 text-sm">
                     {[
-                        { label: "Twitter", url: "twitter.com/faraday" },
-                        { label: "Instagram", url: "instagram.com/faraday" },
-                        { label: "Patreon", url: "patreon.com/faraday" },
-                        { label: "Newsletter", url: "faraday.substack.com" }
+                        { label: "Official Website", url: "branch.education",  icon: EarthIcon},
+                        { label: "Instagram",  url: "instagram.com/faraday", icon: InstagramIcon},
+                        { label: "X",          url: "x.com/faraday",         icon: XIcon},
+                        { label: "Patreon",    url: "patreon.com/faraday",   icon: PatreonIcon},
                     ].map((link) => (
                         <a key={link.label} href="#" className="flex items-center gap-3">
-                            <LocationIcon />
+                            <link.icon />
+
                             <div>
                                 <div>{link.label}</div>
                                 <div className="text-blue-500">{link.url}</div>
