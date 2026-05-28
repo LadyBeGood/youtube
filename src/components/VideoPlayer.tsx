@@ -95,7 +95,7 @@ export default function VideoPlayer({ source, title }: VideoPlayerProps) {
                 setIsFullscreen(false);
             }
         } catch (error) {
-            console.error("Fullscreen/Orientation toggle failed:", error);
+            console.error("Fullscreen/Orientation toggle failed: ", error);
         }
     }
 

@@ -19,15 +19,19 @@ export default function ShortsCard({ thumbnail, title }: ShortsCardProps) {
                 </div>
             </div>
 
-            <div className="flex flex-col justify-between">
-                <div className="flex justify-between">
-                    <div className="text-sm line-clamp-3">
+            <div className="flex flex-col justify-between gap-2">
+                <div className="flex justify-between h-full">
+                    {/* This button */}
+                    <button className="flex text-sm line-clamp-6 h-full">
                         {title}
-                    </div>
-                    <MoreIcon className="shrink-0 mr-1 px-1.5 box-content" size={20} />
+                    </button>
+
+                    <button className="self-start">
+                        <MoreIcon className="shrink-0 mr-1 px-1.5 box-content pb-1.5" size={20} />
+                    </button>
                 </div>
 
-                <div className="mb-1 flex items-center gap-2">
+                <button className="flex items-center gap-2">
                     <div className="w-8 h-8">
                         <img className="rounded-full" src="./avatar3.jpg" alt="" />
                     </div>
@@ -36,7 +40,7 @@ export default function ShortsCard({ thumbnail, title }: ShortsCardProps) {
                         <p className="text-xs text-cool-gray mt-0.5 select-none">2.1M views · 5 days ago</p>
                     </div>
                     
-                </div>
+                </button>
             </div>
         </div>
     )

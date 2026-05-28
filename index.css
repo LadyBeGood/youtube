@@ -27,6 +27,7 @@ input {
 
 button {
     cursor: pointer;
+    text-align: left;
 }
 
 svg {
