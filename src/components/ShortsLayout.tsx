@@ -1,7 +1,7 @@
 import { Outlet } from "react-router-dom"
 import BottomBar from "./BottomBar"
 
-const Layout = () => {
+const ShortsLayout = () => {
     return (
         <div className="h-svh overflow-hidden grid grid-rows-[1fr_auto]">
             <Outlet />
@@ -9,4 +9,4 @@ const Layout = () => {
         </div>
     )
 }
-export default Layout
+export default ShortsLayout

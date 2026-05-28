@@ -4,13 +4,13 @@ import Home from "./pages/Home"
 import NotFound from "./pages/NotFound"
 import Profile from "./pages/Profile"
 import Subscriptions from "./pages/Subscriptions"
-import Layout from "./components/Layout"
+import DefaultLayout from "./components/DefaultLayout"
 import Search from "./pages/Search"
 import Notifications from "./pages/Notifications"
 import Video from "./pages/Video"
 import Channel from "./pages/Channel/Channel"
 import Shorts from "./pages/Shorts"
-import Layout2 from "./components/Layout2"
+import ShortsLayout from "./components/ShortsLayout"
 
 
 
@@ -19,15 +19,15 @@ export function App() {
         <BrowserRouter>
             <Routes>
 
-                <Route path="/" element={<Layout />}>
+                <Route path="/" element={<DefaultLayout />}>
                     <Route index element={<Home />}></Route>
                     <Route path="/profile" element={<Profile />}></Route>
                     <Route path="/subscriptions" element={<Subscriptions />}></Route>
                     <Route path="/notifications" element={<Notifications />}></Route>
                     <Route path="/channel" element={<Channel />}></Route>
                 </Route>
-                
-                <Route path="/" element={<Layout2 />}>
+
+                <Route path="/" element={<ShortsLayout />}>
                     <Route path="/shorts" element={<Shorts />}></Route>
                 </Route>
 
