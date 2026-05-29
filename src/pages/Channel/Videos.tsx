@@ -1,4 +1,4 @@
-import { GridViewIcon, ListViewIcon } from "../../components/Icons";
+import { GridViewIcon, ListViewIcon, List2ViewIcon } from "../../components/Icons";
 import ThinVideoCard from "../../components/ThinVideoCard";
 
 export default function Videos() {
@@ -15,14 +15,13 @@ export default function Videos() {
                     )}
                 </div>
 
-                <div className="flex gap-1">
-                    <button className="bg-white whitespace-nowrap h-8 px-1 cursor-pointer flex items-center rounded-sm text-black">
-
-                    <ListViewIcon />
+                <div className="flex">
+                    <button className="bg-white h-8 px-1 cursor-pointer flex items-center rounded-sm text-black">
+                        <ListViewIcon />
                     </button>
-                    <button className="bg-dark-gray whitespace-nowrap h-8 px-1 cursor-pointer flex items-center rounded-sm">
 
-                    <GridViewIcon />
+                    <button className="h-8 px-1 cursor-pointer flex items-center rounded-sm">
+                        <List2ViewIcon />
                     </button>
                 </div>
             </div>

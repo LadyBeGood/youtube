@@ -264,6 +264,14 @@ export function ListViewIcon(props: IconProps) {
     )
 }
 
+export function List2ViewIcon(props: IconProps) {
+    return (
+        <IconWrapper {...props} viewBox="0 0 60 60" fill="none">
+            <path d="M11.5 27V11.5H48.5V27H11.5ZM11.5 48.5V33H48.5V48.5H11.5ZM13.5 25H46.5V13.5H13.5V25ZM13.5 46.5H46.5V35H13.5V46.5Z" fill="currentColor" />
+        </IconWrapper>
+    )
+}
+
 export function GridViewIcon(props: IconProps) {
     return (
         <IconWrapper {...props}>
