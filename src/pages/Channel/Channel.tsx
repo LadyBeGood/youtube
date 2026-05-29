@@ -16,7 +16,7 @@ export default function Channel() {
     const tabs = [
         { label: "About",     content: <About />     },
         { label: "Videos",    content: <Videos />    },
-        { label: "Shorts",    content: <Shorts /> },
+        { label: "Shorts",    content: <Shorts />    },
         { label: "Playlists", content: <Playlists /> },
         // { label: "Live",      content: <Live />      },
         // { label: "Podcasts",  content: <Podcasts />  },
