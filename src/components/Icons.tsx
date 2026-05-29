@@ -402,6 +402,14 @@ export function VideoIcon(props: IconProps) {
     )
 }
 
+export function FilledVideoIcon(props: IconProps) {
+    return (
+        <IconWrapper {...props}>
+            <path d="M216-192q-29 0-50.5-21.5T144-264v-432q0-29.7 21.5-50.85Q187-768 216-768h432q29.7 0 50.85 21.15Q720-725.7 720-696v168l144-144v384L720-432v168q0 29-21.15 50.5T648-192H216Z" />
+        </IconWrapper>
+    )
+}
+
 export function InstagramIcon(props: IconProps) {
     return (
         <IconWrapper {...props} viewBox="0 0 24 24">

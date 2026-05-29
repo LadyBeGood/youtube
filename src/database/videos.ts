@@ -13,7 +13,7 @@ type Video = {
 
 export const videos: Video[] = [
     {
-        id: "v1",
+        id: "video-1",
         type: "video",
         isMusical: false,
         title: "How I Animate In Desmos Graphing Calculator",
@@ -25,7 +25,7 @@ export const videos: Video[] = [
         duration: "9:38"
     },
     {
-        id: "v2",
+        id: "video-2",
         type: "video",
         isMusical: false,
         title: "I Bought The Cheapest Electric Car on the Internet",
@@ -37,7 +37,7 @@ export const videos: Video[] = [
         duration: "14:20"
     },
     {
-        id: "v3",
+        id: "video-3",
         type: "video",
         isMusical: false,
         title: "Can This 3-Star Michelin Chef Fix My Horrible Cooking?",
@@ -49,7 +49,7 @@ export const videos: Video[] = [
         duration: "22:15"
     },
     {
-        id: "v4",
+        id: "video-4",
         type: "video",
         isMusical: false,
         title: "Minecraft, But Every Minute The World Shrinks",
@@ -61,7 +61,7 @@ export const videos: Video[] = [
         duration: "11:45"
     },
     {
-        id: "v5",
+        id: "video-5",
         type: "video",
         isMusical: false,
         title: "I Spent 30 Days in Japan's Most Expensive Capsule Hotel",
@@ -73,7 +73,7 @@ export const videos: Video[] = [
         duration: "18:02"
     },
     {
-        id: "v6",
+        id: "video-6",
         type: "video",
         isMusical: false,
         title: "Why Space Elevators Are Technically Impossible (For Now)",
@@ -85,7 +85,7 @@ export const videos: Video[] = [
         duration: "8:50"
     },
     {
-        id: "v7",
+        id: "video-7",
         type: "video",
         isMusical: true, 
         title: "LO-FI Beats for Studying / Relaxing ☕ (Chill Mix)",
@@ -97,7 +97,7 @@ export const videos: Video[] = [
         duration: "31:10"
     },
     {
-        id: "v8",
+        id: "video-8",
         type: "video",
         isMusical: false,
         title: "Is This $100 Used Laptop Actually Good for Gaming?",
@@ -109,7 +109,7 @@ export const videos: Video[] = [
         duration: "15:40"
     },
     {
-        id: "v9",
+        id: "video-9",
         type: "video",
         isMusical: false,
         title: "How Earth Would Look If the Dinosaurs Never Went Extinct",
@@ -121,7 +121,7 @@ export const videos: Video[] = [
         duration: "25:12"
     },
     {
-        id: "v10",
+        id: "video-10",
         type: "video",
         isMusical: false,
         title: "Building a Hidden Underground Gaming Setup from Scratch",
@@ -133,7 +133,7 @@ export const videos: Video[] = [
         duration: "10:05"
     },
     {
-        id: "v11",
+        id: "video-11",
         type: "video",
         isMusical: false,
         title: "The Ultimate 15-Minute Homemade Ramen Recipe",
@@ -145,7 +145,7 @@ export const videos: Video[] = [
         duration: "13:22"
     },
     {
-        id: "v12",
+        id: "video-12",
         type: "video",
         isMusical: false,
         title: "GTA 6 Map Leak: Everything We Know So Far",
@@ -157,7 +157,7 @@ export const videos: Video[] = [
         duration: "6:14"
     },
     {
-        id: "v13",
+        id: "video-13",
         type: "video",
         isMusical: false,
         title: "I Left My Dog in a Luxury Pet Hotel for 48 Hours",
@@ -169,7 +169,7 @@ export const videos: Video[] = [
         duration: "10:30"
     },
     {
-        id: "v14",
+        id: "video-14",
         type: "video",
         isMusical: false,
         title: "Every Single Easter Egg in the Marvel Universe Explained",
@@ -181,7 +181,7 @@ export const videos: Video[] = [
         duration: "22:40"
     },
     {
-        id: "v15",
+        id: "video-15",
         type: "video",
         isMusical: false,
         title: "The Physics of Why Ripped Jeans Are So Hard to Make",
@@ -193,7 +193,7 @@ export const videos: Video[] = [
         duration: "19:15"
     },
     {
-        id: "v16",
+        id: "video-16",
         type: "video",
         isMusical: false,
         title: "Speedrunner Beats Elden Ring Blindfolded in Under 1 Hour",
@@ -205,7 +205,7 @@ export const videos: Video[] = [
         duration: "21:03"
     },
     {
-        id: "v17",
+        id: "video-17",
         type: "video",
         isMusical: false,
         title: "I Tried Sleeping 8 Hours a Day For a Week (Shocking Results)",
@@ -217,7 +217,7 @@ export const videos: Video[] = [
         duration: "10:55"
     },
     {
-        id: "v18",
+        id: "video-18",
         type: "video",
         isMusical: false,
         title: "10 Simple Keyboard Shortcuts You Aren't Using",
@@ -229,7 +229,7 @@ export const videos: Video[] = [
         duration: "7:22"
     },
     {
-        id: "v19",
+        id: "video-19",
         type: "video",
         isMusical: true,
         title: "Interstellar Theme Song - Epic Orchestral Cover",
@@ -241,7 +241,7 @@ export const videos: Video[] = [
         duration: "6:45"
     },
     {
-        id: "v20",
+        id: "video-20",
         type: "video",
         isMusical: false,
         title: "I Built a Full Mechanical Keyboard Out of LEGO Bricks",

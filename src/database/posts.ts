@@ -14,7 +14,7 @@ type Post = {
 export const posts: Post[] = [
     {
         type: "post",
-        id: "v1",
+        id: "post-1",
         avatar: "./avatar1.webp",
         name: "Michael Faraday",
         date: "2 days ago",
@@ -26,7 +26,7 @@ export const posts: Post[] = [
     },
     {
         type: "post",
-        id: "v2",
+        id: "post-2",
         avatar: "./avatar1.webp",
         name: "Michael Faraday",
         date: "1 week ago",
@@ -37,7 +37,7 @@ export const posts: Post[] = [
     },
     {
         type: "post",
-        id: "v3",
+        id: "post-3",
         avatar: "./avatar1.webp",
         name: "Michael Faraday",
         date: "2 weeks ago",
@@ -49,7 +49,7 @@ export const posts: Post[] = [
     },
     {
         type: "post",
-        id: "v4",
+        id: "post-4",
         avatar: "./avatar1.webp",
         name: "Michael Faraday",
         date: "2 weeks ago",
@@ -60,7 +60,7 @@ export const posts: Post[] = [
     },
     {
         type: "post",
-        id: "v5",
+        id: "post-5",
         avatar: "./avatar1.webp",
         name: "Michael Faraday",
         date: "2 weeks ago",
@@ -71,7 +71,7 @@ export const posts: Post[] = [
     },
     {
         type: "post",
-        id: "v6",
+        id: "post-6",
         avatar: "./avatar1.webp",
         name: "Michael Faraday",
         date: "2 weeks ago",
@@ -84,7 +84,7 @@ export const posts: Post[] = [
     // Adding 14 more to make it 20 items:
     {
         type: "post",
-        id: "v7",
+        id: "post-7",
         avatar: "./avatar1.webp",
         name: "Michael Faraday",
         date: "3 weeks ago",
@@ -95,7 +95,7 @@ export const posts: Post[] = [
     },
     {
         type: "post",
-        id: "v8",
+        id: "post-8",
         avatar: "./avatar1.webp",
         name: "Michael Faraday",
         date: "3 weeks ago",
@@ -107,7 +107,7 @@ export const posts: Post[] = [
     },
     {
         type: "post",
-        id: "v9",
+        id: "post-9",
         avatar: "./avatar1.webp",
         name: "Michael Faraday",
         date: "1 month ago",
@@ -118,7 +118,7 @@ export const posts: Post[] = [
     },
     {
         type: "post",
-        id: "v10",
+        id: "post-10",
         avatar: "./avatar1.webp",
         name: "Michael Faraday",
         date: "1 month ago",
@@ -130,7 +130,7 @@ export const posts: Post[] = [
     },
     {
         type: "post",
-        id: "v11",
+        id: "post-11",
         avatar: "./avatar1.webp",
         name: "Michael Faraday",
         date: "1 month ago",
@@ -141,7 +141,7 @@ export const posts: Post[] = [
     },
     {
         type: "post",
-        id: "v12",
+        id: "post-12",
         avatar: "./avatar1.webp",
         name: "Michael Faraday",
         date: "2 months ago",
@@ -153,7 +153,7 @@ export const posts: Post[] = [
     },
     {
         type: "post",
-        id: "v13",
+        id: "post-13",
         avatar: "./avatar1.webp",
         name: "Michael Faraday",
         date: "2 months ago",
@@ -164,7 +164,7 @@ export const posts: Post[] = [
     },
     {
         type: "post",
-        id: "v14",
+        id: "post-14",
         avatar: "./avatar1.webp",
         name: "Michael Faraday",
         date: "2 months ago",
@@ -175,7 +175,7 @@ export const posts: Post[] = [
     },
     {
         type: "post",
-        id: "v15",
+        id: "post-15",
         avatar: "./avatar1.webp",
         name: "Michael Faraday",
         date: "2 months ago",
@@ -187,7 +187,7 @@ export const posts: Post[] = [
     },
     {
         type: "post",
-        id: "v16",
+        id: "post-16",
         avatar: "./avatar1.webp",
         name: "Michael Faraday",
         date: "3 months ago",
@@ -198,7 +198,7 @@ export const posts: Post[] = [
     },
     {
         type: "post",
-        id: "v17",
+        id: "post-17",
         avatar: "./avatar1.webp",
         name: "Michael Faraday",
         date: "3 months ago",
@@ -210,7 +210,7 @@ export const posts: Post[] = [
     },
     {
         type: "post",
-        id: "v18",
+        id: "post-18",
         avatar: "./avatar1.webp",
         name: "Michael Faraday",
         date: "3 months ago",
@@ -221,7 +221,7 @@ export const posts: Post[] = [
     },
     {
         type: "post",
-        id: "v19",
+        id: "post-19",
         avatar: "./avatar1.webp",
         name: "Michael Faraday",
         date: "4 months ago",
@@ -233,7 +233,7 @@ export const posts: Post[] = [
     },
     {
         type: "post",
-        id: "v20",
+        id: "post-20",
         avatar: "./avatar1.webp",
         name: "Michael Faraday",
         date: "4 months ago",

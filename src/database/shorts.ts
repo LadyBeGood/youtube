@@ -13,7 +13,7 @@ type Short = {
 
 export const shorts: Short[] = [
     {
-        id: "s1",
+        id: "short-1",
         type: "short",
         isMusical: false,
         title: "Japan's Most Beautiful Restaurant 🍃",
@@ -25,7 +25,7 @@ export const shorts: Short[] = [
         duration: "0:45"
     },
     {
-        id: "s2",
+        id: "short-2",
         type: "short",
         isMusical: false,
         title: "A rich red bean paste and butter honey toast that gives you maximum guilty pleasure 🍞🧈",
@@ -37,7 +37,7 @@ export const shorts: Short[] = [
         duration: "0:58"
     },
     {
-        id: "s3",
+        id: "short-3",
         type: "short",
         isMusical: false,
         title: "SUBLIMAL MSG",
@@ -49,7 +49,7 @@ export const shorts: Short[] = [
         duration: "0:15"
     },
     {
-        id: "s4",
+        id: "short-4",
         type: "short",
         isMusical: false,
         title: "When the coffee kicks in right before the 9 AM meeting ☕🔥",
@@ -61,7 +61,7 @@ export const shorts: Short[] = [
         duration: "0:23"
     },
     {
-        id: "s5",
+        id: "short-5",
         type: "short",
         isMusical: false,
         title: "POV: You forgot to git commit before formatting your PC 💀",
@@ -73,7 +73,7 @@ export const shorts: Short[] = [
         duration: "0:41"
     },
     {
-        id: "s6",
+        id: "short-6",
         type: "short",
         isMusical: false,
         title: "Testing the world's strongest magnetic slime! 🧲",
@@ -85,7 +85,7 @@ export const shorts: Short[] = [
         duration: "0:50"
     },
     {
-        id: "s7",
+        id: "short-7",
         type: "short",
         isMusical: false,
         title: "The hidden paradise beach you didn't know existed in Europe 🌴",
@@ -97,7 +97,7 @@ export const shorts: Short[] = [
         duration: "0:35"
     },
     {
-        id: "s8",
+        id: "short-8",
         type: "short",
         isMusical: false,
         title: "How to perfectly slice an onion like a professional chef 🧅",
@@ -109,7 +109,7 @@ export const shorts: Short[] = [
         duration: "0:59"
     },
     {
-        id: "s9",
+        id: "short-9",
         type: "short",
         isMusical: true,
         title: "This keyboard sound test will cure your insomnia 💤",
@@ -121,7 +121,7 @@ export const shorts: Short[] = [
         duration: "0:45"
     },
     {
-        id: "s10",
+        id: "short-10",
         type: "short",
         isMusical: false,
         title: "Unboxing the rarest mechanical watch in the world ⌚✨",
@@ -133,7 +133,7 @@ export const shorts: Short[] = [
         duration: "0:52"
     },
     {
-        id: "s11",
+        id: "short-11",
         type: "short",
         isMusical: false,
         title: "Satisfying 3D printing timelapse: Iron Man Helmet 🤖",
@@ -145,7 +145,7 @@ export const shorts: Short[] = [
         duration: "0:30"
     },
     {
-        id: "s12",
+        id: "short-12",
         type: "short",
         isMusical: false,
         title: "I asked an AI to design a modern apartment and built it 🏢",
@@ -157,7 +157,7 @@ export const shorts: Short[] = [
         duration: "0:55"
     },
     {
-        id: "s13",
+        id: "short-13",
         type: "short",
         isMusical: false,
         title: "Fixing a broken iPhone screen in under 60 seconds 📱",
@@ -169,7 +169,7 @@ export const shorts: Short[] = [
         duration: "0:59"
     },
     {
-        id: "s14",
+        id: "short-14",
         type: "short",
         isMusical: false,
         title: "Dogs reacting to the 'fake walk' trick is pure gold 🐕😂",
@@ -181,7 +181,7 @@ export const shorts: Short[] = [
         duration: "0:14"
     },
     {
-        id: "s15",
+        id: "short-15",
         type: "short",
         isMusical: false,
         title: "The easiest 3-ingredient dessert you can make tonight 🍫",
@@ -193,7 +193,7 @@ export const shorts: Short[] = [
         duration: "0:40"
     },
     {
-        id: "s16",
+        id: "short-16",
         type: "short",
         isMusical: false,
         title: "Street food vendor setup speedrun in Bangkok 🍜",
@@ -205,7 +205,7 @@ export const shorts: Short[] = [
         duration: "0:28"
     },
     {
-        id: "s17",
+        id: "short-17",
         type: "short",
         isMusical: false,
         title: "What happens when you drop a bouncy ball from a skyscraper? 🔴",
@@ -217,7 +217,7 @@ export const shorts: Short[] = [
         duration: "0:47"
     },
     {
-        id: "s18",
+        id: "short-18",
         type: "short",
         isMusical: false,
         title: "The secret iOS feature you aren't using daily!",
@@ -229,7 +229,7 @@ export const shorts: Short[] = [
         duration: "0:39"
     },
     {
-        id: "s19",
+        id: "short-19",
         type: "short",
         isMusical: true,
         title: "This perspective drawing trick is mind-blowing ✏️🏃",
@@ -241,7 +241,7 @@ export const shorts: Short[] = [
         duration: "0:51"
     },
     {
-        id: "s20",
+        id: "short-20",
         type: "short",
         isMusical: false,
         title: "Can you solve this riddle in 15 seconds? 🧠🧩",
