@@ -2,34 +2,6 @@ import { useNavigate } from "react-router-dom"
 import { BackIcon, HistoryIcon, MicrophoneIcon, NorthWestArrowIcon } from "../components/Icons";
 
 
-const history = [
-    { name: "fireship",                 preview: "./thumbnail1.webp" },
-    { name: "bit manipulation",         preview: "" },
-    { name: "bihar news live",          preview: "" },
-    { name: "unbox therapy",            preview: "" },
-    { name: "rechargeable led bulb",    preview: "" },
-    { name: "kapil sharma",             preview: "" },
-    { name: "teded",                    preview: "" },
-    { name: "hyperplexed",              preview: "" },
-    { name: "t3gg",                     preview: "" },
-    { name: "valid parenthesis string", preview: "" },
-    { name: "candy leetcode",           preview: "" },
-    { name: "lemonade change",          preview: "" },
-    { name: "meeting rooms iii",        preview: "" },
-    { name: "meeting rooms",            preview: "" },
-    { name: "insert intervals", preview: "./thumbnail1.webp" },
-    { name: "insert intervals", preview: "./thumbnail1.webp" },
-    { name: "insert intervals", preview: "./thumbnail1.webp" },
-    { name: "insert intervals", preview: "./thumbnail1.webp" },
-    { name: "insert intervals", preview: "./thumbnail1.webp" },
-    { name: "insert intervals", preview: "./thumbnail1.webp" },
-    { name: "insert intervals", preview: "./thumbnail1.webp" },
-    { name: "insert intervals", preview: "./thumbnail1.webp" },
-    { name: "insert intervals", preview: "./thumbnail1.webp" },
-    { name: "insert intervals", preview: "./thumbnail1.webp" },
-]
-
-
 export default function Search() {
     const navigate = useNavigate();
 
@@ -49,7 +21,7 @@ export default function Search() {
 
 
             <div className="overflow-auto no-scrollbar">
-                {history.map(({ name, preview }) =>
+                {searchHistory.map(({ name, preview }) =>
                     <div className="flex items-center gap-2 hover:bg-white/10 h-14 px-4">
                         <div>
                             <HistoryIcon />

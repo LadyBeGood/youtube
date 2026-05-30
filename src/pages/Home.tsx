@@ -5,21 +5,23 @@ import RecommendationsBar from "../components/RecommendationsBar"
 import ShortsCard from "../components/ShortsCard"
 import VideoCard from "../components/VideoCard"
 import BottomSheet from "../components/BottomSheet";
+import ExploreMenu from "../components/ExploreMenu";
 
 
 
 export default function Home() {
     const [activeVideo, setActiveVideo] = useState<any | undefined>(undefined);
+    const [isExploreMenuOpen, setIsExploreMenuOpen] = useState(false);
 
     return (
         <>
             <div className="overflow-y-auto no-scrollbar">
-                <RecommendationsBar isHomePage={true} />
+                <RecommendationsBar isHomePage={true} onExploreButtonClick={() => setIsExploreMenuOpen(!isExploreMenuOpen)} />
 
                 <VideoCard title={"How I Animate In Desmos Graphing Calculator"} channel={"CodingHunger"} profilePictureURL={"./avatar1.webp"} views={"12K"} uploadDate={"1 year ago"} thumbnailURL={"./thumbnail1.webp"} duration={"9:38"} />
                 <div className="mt-3 mb-6 flex flex-col gap-6">
                     <ShortsCard thumbnail="./japan.jpg" title="Japan's Most Beautiful Restaurant 🍃" />
-                    <ShortsCard thumbnail="./pink.webp" title="A rich red bean paste and butter honey toast that gives you maximum guilty pleasure 🍞🧈"/>
+                    <ShortsCard thumbnail="./pink.webp" title="A rich red bean paste and butter honey toast that gives you maximum guilty pleasure 🍞🧈" />
                     <ShortsCard thumbnail="./painting.jpg" title="SUBLIMAL MSG" />
                 </div>
                 <VideoCard title={"How I Animate In Desmos Graphing Calculator"} channel={"CodingHunger"} profilePictureURL={"./avatar1.webp"} views={"12K"} uploadDate={"1 year ago"} thumbnailURL={"./thumbnail1.webp"} duration={"9:38"} />
@@ -36,8 +38,8 @@ export default function Home() {
                 <VideoCard title={"How I Animate In Desmos Graphing Calculator"} channel={"CodingHunger"} profilePictureURL={"./avatar1.webp"} views={"12K"} uploadDate={"1 year ago"} thumbnailURL={"./thumbnail1.webp"} duration={"9:38"} />
             </div>
 
-            <BottomSheet 
-                middle={100} 
+            <BottomSheet
+                middle={100}
                 isBottomSheetOpen={!!activeVideo} // Opens if activeVideo is not null
                 onBottomSheetClose={() => setActiveVideo(null)}
             >
@@ -47,6 +49,8 @@ export default function Home() {
                     <button className="w-full text-left py-2 text-red-500">Report</button>
                 </div>
             </BottomSheet>
+
+            <ExploreMenu isOpen={isExploreMenuOpen} onClose={() => setIsExploreMenuOpen(!setIsExploreMenuOpen)} />
         </>
     )
 }

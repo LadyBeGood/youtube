@@ -23,7 +23,12 @@ const subscriptionsFilters = [
     "Continue watching",
 ]
 
-export default function RecommendationsBar({ isHomePage = false }: { isHomePage?: boolean; }) {
+type RecommendationsBarParams = { 
+    isHomePage?: boolean,
+    onExploreButtonClick?: () => void,
+}
+
+export default function RecommendationsBar({ isHomePage = false, onExploreButtonClick = () => {} }: RecommendationsBarParams) {
     const [params] = useSearchParams();
     const activeFilter = params.get("filter") ?? "All";
 
@@ -31,7 +36,10 @@ export default function RecommendationsBar({ isHomePage = false }: { isHomePage?
         <nav className="flex no-scrollbar items-center overflow-y-auto pb-3 px-3 flex-nowrap gap-2 select-none">
             {isHomePage &&
                 <>
-                    <button className="bg-dark-gray whitespace-nowrap h-8 px-2 cursor-pointer flex items-center rounded-sm">
+                    <button 
+                        className="bg-dark-gray whitespace-nowrap h-8 px-2 cursor-pointer flex items-center rounded-sm"
+                        onClick={onExploreButtonClick}
+                    >
                         <ExploreIcon />
                     </button>
                     <div className="w-[1px] shrink-0 h-5 mx-1.5 bg-white/30 select-none"></div>
