@@ -2,7 +2,7 @@ import { useNavigate } from "react-router-dom";
 import { MoreIcon } from "./Icons"
 
 
-type VideoParams = {
+type VideoProps = {
     isMusical?: boolean;
     title: string;
     views: string;
@@ -10,7 +10,7 @@ type VideoParams = {
     thumbnailURL: string;
     duration: string;
 }
-export default function VideoCard({ isMusical = false, title, thumbnailURL, views, uploadDate, duration }: VideoParams) {
+export default function VideoCard({ isMusical = false, title, thumbnailURL, views, uploadDate, duration }: VideoProps) {
     const navigate = useNavigate();
 
     return (
@@ -25,7 +25,7 @@ export default function VideoCard({ isMusical = false, title, thumbnailURL, view
             <div className="">
                 <div className="gap-1 flex flex-col">
                     <div className="text-left text-sm line-clamp-3">{title}</div>
-                    
+
                     <div className="text-xs text-left text-cool-gray">
                         <span> {views} views</span> ·
                         <span> {uploadDate}</span>
@@ -33,7 +33,7 @@ export default function VideoCard({ isMusical = false, title, thumbnailURL, view
                 </div>
             </div>
 
-            <MoreIcon className="shrink-0" size={20}/>
+            <MoreIcon className="shrink-0" size={20} />
         </button>
     )
 }

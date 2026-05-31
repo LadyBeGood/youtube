@@ -1,6 +1,6 @@
 import { CommentIcon, DislikeIcon, LikeIcon, MoreIcon } from "./Icons";
 
-type PostParams = {
+type PostProps = {
     className?: string;
     avatar: string;
     name: string;
@@ -12,7 +12,7 @@ type PostParams = {
     imgSrc?: string;
 }
 
-export default function Post({ className = "", avatar, name, date, body, likes, comments, imgSrc }: PostParams) {
+export default function Post({ className = "", avatar, name, date, body, likes, comments, imgSrc }: PostProps) {
     return (
         <div className={className}>
             {/* Header */}

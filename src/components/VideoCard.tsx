@@ -2,7 +2,7 @@ import { useNavigate } from "react-router-dom";
 import { FilledSubscriptionsIcon, MoreIcon } from "./Icons"
 
 
-type VideoParams = {
+type VideoProps = {
     isMusical?: boolean;
     title: string;
     channel: string;
@@ -13,7 +13,7 @@ type VideoParams = {
     duration: string;
     // onClick: () => void;
 }
-export default function VideoCard({ isMusical = false, title, channel, profilePictureURL, thumbnailURL, views, uploadDate, duration }: VideoParams) {
+export default function VideoCard({ isMusical = false, title, channel, profilePictureURL, thumbnailURL, views, uploadDate, duration }: VideoProps) {
     const navigate = useNavigate();
 
     return (
@@ -31,8 +31,8 @@ export default function VideoCard({ isMusical = false, title, channel, profilePi
             <div className="py-2 gap-3 pb-5 flex items-start ml-3 mr-1">
                 <button className="shrink-0" onClick={() => navigate("/channel")}>
                     <img src={profilePictureURL} alt="channel" className="w-8 h-8 aspect-square rounded-full mt-2" />
-                </button> 
-                
+                </button>
+
                 <button className="gap-1 flex flex-col" onClick={() => navigate("/video")}>
                     <div className="text-left">{title}</div>
                     <div className="text-xs text-left text-cool-gray">
