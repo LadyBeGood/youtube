@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { FilledSubscriptionsIcon, MoreIcon } from "./Icons"
+import { FilledSubscriptionsIcon, FilledVideoIcon, MoreIcon } from "./Icons"
 
 
 type SmallPlaylistCardProps = {
@@ -12,12 +12,18 @@ type SmallPlaylistCardProps = {
 export default function SmallPlaylistCard({ title, channel, thumbnailURL, videoCount }: SmallPlaylistCardProps) {
 
     return (
-        <div className="select-none shrink-0 w-48">
-            <Link className="relative" to="/video">
-                <img className="w-full aspect-video object-cover" src={thumbnailURL} alt="thumbnail" />
+        <div className="select-none shrink-0 w-48 mt-2">
+            <Link
+                to="/playlist"
+                className="relative aspect-video w-full shrink-0 grid place-items-center before:absolute before:w-[90%] before:h-1 before:-top-1 before:bg-gray-500 after:absolute after:w-[77.5%] after:h-1 after:-top-2 after:bg-gray-700"
+            >
 
-                <div className="absolute rounded right-2 bottom-1 bg-[#00000090] flex text-xs justify-around text-white items-center px-1.5 py-0.5 ">
-                    <span>{videoCount}</span>
+                {/* <div className="w-full h-auto overflow-hidden grid place-items-center"> */}
+                    <img className="w-full aspect-video object-cover" src={thumbnailURL} alt="thumbnail" />
+                {/* </div> */}
+
+                <div className="absolute flex gap-1 rounded right-0.75 bottom-0.75 bg-black/70 text-xs text-white pl-0.75 pr-1 py-[1px] items-center">
+                    <FilledVideoIcon size={14} /> {videoCount}
                 </div>
             </Link>
 

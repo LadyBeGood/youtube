@@ -12,14 +12,14 @@ type PlaylistCardProps = {
 
 export default function PlaylistCard({ title, channel, profilePictureURL, videoCount, updatedAt, thumbnailURL }: PlaylistCardProps) {
     return (
-        <div className="select-none mt-3">
+        <div className="select-none mt-3.5">
             <Link
                 to="/playlist"
                 // 1. Pass the thumbnail URL as a CSS variable
                 style={{ '--playlist-thumb': `url(${thumbnailURL})` } as React.CSSProperties}
                 // 2. Use that variable inside the pseudo-elements. 
                 // We use bg-[image:var(--playlist-thumb)] and align it to the top, then dim/blur it.
-                className="relative aspect-video h-full shrink-0 grid place-items-center before:absolute before:w-[90%] before:h-1.5 before:-top-1.5 before:bg-[image:var(--playlist-thumb)] before:bg-cover before:bg-top before:brightness-75 before:opacity-80 after:absolute after:w-[77.5%] after:h-1.5 after:-top-3 after:bg-[image:var(--playlist-thumb)] after:bg-cover after:bg-top after:brightness-50 after:opacity-60"
+                className="relative aspect-video h-full shrink-0 grid place-items-center before:absolute before:w-[90%] before:h-1.5 before:-top-1.75 before:bg-[image:var(--playlist-thumb)] before:bg-cover before:bg-top before:brightness-75 before:opacity-80 after:absolute after:w-[77.5%] after:h-1.5 after:-top-3.5 after:bg-[image:var(--playlist-thumb)] after:bg-cover after:bg-top after:brightness-50 after:opacity-60"
             >
                 <div className="w-full h-full overflow-hidden grid place-items-center">
                     <img className="h-full w-full object-cover" src={thumbnailURL} alt="thumbnail" />
