@@ -1,8 +1,11 @@
-import { NavLink, Link } from "react-router-dom"
-import { SearchIcon, NotificationsIcon, FilledNotificationsIcon } from "./Icons"
+import { NavLink, Link, useLocation } from "react-router-dom"
+import { SearchIcon, NotificationsIcon, FilledNotificationsIcon, SettingsIcon } from "./Icons"
 
 
 export default function TopBar() {
+    const location = useLocation();
+    const isProfilePage = location.pathname === "/profile";
+
     return (
         <nav className="bg-black overflow-auto">
             <div className="h-12 flex px-3 items-center">
@@ -14,9 +17,16 @@ export default function TopBar() {
                     <NavLink to="/notifications" className="flex items-center flex-col">
                         {({ isActive }) => isActive ? <FilledNotificationsIcon /> : <NotificationsIcon />}
                     </NavLink>
+
                     <Link to="/search">
                         <SearchIcon />
                     </Link>
+
+                    {isProfilePage && 
+                        <button>
+                            <SettingsIcon />
+                        </button>
+                    }
                 </div>
             </div>
         </nav>

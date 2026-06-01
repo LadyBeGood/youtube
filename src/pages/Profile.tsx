@@ -1,7 +1,8 @@
 import { useState } from "react";
 import SmallVideoCard from "../components/SmallVideoCard";
-import { AddIcon, BackIcon, DownArrowIcon, NextIcon } from "../components/Icons";
+import { AddIcon, BackIcon, BookmarkIcon, CommentIcon, DislikeIcon, DownArrowIcon, DownloadIcon, FlagIcon, LeaderboardIcon, LikeIcon, MaskIcon, NextIcon, ProfileIcon, ShareIcon } from "../components/Icons";
 import SmallPlaylistCard from "../components/SmallPlaylistCard";
+import { Link } from "react-router-dom";
 
 
 
@@ -10,6 +11,52 @@ import SmallPlaylistCard from "../components/SmallPlaylistCard";
 export default function Profile() {
     return (
         <div className="py-4 w-full overflow-x-hidden space-y-8 no-scrollbar">
+            <div className="mb-0">
+                <div className="flex items-center mb-3">
+                    <div className="ml-3">
+                        <img src="./avatar3.jpg" className="rounded-full h-20 w-20" alt="" />
+                    </div>
+
+                    {/* Channel Info Section */}
+                    <div className="px-4">
+                        <span className="text-lg font-bold text-white flex gap-1 items-center">
+                            Michael Faraday <DownArrowIcon />
+                        </span>
+
+                        <div className="text-sm whitespace-pre text-cool-gray">
+                            @michaelfaraday
+                        </div>
+                    </div>
+                </div>
+
+                <div className="px-3 h-12 py-2 flex overflow-x-auto gap-3 no-scrollbar select-none mb-4 text-xs">
+                    <button className="pl-3 pr-4 bg-dark-gray rounded-full flex items-center text-xs gap-2 shrink-0">
+                        {/* This was created by Gemini */}
+                        <ProfileIcon size={20} />
+                        <div className="shrink-0">View Channel</div>
+                    </button>
+
+                    {/* Download button */}
+                    <button className="pl-3 pr-4 bg-dark-gray rounded-full flex items-center gap-2 shrink-0">
+                        <DownloadIcon size={20} />
+                        <div>Downloads</div>
+                    </button>
+
+                    {/* Download button */}
+                    <button className="pl-3 pr-4 bg-dark-gray rounded-full flex items-center gap-2 shrink-0">
+                        <MaskIcon size={20} />
+                        <div>Incognito</div>
+                    </button>
+
+                    {/* Report button */}
+                    <button className="pl-3 pr-4 bg-dark-gray rounded-full flex items-center gap-2">
+                        <LeaderboardIcon size={20} />
+                        <div>Statistics</div>
+                    </button>
+                </div>
+            </div>
+
+
             <div className="w-full">
                 <div className="flex justify-between px-3 mb-4">
                     <span className="font-medium text-lg">History</span>
@@ -57,7 +104,7 @@ export default function Profile() {
                     <span className="font-medium text-lg">Playlists</span>
 
                     <div className="flex gap-6">
-                        <AddIcon size={28}/>
+                        <AddIcon size={28} />
                         <DownArrowIcon className="-rotate-90" size={28} />
                     </div>
                 </div>

@@ -67,14 +67,14 @@ export default function Video() {
                 <div className="px-3 h-12 py-2 flex overflow-x-auto gap-3 no-scrollbar select-none mb-4 text-xs">
                     {/* Like and Dislike Buttons */}
                     <div className="flex items-center gap-2 px-3 bg-dark-gray rounded-full">
-                        <button className="flex gap-2">
+                        <button className="flex gap-2 items-center">
                             <LikeIcon height={18} width={18} />
                             <div>129K</div>
                         </button>
 
                         <div className="w-0.25 mx-1 h-4 bg-white/30"></div>
 
-                        <button className="flex gap-2">
+                        <button className="flex gap-2 items-center">
                             <DislikeIcon height={18} width={18} />
                             <div>2.3K</div>
                         </button>
