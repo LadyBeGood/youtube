@@ -2,7 +2,7 @@ import { useNavigate } from "react-router-dom";
 import { MoreIcon } from "./Icons"
 
 
-type VideoProps = {
+type ThinVideoProps = {
     isMusical?: boolean;
     title: string;
     views: string;
@@ -10,7 +10,7 @@ type VideoProps = {
     thumbnailURL: string;
     duration: string;
 }
-export default function VideoCard({ isMusical = false, title, thumbnailURL, views, uploadDate, duration }: VideoProps) {
+export default function ThinVideoCard({ isMusical = false, title, thumbnailURL, views, uploadDate, duration }: ThinVideoProps) {
     const navigate = useNavigate();
 
     return (
