@@ -23,9 +23,9 @@ export default function TopBar() {
                     </Link>
 
                     {isProfilePage && 
-                        <button>
-                            <SettingsIcon />
-                        </button>
+                        <Link to="/settings">
+                            <SettingsIcon size={22}/>
+                        </Link>
                     }
                 </div>
             </div>

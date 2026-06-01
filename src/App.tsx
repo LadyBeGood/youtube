@@ -11,6 +11,8 @@ import Video from "./pages/Video"
 import Channel from "./pages/Channel/Channel"
 import Shorts from "./pages/Shorts"
 import ShortsLayout from "./components/ShortsLayout"
+import Settings from "./pages/Settings"
+import Playlist from "./pages/Playlist"
 
 
 
@@ -34,6 +36,8 @@ export function App() {
 
                 <Route path="/search" element={<Search />}></Route>
                 <Route path="/video" element={<Video />}></Route>
+                <Route path="/playlist" element={<Playlist />}></Route>
+                <Route path="/settings" element={<Settings />}></Route>
 
                 {/* 404 */}
                 <Route path="*" element={<NotFound />}></Route>
@@ -48,8 +52,8 @@ export function App() {
 const rootElement = document.getElementById("root");
 if (!rootElement) {
     throw new Error(
-        "Root element with id 'root' not found in index.html.\n" +
-        "Make sure your index.html contains: <div id=\"root\"></div>"
+        'Root element with id "root" not found in index.html.\n' +
+        'Make sure your index.html contains: <div id="root"></div>'
     );
 }
 createRoot(rootElement).render(<App />);
