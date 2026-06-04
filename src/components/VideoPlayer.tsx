@@ -2,7 +2,7 @@ import { useRef, useState, useEffect, type RefObject } from "react";
 import { type ChangeEvent, type MouseEvent } from "react";
 import BottomSheet from "./BottomSheet";
 import Toggle from "./Toggle";
-import { AmbientIcon, CaptionIcon, DownArrowIcon, MaximiseIcon, LoopIcon, NextIcon, PauseIcon, PlaybackSpeedIcon, PlayIcon, PreviousIcon, SettingsIcon, TickIcon } from "./Icons";
+import { AmbientIcon, CaptionIcon, DownArrowIcon, MaximiseIcon, LoopIcon, FilledNextIcon, FilledPauseIcon, PlaybackSpeedIcon, FilledPlayIcon, FilledPreviousIcon, SettingsIcon, TickIcon } from "./Icons";
 
 type VideoPlayerProps = {
     source: string;
@@ -186,18 +186,18 @@ export default function VideoPlayer({ source, title }: VideoPlayerProps) {
                     {/* Center Controls */}
                     <div className="absolute left-0 right-0 top-1/2 -translate-y-1/2  flex items-center justify-center gap-16">
                         <button data-action="previous" className="hover:bg-white/10 p-2 rounded-full" onClick={(e) => { videoRef.current!.currentTime -= 10; }}>
-                            <PreviousIcon />
+                            <FilledPreviousIcon />
                         </button>
 
                         <button data-action="play" onClick={(e) => { togglePlay(); }} className="p-2 rounded-full hover:bg-white/10">
                             {isPlaying
-                                ? <PauseIcon size={40} />
-                                : <PlayIcon size={40} />
+                                ? <FilledPauseIcon size={40} />
+                                : <FilledPlayIcon size={40} />
                             }
                         </button>
 
                         <button data-action="next" className="hover:bg-white/10 p-2 rounded-full" onClick={(e) => { videoRef.current!.currentTime += 10; }}>
-                            <NextIcon />
+                            <FilledNextIcon />
                         </button>
                     </div>
 
