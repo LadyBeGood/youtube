@@ -1,4 +1,16 @@
-import { useEffect, useLayoutEffect, useRef, useState, type PointerEvent } from "react";
+import { useEffect, useLayoutEffect, useRef, useState, type PointerEvent, type ReactNode } from "react";
+
+type BottomSheetProps = {
+    type: number, 
+    isBottomSheetOpen: boolean, 
+    overlay: boolean, 
+    onBottomSheetClose: () => void, 
+    children: ReactNode, 
+    low: number, 
+    middle: number, 
+    high: number, 
+    height: string
+}
 
 /**
  * This is a hand crafted Bottom sheet with no dependencies tailored specifically for this project.  
@@ -8,7 +20,18 @@ import { useEffect, useLayoutEffect, useRef, useState, type PointerEvent } from 
  * - Customizable snap points (Low, Middle, High).
  * - GPU-accelerated transforms only, no layout thrashing.
  */
-const BottomSheet = ({ type = 1, isBottomSheetOpen = false, overlay = true, onBottomSheetClose, children, low = 0, middle = 50, high = 100, height = "" }) => {
+function BottomSheet({ 
+    type = 1, 
+    isBottomSheetOpen = false, 
+    overlay = true, 
+    onBottomSheetClose, 
+    children, 
+    low = 0, 
+    middle = 50, 
+    high = 100, 
+    height = "" 
+}: BottomSheetProps) {
+    
     console.log("bottomsheet");
     /**********************************
      * Constants
