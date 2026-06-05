@@ -12,7 +12,7 @@ type PlaylistCardProps = {
 
 export default function PlaylistCard({ title, channel, profilePictureURL, videoCount, updatedAt, thumbnailURL }: PlaylistCardProps) {
     return (
-        <div className="select-none mt-3.5">
+        <div className="select-none pt-3.5">
             <Link
                 to="/playlist"
                 // 1. Pass the thumbnail URL as a CSS variable
@@ -30,7 +30,7 @@ export default function PlaylistCard({ title, channel, profilePictureURL, videoC
                 </div>
             </Link>
 
-            <div className="py-2 gap-3 pb-5 flex items-start ml-3 mr-1">
+            <div className="pt-2 gap-3 flex items-start ml-3 mr-1">
                 <Link className="shrink-0" to="/channel">
                     <img src={profilePictureURL} alt="channel" className="w-8 h-8 aspect-square rounded-full mt-2" />
                 </Link>

@@ -28,7 +28,7 @@ export default function VideoCard({ isMusical = false, title, channel, profilePi
                 </div>
             </button>
 
-            <div className="py-2 gap-3 pb-5 flex items-start ml-3 mr-1">
+            <div className="pt-2 gap-3 flex items-start ml-3 mr-1">
                 <button className="shrink-0" onClick={() => navigate("/channel")}>
                     <img src={profilePictureURL} alt="channel" className="w-8 h-8 aspect-square rounded-full mt-2" />
                 </button>

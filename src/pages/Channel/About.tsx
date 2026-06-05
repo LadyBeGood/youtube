@@ -37,7 +37,7 @@ export default function About() {
 
                 <div className="flex-1">
                     <div className="text-lg font-bold text-white tracking-tight">14.2M</div>
-                    <div className="text-[11px] font-medium text-cool-gray tracking-wider mt-0.5">Total Views</div>
+                    <div className="text-[11px] font-medium text-cool-gray tracking-wider mt-0.5">Views</div>
                 </div>
             </div>
 

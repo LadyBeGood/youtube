@@ -10,9 +10,10 @@ import Notifications from "./pages/Notifications"
 import Video from "./pages/Video"
 import Channel from "./pages/Channel/Channel"
 import Shorts from "./pages/Shorts"
-import ShortsLayout from "./components/ShortsLayout"
+import BottomOnlyLayout from "./components/BottomOnlyLayout"
 import Settings from "./pages/Settings"
 import Playlist from "./pages/Playlist"
+import Results from "./pages/Results"
 
 
 
@@ -20,7 +21,6 @@ export function App() {
     return (
         <BrowserRouter>
             <Routes>
-
                 <Route path="/" element={<DefaultLayout />}>
                     <Route index element={<Home />}></Route>
                     <Route path="/profile" element={<Profile />}></Route>
@@ -29,8 +29,9 @@ export function App() {
                     <Route path="/channel" element={<Channel />}></Route>
                 </Route>
 
-                <Route path="/" element={<ShortsLayout />}>
+                <Route path="/" element={<BottomOnlyLayout />}>
                     <Route path="/shorts" element={<Shorts />}></Route>
+                    <Route path="/results" element={<Results />}></Route>
                 </Route>
 
 
