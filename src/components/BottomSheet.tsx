@@ -1,15 +1,15 @@
 import { useEffect, useLayoutEffect, useRef, useState, type PointerEvent, type ReactNode } from "react";
 
 type BottomSheetProps = {
-    type: number, 
+    type?: number, 
     isBottomSheetOpen: boolean, 
-    overlay: boolean, 
+    overlay?: boolean, 
     onBottomSheetClose: () => void, 
     children: ReactNode, 
-    low: number, 
-    middle: number, 
-    high: number, 
-    height: string
+    low?: number, 
+    middle?: number, 
+    high?: number, 
+    height?: string
 }
 
 /**
