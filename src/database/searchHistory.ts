@@ -1,7 +1,7 @@
 
 type SearchHistory = {
     type: "search-history",
-    id: string,
+    id: `search-history-${number}`,
     name: string,
     preview?: string,
 }

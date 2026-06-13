@@ -1,3 +1,4 @@
+import type { ComponentType } from "react"
 import { 
     SensorsIcon,
     SwitchAccountIcon,
@@ -24,15 +25,16 @@ import {
     HistoryIcon,
     ATMCardIcon,
     SellIcon,
+    type IconProps,
 } from "../components/Icons"
 
 
 
 type Setting = {
     type: "setting",
-    id: string,
+    id: `${string}-setting-${number}`,
     title: string,
-    icon: any,
+    icon: ComponentType<IconProps>,
 }
 
 export const accountSettings: Setting[] = [

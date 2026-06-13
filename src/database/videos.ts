@@ -1,20 +1,20 @@
 type Video = {
-    id: string;
-    type: "video";
-    isMusical: boolean;
-    title: string;
-    channel: string;
-    profilePictureURL: string;
-    views: string;
-    uploadDate: string;
-    thumbnailURL: string;
-    duration: string;
+    type: "video",
+    id:`video-${number}`,
+    isMusical: boolean,
+    title: string,
+    channel: string,
+    profilePictureURL: string,
+    views: string,
+    uploadDate: string,
+    thumbnailURL: string,
+    duration: string,
 };
 
 export const videos: Video[] = [
     {
-        id: "video-1",
         type: "video",
+        id: "video-1",
         isMusical: false,
         title: "How I Animate In Desmos Graphing Calculator",
         channel: "CodingHunger",
@@ -25,8 +25,8 @@ export const videos: Video[] = [
         duration: "9:38"
     },
     {
-        id: "video-2",
         type: "video",
+        id: "video-2",
         isMusical: false,
         title: "I Bought The Cheapest Electric Car on the Internet",
         channel: "Marques Brownlee",
@@ -37,8 +37,8 @@ export const videos: Video[] = [
         duration: "14:20"
     },
     {
-        id: "video-3",
         type: "video",
+        id: "video-3",
         isMusical: false,
         title: "Can This 3-Star Michelin Chef Fix My Horrible Cooking?",
         channel: "Gordon Ramsay",
@@ -49,8 +49,8 @@ export const videos: Video[] = [
         duration: "22:15"
     },
     {
-        id: "video-4",
         type: "video",
+        id: "video-4",
         isMusical: false,
         title: "Minecraft, But Every Minute The World Shrinks",
         channel: "MrBeast Gaming",
@@ -61,8 +61,8 @@ export const videos: Video[] = [
         duration: "11:45"
     },
     {
-        id: "video-5",
         type: "video",
+        id: "video-5",
         isMusical: false,
         title: "I Spent 30 Days in Japan's Most Expensive Capsule Hotel",
         channel: "Drew Binsky",
@@ -73,8 +73,8 @@ export const videos: Video[] = [
         duration: "18:02"
     },
     {
-        id: "video-6",
         type: "video",
+        id: "video-6",
         isMusical: false,
         title: "Why Space Elevators Are Technically Impossible (For Now)",
         channel: "Kurzgesagt – In a Nutshell",
@@ -85,8 +85,8 @@ export const videos: Video[] = [
         duration: "8:50"
     },
     {
-        id: "video-7",
         type: "video",
+        id: "video-7",
         isMusical: true, 
         title: "LO-FI Beats for Studying / Relaxing ☕ (Chill Mix)",
         channel: "Lofi Girl",
@@ -97,8 +97,8 @@ export const videos: Video[] = [
         duration: "31:10"
     },
     {
-        id: "video-8",
         type: "video",
+        id: "video-8",
         isMusical: false,
         title: "Is This $100 Used Laptop Actually Good for Gaming?",
         channel: "Linus Tech Tips",
@@ -109,8 +109,8 @@ export const videos: Video[] = [
         duration: "15:40"
     },
     {
-        id: "video-9",
         type: "video",
+        id: "video-9",
         isMusical: false,
         title: "How Earth Would Look If the Dinosaurs Never Went Extinct",
         channel: "What If",
@@ -121,8 +121,8 @@ export const videos: Video[] = [
         duration: "25:12"
     },
     {
-        id: "video-10",
         type: "video",
+        id: "video-10",
         isMusical: false,
         title: "Building a Hidden Underground Gaming Setup from Scratch",
         channel: "DIY Creators",
@@ -133,8 +133,8 @@ export const videos: Video[] = [
         duration: "10:05"
     },
     {
-        id: "video-11",
         type: "video",
+        id: "video-11",
         isMusical: false,
         title: "The Ultimate 15-Minute Homemade Ramen Recipe",
         channel: "Joshua Weissman",
@@ -145,8 +145,8 @@ export const videos: Video[] = [
         duration: "13:22"
     },
     {
-        id: "video-12",
         type: "video",
+        id: "video-12",
         isMusical: false,
         title: "GTA 6 Map Leak: Everything We Know So Far",
         channel: "IGN",
@@ -157,8 +157,8 @@ export const videos: Video[] = [
         duration: "6:14"
     },
     {
-        id: "video-13",
         type: "video",
+        id: "video-13",
         isMusical: false,
         title: "I Left My Dog in a Luxury Pet Hotel for 48 Hours",
         channel: "Tucker Budzyn",
@@ -169,8 +169,8 @@ export const videos: Video[] = [
         duration: "10:30"
     },
     {
-        id: "video-14",
         type: "video",
+        id: "video-14",
         isMusical: false,
         title: "Every Single Easter Egg in the Marvel Universe Explained",
         channel: "New Rockstars",
@@ -181,8 +181,8 @@ export const videos: Video[] = [
         duration: "22:40"
     },
     {
-        id: "video-15",
         type: "video",
+        id: "video-15",
         isMusical: false,
         title: "The Physics of Why Ripped Jeans Are So Hard to Make",
         channel: "Veritasium",
@@ -193,8 +193,8 @@ export const videos: Video[] = [
         duration: "19:15"
     },
     {
-        id: "video-16",
         type: "video",
+        id: "video-16",
         isMusical: false,
         title: "Speedrunner Beats Elden Ring Blindfolded in Under 1 Hour",
         channel: "Esoterickk",
@@ -205,8 +205,8 @@ export const videos: Video[] = [
         duration: "21:03"
     },
     {
-        id: "video-17",
         type: "video",
+        id: "video-17",
         isMusical: false,
         title: "I Tried Sleeping 8 Hours a Day For a Week (Shocking Results)",
         channel: "Matt D'Avella",
@@ -217,8 +217,8 @@ export const videos: Video[] = [
         duration: "10:55"
     },
     {
-        id: "video-18",
         type: "video",
+        id: "video-18",
         isMusical: false,
         title: "10 Simple Keyboard Shortcuts You Aren't Using",
         channel: "TechQuickie",
@@ -229,8 +229,8 @@ export const videos: Video[] = [
         duration: "7:22"
     },
     {
-        id: "video-19",
         type: "video",
+        id: "video-19",
         isMusical: true,
         title: "Interstellar Theme Song - Epic Orchestral Cover",
         channel: "Hans Zimmer Live",
@@ -241,8 +241,8 @@ export const videos: Video[] = [
         duration: "6:45"
     },
     {
-        id: "video-20",
         type: "video",
+        id: "video-20",
         isMusical: false,
         title: "I Built a Full Mechanical Keyboard Out of LEGO Bricks",
         channel: "MKBHD",

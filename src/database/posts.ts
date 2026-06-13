@@ -1,6 +1,6 @@
 type Post = {
     type: "post",
-    id: string,
+    id: `post-${number}`,
     avatar: string,
     name: string,
     date: string,

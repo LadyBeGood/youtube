@@ -1,4 +1,4 @@
-import { useNavigate } from "react-router-dom"
+import { Link, useNavigate } from "react-router-dom"
 import { BackIcon, HistoryIcon, MicrophoneIcon, NorthWestArrowIcon } from "../components/Icons";
 import { searchHistory } from "../database/searchHistory";
 
@@ -22,8 +22,8 @@ export default function Search() {
 
 
             <div className="overflow-auto no-scrollbar">
-                {searchHistory.map(({ name, preview }) =>
-                    <div className="flex items-center gap-2 hover:bg-white/10 h-14 px-4">
+                {searchHistory.map(({ name, preview, id }) =>
+                    <Link to="/results" key={id} className="flex items-center gap-2 hover:bg-white/10 h-14 px-4">
                         <div>
                             <HistoryIcon />
                         </div>
@@ -36,7 +36,7 @@ export default function Search() {
                         <div>
                             <NorthWestArrowIcon size={22} />
                         </div>
-                    </div>
+                    </Link>
                 )}
             </div>
         </div>

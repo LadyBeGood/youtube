@@ -1,20 +1,20 @@
 type Short = {
-    id: string;
-    type: "short";
-    isMusical: boolean;
-    title: string;
-    channel: string;
-    profilePictureURL: string;
-    views: string;
-    uploadDate: string;
-    thumbnailURL: string;
-    duration: string;
+    type: "short",
+    id: `short-${number}`,
+    isMusical: boolean,
+    title: string,
+    channel: string,
+    profilePictureURL: string,
+    views: string,
+    uploadDate: string,
+    thumbnailURL: string,
+    duration: string,
 };
 
 export const shorts: Short[] = [
     {
-        id: "short-1",
         type: "short",
+        id: "short-1",
         isMusical: false,
         title: "Japan's Most Beautiful Restaurant 🍃",
         channel: "TravelBites",
@@ -25,8 +25,8 @@ export const shorts: Short[] = [
         duration: "0:45"
     },
     {
-        id: "short-2",
         type: "short",
+        id: "short-2",
         isMusical: false,
         title: "A rich red bean paste and butter honey toast that gives you maximum guilty pleasure 🍞🧈",
         channel: "TastyBites",
@@ -37,8 +37,8 @@ export const shorts: Short[] = [
         duration: "0:58"
     },
     {
-        id: "short-3",
         type: "short",
+        id: "short-3",
         isMusical: false,
         title: "SUBLIMAL MSG",
         channel: "ArtTheory",
@@ -49,8 +49,8 @@ export const shorts: Short[] = [
         duration: "0:15"
     },
     {
-        id: "short-4",
         type: "short",
+        id: "short-4",
         isMusical: false,
         title: "When the coffee kicks in right before the 9 AM meeting ☕🔥",
         channel: "DevHumor",
@@ -61,8 +61,8 @@ export const shorts: Short[] = [
         duration: "0:23"
     },
     {
-        id: "short-5",
         type: "short",
+        id: "short-5",
         isMusical: false,
         title: "POV: You forgot to git commit before formatting your PC 💀",
         channel: "SyntaxError",
@@ -73,8 +73,8 @@ export const shorts: Short[] = [
         duration: "0:41"
     },
     {
-        id: "short-6",
         type: "short",
+        id: "short-6",
         isMusical: false,
         title: "Testing the world's strongest magnetic slime! 🧲",
         channel: "What If",
@@ -85,8 +85,8 @@ export const shorts: Short[] = [
         duration: "0:50"
     },
     {
-        id: "short-7",
         type: "short",
+        id: "short-7",
         isMusical: false,
         title: "The hidden paradise beach you didn't know existed in Europe 🌴",
         channel: "Drew Binsky",
@@ -97,8 +97,8 @@ export const shorts: Short[] = [
         duration: "0:35"
     },
     {
-        id: "short-8",
         type: "short",
+        id: "short-8",
         isMusical: false,
         title: "How to perfectly slice an onion like a professional chef 🧅",
         channel: "Joshua Weissman",
@@ -109,8 +109,8 @@ export const shorts: Short[] = [
         duration: "0:59"
     },
     {
-        id: "short-9",
         type: "short",
+        id: "short-9",
         isMusical: true,
         title: "This keyboard sound test will cure your insomnia 💤",
         channel: "MechKeys",
@@ -121,8 +121,8 @@ export const shorts: Short[] = [
         duration: "0:45"
     },
     {
-        id: "short-10",
         type: "short",
+        id: "short-10",
         isMusical: false,
         title: "Unboxing the rarest mechanical watch in the world ⌚✨",
         channel: "Marques Brownlee",
@@ -133,8 +133,8 @@ export const shorts: Short[] = [
         duration: "0:52"
     },
     {
-        id: "short-11",
         type: "short",
+        id: "short-11",
         isMusical: false,
         title: "Satisfying 3D printing timelapse: Iron Man Helmet 🤖",
         channel: "DIY Creators",
@@ -145,8 +145,8 @@ export const shorts: Short[] = [
         duration: "0:30"
     },
     {
-        id: "short-12",
         type: "short",
+        id: "short-12",
         isMusical: false,
         title: "I asked an AI to design a modern apartment and built it 🏢",
         channel: "Linus Tech Tips",
@@ -157,8 +157,8 @@ export const shorts: Short[] = [
         duration: "0:55"
     },
     {
-        id: "short-13",
         type: "short",
+        id: "short-13",
         isMusical: false,
         title: "Fixing a broken iPhone screen in under 60 seconds 📱",
         channel: "TechQuickie",
@@ -169,8 +169,8 @@ export const shorts: Short[] = [
         duration: "0:59"
     },
     {
-        id: "short-14",
         type: "short",
+        id: "short-14",
         isMusical: false,
         title: "Dogs reacting to the 'fake walk' trick is pure gold 🐕😂",
         channel: "Tucker Budzyn",
@@ -181,8 +181,8 @@ export const shorts: Short[] = [
         duration: "0:14"
     },
     {
-        id: "short-15",
         type: "short",
+        id: "short-15",
         isMusical: false,
         title: "The easiest 3-ingredient dessert you can make tonight 🍫",
         channel: "Gordon Ramsay",
@@ -193,8 +193,8 @@ export const shorts: Short[] = [
         duration: "0:40"
     },
     {
-        id: "short-16",
         type: "short",
+        id: "short-16",
         isMusical: false,
         title: "Street food vendor setup speedrun in Bangkok 🍜",
         channel: "TravelBites",
@@ -205,8 +205,8 @@ export const shorts: Short[] = [
         duration: "0:28"
     },
     {
-        id: "short-17",
         type: "short",
+        id: "short-17",
         isMusical: false,
         title: "What happens when you drop a bouncy ball from a skyscraper? 🔴",
         channel: "Veritasium",
@@ -217,8 +217,8 @@ export const shorts: Short[] = [
         duration: "0:47"
     },
     {
-        id: "short-18",
         type: "short",
+        id: "short-18",
         isMusical: false,
         title: "The secret iOS feature you aren't using daily!",
         channel: "Marques Brownlee",
@@ -229,8 +229,8 @@ export const shorts: Short[] = [
         duration: "0:39"
     },
     {
-        id: "short-19",
         type: "short",
+        id: "short-19",
         isMusical: true,
         title: "This perspective drawing trick is mind-blowing ✏️🏃",
         channel: "Lofi Girl",
@@ -241,8 +241,8 @@ export const shorts: Short[] = [
         duration: "0:51"
     },
     {
-        id: "short-20",
         type: "short",
+        id: "short-20",
         isMusical: false,
         title: "Can you solve this riddle in 15 seconds? 🧠🧩",
         channel: "Kurzgesagt – In a Nutshell",

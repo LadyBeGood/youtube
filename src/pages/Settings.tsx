@@ -8,14 +8,14 @@ const sectionTitles: Record<string, string> = {
 
 export default function Settings() {
     return (
-        <div className="py-8 w-full overflow-x-hidden space-y-12 no-scrollbar px-4">
+        <div className="py-8 w-full overflow-x-hidden space-y-8 no-scrollbar">
             {Object.entries(settings).map(([settingType, typeSettings]) => 
                 <div key={settingType}>
-                    <div className="text-xl font-medium mb-5">{sectionTitles[settingType] ?? settingType}</div>
+                    <div className="text-xl font-medium mb-3 px-4">{sectionTitles[settingType] ?? settingType}</div>
                     
-                    <div className="space-y-6">
+                    <div className="">
                         {typeSettings.map(setting => 
-                            <button key={setting.id} className="flex items-center gap-4">
+                            <button key={setting.id} className="flex h-13 items-center gap-4 hover:bg-white/20 w-full px-4">
                                 <setting.icon size={28} />
                                 <div>
                                     {setting.title}
