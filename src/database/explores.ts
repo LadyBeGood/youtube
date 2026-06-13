@@ -15,7 +15,7 @@ import {
     StarInsideCircleIcon,
 } from "../components/Icons"
 
-type Explore = {
+export type Explore = {
     type: "explore",
     id: `explore-${number}`,
     title: string,

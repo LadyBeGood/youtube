@@ -524,10 +524,10 @@ export function ShoppingIcon(props: IconProps) {
 export function Music2Icon(props: IconProps) {
     return (
         <IconWrapper viewBox="0 0 12 12" fill="none" {...props}>
-            <g clip-path="url(#clip0_148_9)">
-                <path d="M4.5 8.25V2.83333L9.5 2V7.41667" stroke="currentColor" stroke-width="0.5" stroke-linecap="round" stroke-linejoin="round" />
-                <path d="M3.25 9.5C3.94036 9.5 4.5 8.94036 4.5 8.25C4.5 7.55964 3.94036 7 3.25 7C2.55964 7 2 7.55964 2 8.25C2 8.94036 2.55964 9.5 3.25 9.5Z" stroke="currentColor" stroke-width="0.5" stroke-linecap="round" stroke-linejoin="round" />
-                <path d="M8.25 8.66667C8.94036 8.66667 9.5 8.10703 9.5 7.41667C9.5 6.72632 8.94036 6.16667 8.25 6.16667C7.55964 6.16667 7 6.72632 7 7.41667C7 8.10703 7.55964 8.66667 8.25 8.66667Z" stroke="currentColor" stroke-width="0.5" stroke-linecap="round" stroke-linejoin="round" />
+            <g clipPath="url(#clip0_148_9)">
+                <path d="M4.5 8.25V2.83333L9.5 2V7.41667" stroke="currentColor" strokeWidth="0.5" strokeLinecap="round" strokeLinejoin="round" />
+                <path d="M3.25 9.5C3.94036 9.5 4.5 8.94036 4.5 8.25C4.5 7.55964 3.94036 7 3.25 7C2.55964 7 2 7.55964 2 8.25C2 8.94036 2.55964 9.5 3.25 9.5Z" stroke="currentColor" strokeWidth="0.5" strokeLinecap="round" strokeLinejoin="round" />
+                <path d="M8.25 8.66667C8.94036 8.66667 9.5 8.10703 9.5 7.41667C9.5 6.72632 8.94036 6.16667 8.25 6.16667C7.55964 6.16667 7 6.72632 7 7.41667C7 8.10703 7.55964 8.66667 8.25 8.66667Z" stroke="currentColor" strokeWidth="0.5" strokeLinecap="round" strokeLinejoin="round" />
             </g>
             <defs>
                 <clipPath id="clip0_148_9">

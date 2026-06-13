@@ -6,7 +6,7 @@ import {
     type IconProps 
 } from "../components/Icons"
 
-type MoreFromYoutube = {
+export type MoreFromYoutube = {
     type: "more-from-youtube",
     id: `more-from-youtube-${number}`,
     title: string,
