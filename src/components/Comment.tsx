@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { CommentIcon, DislikeIcon, LikeIcon, MoreIcon } from "./Icons";
+import { BackIcon, CommentIcon, DislikeIcon, DownArrowIcon, LikeIcon, MoreIcon, ReplyIcon } from "./Icons";
 
 export default function Comment() {
     return (
@@ -20,38 +20,38 @@ export default function Comment() {
                 {/* Right Side: Content */}
                 <div className="flex-1 min-w-0">
                     {/* Header */}
-                    <div className="flex items-center gap-2 mb-1">
+                    <div className="flex items-baseline gap-1.5 mb-1">
                         <span className="text-sm font-medium truncate text-white">
                             Michael Faraday
                         </span>
-                        <span className="text-xs text-zinc-400 flex-shrink-0">
-                            • 2 months ago
+                        <span className="text-cool-gray">
+                            ·
                         </span>
-                        <button className="ml-auto p-1 text-zinc-400 hover:text-white rounded-full hover:bg-zinc-800 transition">
+                        <span className="text-xs text-cool-gray flex-shrink-0">
+                            2h ago
+                        </span>
+                        <button className="ml-auto p-1 hover:text-white rounded-full hover:bg-zinc-800 transition">
                             <MoreIcon size={18} />
                         </button>
                     </div>
 
                     {/* Comment Body */}
-                    <div className="text-sm text-zinc-200 leading-relaxed mb-3 break-words">
+                    <div className="text-sm leading-relaxed mb-3 break-words">
                         The struggle was real when he was trying to hit the timer.
                         Honestly, one of the best moments in the entire video!
                     </div>
 
                     {/* Actions (YouTube layout style) */}
-                    <div className="flex items-center gap-4 text-xs text-zinc-400">
+                    <div className="flex items-center gap-8 text-xs">
                         <button className="flex items-center gap-1.5 hover:text-white transition group">
                             <LikeIcon size={18} className="group-hover:scale-110 transition-transform" />
                             <span>2.1K</span>
                         </button>
 
-                        <button className="flex items-center gap-1.5 hover:text-white transition group">
-                            <DislikeIcon size={18} className="group-hover:scale-110 transition-transform" />
-                            <span>24</span>
-                        </button>
-
-                        <button className="hover:text-white font-medium transition ml-2">
-                            Reply
+                        <button className="flex items-center hover:text-white transition group">
+                            <CommentIcon size={18} className="group-hover:scale-110 transition-transform mr-1" />
+                            <span>12</span>
+                            <DownArrowIcon size={22}/>
                         </button>
                     </div>
                 </div>

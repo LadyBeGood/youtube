@@ -826,3 +826,11 @@ export function TuneIcon(props: IconProps) {
     )
 }
 
+export function ReplyIcon(props: IconProps) {
+    return (
+        <IconWrapper {...props}>
+            <path d="M760-240v-120q0-57.69-41.15-98.85Q677.69-500 620-500H236.85l164 164-28.54 28.31L160-520l212.31-212.31L400.85-704l-164 164H620q74.54 0 127.27 52.73Q800-434.54 800-360v120h-40Z" />
+        </IconWrapper>
+    )
+}
+

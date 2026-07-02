@@ -280,14 +280,14 @@ function BottomSheet({
                 {/* Content */}
                 <div 
                     ref={bottomSheetContentRef}
-                    className={type === 1 ? "bg-[#212121] py-2 rounded-xl relative" : "py-2"}
+                    className={type === 1 ? "bg-[#212121] pb-2 rounded-xl relative" : "h-full grid grid-rows-[auto_1fr]"}
                 >
                     {/* Drag Handle */}
-                    <div className="flex h-full pb-2 justify-center ">
+                    <div className="grid place-items-center h-5">
                         <div className="h-1 w-10 rounded-full bg-[#606060]" />
                     </div>
 
-                    <div>
+                    <div className="overflow-hidden">
                         {children}
                     </div>
                 </div>
