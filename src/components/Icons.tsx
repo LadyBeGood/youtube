@@ -810,3 +810,19 @@ export function SortIcon(props: IconProps) {
     )
 }
 
+export function CloseIcon(props: IconProps) {
+    return (
+        <IconWrapper {...props}>
+            <path d="M256-227.69 227.69-256l224-224-224-224L256-732.31l224 224 224-224L732.31-704l-224 224 224 224L704-227.69l-224-224-224 224Z" />
+        </IconWrapper>
+    )
+}
+
+export function TuneIcon(props: IconProps) {
+    return (
+        <IconWrapper {...props}>
+            <path d="M460-140v-200h40v80h320v40H500v80h-40Zm-320-80v-40h200v40H140Zm160-160v-80H140v-40h160v-80h40v200h-40Zm160-80v-40h360v40H460Zm160-160v-200h40v80h160v40H660v80h-40Zm-480-80v-40h360v40H140Z" />
+        </IconWrapper>
+    )
+}
+

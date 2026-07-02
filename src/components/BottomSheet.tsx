@@ -243,7 +243,7 @@ function BottomSheet({
             <div
                 ref={bottomSheetRef}
 
-                className={debug(`touch-none select-none max-h-[100svh] fixed bottom-0 left-0 right-0 z-999 transition-transform duration-${ANIMATION_DURATION} ` + (type === 1 ? `pb-2 px-2` : "bg-[#212121]"))}
+                className={debug(`touch-none select-none max-h-[100svh] fixed bottom-0 left-0 right-0 z-999 transition-transform duration-${ANIMATION_DURATION} ` + (type === 1 ? `pb-2 px-2` : "bg-black"))}
                 style={{
                     transform: `translateY(${isBottomSheetOpen ? String(bottomSheetTranslateY) : "100"}%)`,
                     transitionProperty: isPointerDown ? "none" : "transform",
@@ -280,7 +280,7 @@ function BottomSheet({
                 {/* Content */}
                 <div 
                     ref={bottomSheetContentRef}
-                    className={type === 1 ? "bg-[#212121] py-2 rounded-xl relative" : ""}
+                    className={type === 1 ? "bg-[#212121] py-2 rounded-xl relative" : "py-2"}
                 >
                     {/* Drag Handle */}
                     <div className="flex h-full pb-2 justify-center ">

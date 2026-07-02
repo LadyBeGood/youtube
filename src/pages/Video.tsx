@@ -6,6 +6,7 @@ import BottomSheet from "../components/BottomSheet";
 import { NavLink } from "react-router-dom";
 import Post from "../components/Post";
 import Comment from "../components/Comment";
+import CommentSection from "../components/CommentSection";
 
 
 export default function Video() {
@@ -127,13 +128,11 @@ export default function Video() {
             </div>
 
             <BottomSheet type={2} overlay={false} isBottomSheetOpen={isCommentsBottomSheetOpen} height={"100svh"} middle={((window.innerHeight - videoPlayerHeight) / window.innerHeight) * 100} high={100} onBottomSheetClose={() => setIsCommentsBottomSheetOpen(false)}>
-                <Comment />
+                {/* <Comment /> */}
                 
+                <CommentSection onClose={() => setIsCommentsBottomSheetOpen(false)} />
             </BottomSheet>
 
-            {/* <BottomSheet type={2} overlay={false} isBottomSheetOpen={isCommentsBottomSheetOpen} height={"80px"} middle={((window.innerHeight - videoPlayerHeight) / window.innerHeight) * 100} high={100} onBottomSheetClose={() => setIsCommentsBottomSheetOpen(false)}>
-                aaaa
-            </BottomSheet> */}
             
 
             {/* Description */}
