@@ -1,14 +1,14 @@
 import { useState } from "react";
-import { BackIcon, CommentIcon, DislikeIcon, DownArrowIcon, LikeIcon, MoreIcon, ReplyIcon } from "./Icons";
+import { BackIcon, CommentIcon, DislikeIcon, DownArrowIcon, LikeIcon, MoreIcon, ReplyIcon } from "../Icons";
 
 export default function Comment() {
     return (
-        <div className="w-full max-w-2xl text-zinc-100 p-3">
+        <div className="w-full max-w-2xl text-zinc-100 px-3">
             {/* Main Comment Wrapper */}
             <div className="flex gap-3">
                 {/* Left Side: Avatar & Reddit-style Collapse Line */}
                 <div className="flex flex-col items-center">
-                    <div className="w-9 h-9 flex-shrink-0 cursor-pointer">
+                    <div className="w-8 h-8 flex-shrink-0 cursor-pointer">
                         <img
                             className="rounded-full w-full h-full object-cover"
                             src="./avatar.webp"
@@ -36,7 +36,7 @@ export default function Comment() {
                     </div>
 
                     {/* Comment Body */}
-                    <div className="text-sm leading-relaxed mb-3 break-words">
+                    <div className="text-sm leading-relaxed mb-3 break-words pr-1">
                         The struggle was real when he was trying to hit the timer.
                         Honestly, one of the best moments in the entire video!
                     </div>
@@ -51,7 +51,7 @@ export default function Comment() {
                         <button className="flex items-center hover:text-white transition group">
                             <CommentIcon size={18} className="group-hover:scale-110 transition-transform mr-1" />
                             <span>12</span>
-                            <DownArrowIcon size={22}/>
+                            <DownArrowIcon size={22} />
                         </button>
                     </div>
                 </div>

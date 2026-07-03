@@ -1,8 +1,8 @@
 import { CalendarIcon } from "../components/Icons"
-import Post from "../components/Post"
-import RecommendationsBar from "../components/RecommendationsBar"
-import SubscriptionsBar from "../components/SubscriptionsBar"
-import VideoCard from "../components/VideoCard"
+import Post from "../components/Cards/Post"
+import RecommendationsBar from "../components/Bars/RecommendationsBar"
+import SubscriptionsBar from "../components/Bars/SubscriptionsBar"
+import VideoCard from "../components/Cards/VideoCard"
 
 // type TimingProps = {
 //     children: string;

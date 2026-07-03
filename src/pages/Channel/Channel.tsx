@@ -1,5 +1,5 @@
 import { FlagIcon, ShareIcon } from "../../components/Icons";
-import ScrollableTabs from "../../components/ScrollableTabs";
+import ScrollableTabs from "../../components/UI/ScrollableTabs";
 import About from "./About";
 import Courses from "./Courses";
 import Shorts from "./Shorts";

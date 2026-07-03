@@ -1,5 +1,5 @@
 import { NavLink, useSearchParams } from "react-router-dom"
-import { ExploreIcon } from "./Icons";
+import { ExploreIcon } from "../Icons";
 
 
 const HomeFilters = [

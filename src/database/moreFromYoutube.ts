@@ -1,9 +1,9 @@
 import type { ComponentType } from "react"
-import { 
-    YoutubeIcon, 
-    YoutubeKidsIcon, 
-    YoutubeMusicIcon, 
-    type IconProps 
+import {
+    YoutubeIcon,
+    YoutubeKidsIcon,
+    YoutubeMusicIcon,
+    type IconProps
 } from "../components/Icons"
 
 export type MoreFromYoutube = {

@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { FilledSubscriptionsIcon, FilledVideoIcon, MoreIcon } from "./Icons"
+import { FilledSubscriptionsIcon, FilledVideoIcon, MoreIcon } from "../Icons"
 
 
 type SmallPlaylistCardProps = {

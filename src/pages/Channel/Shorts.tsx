@@ -1,5 +1,5 @@
 import { ListViewIcon, List2ViewIcon } from "../../components/Icons";
-import ThinShortsCard from "../../components/ThinShortsCard";
+import ThinShortsCard from "../../components/Cards/ThinShortsCard";
 
 export default function Shorts() {
     return (

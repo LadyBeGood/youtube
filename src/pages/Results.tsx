@@ -1,7 +1,7 @@
 import { useNavigate } from "react-router-dom";
 import { BackIcon, FunnelIcon, MicrophoneIcon, SortIcon } from "../components/Icons";
-import VideoCard from "../components/VideoCard";
-import ChannelCard from "../components/ChannelCard";
+import VideoCard from "../components/Cards/VideoCard";
+import ChannelCard from "../components/Cards/ChannelCard";
 
 export default function Results() {
     const navigate = useNavigate();

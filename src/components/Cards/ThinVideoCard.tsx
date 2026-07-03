@@ -1,5 +1,5 @@
 import { useNavigate } from "react-router-dom";
-import { MoreIcon } from "./Icons"
+import { MoreIcon } from "../Icons"
 
 
 type ThinVideoProps = {

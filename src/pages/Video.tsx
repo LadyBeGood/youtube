@@ -1,11 +1,11 @@
 import { useEffect, useLayoutEffect, useRef, useState } from "react";
 import { LikeIcon, DislikeIcon, DownArrowIcon, CommentIcon, ShareIcon, BookmarkIcon, DownloadIcon, FlagIcon } from "../components/Icons"
-import VideoCard from "../components/VideoCard"
-import VideoPlayer from "../components/VideoPlayer"
-import BottomSheet from "../components/BottomSheet";
+import VideoCard from "../components/Cards/VideoCard"
+import VideoPlayer from "../components/UI/VideoPlayer"
+import BottomSheet from "../components/UI/BottomSheet";
 import { NavLink } from "react-router-dom";
-import Post from "../components/Post";
-import Comment from "../components/Comment";
+import Post from "../components/Cards/Post";
+import Comment from "../components/Cards/Comment";
 import CommentSection from "../components/CommentSection";
 
 
@@ -129,11 +129,11 @@ export default function Video() {
 
             <BottomSheet type={2} overlay={false} isBottomSheetOpen={isCommentsBottomSheetOpen} height={"100svh"} middle={((window.innerHeight - videoPlayerHeight) / window.innerHeight) * 100} high={100} onBottomSheetClose={() => setIsCommentsBottomSheetOpen(false)}>
                 {/* <Comment /> */}
-                
+
                 <CommentSection onClose={() => setIsCommentsBottomSheetOpen(false)} />
             </BottomSheet>
 
-            
+
 
             {/* Description */}
             <BottomSheet type={2} overlay={false} isBottomSheetOpen={isDescriptionBottomSheetOpen} height={"100svh"} middle={((window.innerHeight - videoPlayerHeight) / window.innerHeight) * 100} high={100} onBottomSheetClose={() => setIsDescriptionBottomSheetOpen(false)}>

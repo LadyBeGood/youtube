@@ -1,4 +1,4 @@
-import ThinPlaylistCard from "../../components/ThinPlaylistCard";
+import ThinPlaylistCard from "../../components/Cards/ThinPlaylistCard";
 import { playlists } from "../../database/playlist";
 
 

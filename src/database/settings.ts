@@ -1,5 +1,5 @@
 import type { ComponentType } from "react"
-import { 
+import {
     SensorsIcon,
     SwitchAccountIcon,
     SettingsIcon,

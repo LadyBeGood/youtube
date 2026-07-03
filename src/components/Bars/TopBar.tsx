@@ -1,5 +1,5 @@
 import { NavLink, Link, useLocation } from "react-router-dom"
-import { SearchIcon, NotificationsIcon, FilledNotificationsIcon, SettingsIcon } from "./Icons"
+import { SearchIcon, NotificationsIcon, FilledNotificationsIcon, SettingsIcon } from "../Icons"
 
 
 export default function TopBar() {

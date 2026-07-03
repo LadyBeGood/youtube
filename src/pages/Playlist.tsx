@@ -1,5 +1,5 @@
 import { BackIcon, MoreIcon } from "../components/Icons";
-import ThinVideoCard from "../components/ThinVideoCard";
+import ThinVideoCard from "../components/Cards/ThinVideoCard";
 
 
 export default function Playlist() {

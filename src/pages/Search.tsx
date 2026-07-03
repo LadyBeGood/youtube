@@ -12,9 +12,9 @@ export default function Search() {
                 <button className="grid place-items-center cursor-pointer" onClick={() => window.history.state.idx ? navigate(-1) : navigate("/")}>
                     <BackIcon />
                 </button>
-            
+
                 <input type="search" name="idk" id="" className="bg-dark-gray placeholder:text-dark-silver grow rounded-full px-4 py-1" placeholder="Search YouTube" />
-                
+
                 <button className="grid place-items-center">
                     <MicrophoneIcon />
                 </button>

@@ -1,5 +1,5 @@
 import { GridViewIcon, ListViewIcon, List2ViewIcon } from "../../components/Icons";
-import ThinVideoCard from "../../components/ThinVideoCard";
+import ThinVideoCard from "../../components/Cards/ThinVideoCard";
 
 export default function Videos() {
     const isActive = false

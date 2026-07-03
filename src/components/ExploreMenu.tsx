@@ -12,7 +12,7 @@ export default function ExploreMenu({ isOpen, onClose }: ExploreMenuProps) {
         <>
             <div className={"bg-black w-[75vw] fixed z-2 flex flex-col overflow-auto no-scrollbar transition-all py-8 space-y-8 " + (isOpen ? " left-0 top-0 bottom-0" : " -left-full")}>
                 {
-                    Object.entries({ "Explore": explores, "More from Youtube": moreFromYoutube }).map(([key, value]) => 
+                    Object.entries({ "Explore": explores, "More from Youtube": moreFromYoutube }).map(([key, value]) =>
                         <div key={key}>
                             <div className="text-xl font-medium mb-3 px-4">
                                 {key}

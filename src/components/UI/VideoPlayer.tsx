@@ -1,8 +1,8 @@
 import { useRef, useState, useEffect, type RefObject } from "react";
 import { type ChangeEvent, type MouseEvent } from "react";
-import BottomSheet from "./BottomSheet";
-import Toggle from "./Toggle";
-import { AmbientIcon, CaptionIcon, DownArrowIcon, MaximiseIcon, LoopIcon, FilledNextIcon, FilledPauseIcon, PlaybackSpeedIcon, FilledPlayIcon, FilledPreviousIcon, SettingsIcon, TickIcon } from "./Icons";
+import BottomSheet from "../UI/BottomSheet";
+import Toggle from "../UI/Toggle";
+import { AmbientIcon, CaptionIcon, DownArrowIcon, MaximiseIcon, LoopIcon, FilledNextIcon, FilledPauseIcon, PlaybackSpeedIcon, FilledPlayIcon, FilledPreviousIcon, SettingsIcon, TickIcon } from "../Icons";
 
 type VideoPlayerProps = {
     source: string;

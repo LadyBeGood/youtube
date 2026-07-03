@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom"
-import { FilledVideoIcon, MoreIcon, VideoIcon } from "./Icons"
+import { FilledVideoIcon, MoreIcon, VideoIcon } from "../Icons"
 
 type PlaylistCardProps = {
     title: string,
