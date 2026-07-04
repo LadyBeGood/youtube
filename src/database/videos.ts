@@ -1,6 +1,6 @@
 type Video = {
     type: "video",
-    id:`video-${number}`,
+    id: `video-${number}`,
     isMusical: boolean,
     title: string,
     channel: string,

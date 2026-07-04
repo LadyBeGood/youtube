@@ -13,7 +13,7 @@ export default function Search() {
                     <BackIcon />
                 </button>
 
-                <input type="search" name="idk" id="" className="bg-dark-gray placeholder:text-dark-silver grow rounded-full px-4 py-1" placeholder="Search YouTube" />
+                <input type="search" name="idk" id="" className="bg-(--dark-gray) placeholder:text-(--dark-silver) grow rounded-full px-4 py-1" placeholder="Search YouTube" />
 
                 <button className="grid place-items-center">
                     <MicrophoneIcon />

@@ -35,7 +35,7 @@ export default function ThinPlaylistCard({ title, videoCount, updatedAt, thumbna
                 <div className="gap-1 flex flex-col">
                     <div className="text-left text-sm line-clamp-3">{title}</div>
 
-                    <div className="text-xs text-left text-cool-gray">
+                    <div className="text-xs text-left text-(--cool-gray)">
                         Updated <span> {updatedAt}</span>
                     </div>
                 </div>

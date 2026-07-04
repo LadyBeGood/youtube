@@ -29,7 +29,7 @@ export default function SmallVideoCard({ isMusical = false, title, channel, thum
                 <Link className="gap-1 flex flex-col" to="/video">
                     <div className="text-left text-sm/tight line-clamp-2">{title}</div>
 
-                    <div className="text-xs text-left text-cool-gray">
+                    <div className="text-xs text-left text-(--cool-gray)">
                         <span>{channel}</span>
                     </div>
                 </Link>

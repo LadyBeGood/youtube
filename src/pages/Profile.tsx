@@ -23,33 +23,33 @@ export default function Profile() {
                             Michael Faraday <DownArrowIcon />
                         </span>
 
-                        <div className="text-sm whitespace-pre text-cool-gray">
+                        <div className="text-sm whitespace-pre text-(--cool-gray)">
                             @michaelfaraday
                         </div>
                     </div>
                 </div>
 
                 <div className="px-3 h-12 py-2 flex overflow-x-auto gap-3 no-scrollbar select-none mb-4 text-xs">
-                    <button className="pl-3 pr-4 bg-dark-gray rounded-full flex items-center text-xs gap-2 shrink-0">
+                    <button className="pl-3 pr-4 bg-(--dark-gray) rounded-full flex items-center text-xs gap-2 shrink-0">
                         {/* This was created by Gemini */}
                         <ProfileIcon size={20} />
                         <div className="shrink-0">View Channel</div>
                     </button>
 
                     {/* Download button */}
-                    <button className="pl-3 pr-4 bg-dark-gray rounded-full flex items-center gap-2 shrink-0">
+                    <button className="pl-3 pr-4 bg-(--dark-gray) rounded-full flex items-center gap-2 shrink-0">
                         <DownloadIcon size={20} />
                         <div>Downloads</div>
                     </button>
 
                     {/* Download button */}
-                    <button className="pl-3 pr-4 bg-dark-gray rounded-full flex items-center gap-2 shrink-0">
+                    <button className="pl-3 pr-4 bg-(--dark-gray) rounded-full flex items-center gap-2 shrink-0">
                         <MaskIcon size={20} />
                         <div>Incognito</div>
                     </button>
 
                     {/* Report button */}
-                    <button className="pl-3 pr-4 bg-dark-gray rounded-full flex items-center gap-2">
+                    <button className="pl-3 pr-4 bg-(--dark-gray) rounded-full flex items-center gap-2">
                         <LeaderboardIcon size={20} />
                         <div>Statistics</div>
                     </button>

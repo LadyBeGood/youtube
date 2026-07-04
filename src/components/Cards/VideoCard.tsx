@@ -35,7 +35,7 @@ export default function VideoCard({ isMusical = false, title, channel, profilePi
 
                 <button className="gap-1 flex flex-col" onClick={() => navigate("/video")}>
                     <div className="text-left">{title}</div>
-                    <div className="text-xs text-left text-cool-gray">
+                    <div className="text-xs text-left text-(--cool-gray)">
                         <span>{channel}</span> ·
                         <span> {views} views</span> ·
                         <span> {uploadDate}</span>

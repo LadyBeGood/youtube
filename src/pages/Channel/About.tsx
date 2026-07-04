@@ -6,17 +6,17 @@ export default function About() {
             {/* Quick Info Grid Boxes
             <div className="grid grid-cols-3 gap-2">
                 <div className="bg-white/10 rounded-lg p-3 flex flex-col items-center justify-center text-center">
-                    <span className="text-xs text-cool-gray mb-1">Videos</span>
+                    <span className="text-xs text-(--cool-gray) mb-1">Videos</span>
                     <span className="text-base font-semibold text-white">242</span>
                 </div>
 
                 <div className="bg-white/10 rounded-lg p-3 flex flex-col items-center justify-center text-center">
-                    <span className="text-xs text-cool-gray mb-1">Subscribers</span>
+                    <span className="text-xs text-(--cool-gray) mb-1">Subscribers</span>
                     <span className="text-base font-semibold text-white">1.24M</span>
                 </div>
 
                 <div className="bg-white/10 rounded-lg p-3 flex flex-col items-center justify-center text-center">
-                    <span className="text-xs text-cool-gray mb-1">Total Views</span>
+                    <span className="text-xs text-(--cool-gray) mb-1">Total Views</span>
                     <span className="text-base font-semibold text-white">14.2M</span>
                 </div>
 
@@ -27,17 +27,17 @@ export default function About() {
             <div className="flex text-center items-center">
                 <div className="flex-1">
                     <div className="text-lg font-bold text-white tracking-tight">242</div>
-                    <div className="text-[11px] font-medium text-cool-gray tracking-wider mt-0.5">Videos</div>
+                    <div className="text-[11px] font-medium text-(--cool-gray) tracking-wider mt-0.5">Videos</div>
                 </div>
 
                 <div className="flex-1">
                     <div className="text-lg font-bold text-white tracking-tight">1.24M</div>
-                    <div className="text-[11px] font-medium text-cool-gray tracking-wider mt-0.5">Subscribers</div>
+                    <div className="text-[11px] font-medium text-(--cool-gray) tracking-wider mt-0.5">Subscribers</div>
                 </div>
 
                 <div className="flex-1">
                     <div className="text-lg font-bold text-white tracking-tight">14.2M</div>
-                    <div className="text-[11px] font-medium text-cool-gray tracking-wider mt-0.5">Views</div>
+                    <div className="text-[11px] font-medium text-(--cool-gray) tracking-wider mt-0.5">Views</div>
                 </div>
             </div>
 
@@ -58,10 +58,10 @@ export default function About() {
                 <h2 className="text-lg font-medium">Links</h2>
                 <div className="flex flex-col gap-3 pt-2 text-sm">
                     {[
-                        { label: "Official Website", url: "faraday.me",            icon: EarthIcon },
-                        { label: "Instagram",        url: "instagram.com/faraday", icon: InstagramIcon },
-                        { label: "X",                url: "x.com/faraday",         icon: XIcon },
-                        { label: "Patreon",          url: "patreon.com/faraday",   icon: PatreonIcon },
+                        { label: "Official Website", url: "faraday.me", icon: EarthIcon },
+                        { label: "Instagram", url: "instagram.com/faraday", icon: InstagramIcon },
+                        { label: "X", url: "x.com/faraday", icon: XIcon },
+                        { label: "Patreon", url: "patreon.com/faraday", icon: PatreonIcon },
                     ].map((link) => (
                         <a key={link.label} href="#" className="flex items-center gap-3">
                             <link.icon />

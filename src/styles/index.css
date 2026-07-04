@@ -2,13 +2,19 @@
 
 
 /* ==================== */
-/* Hide scrollbar       */
+/* Scrollbars           */
 /* ==================== */
+
+* {
+    scrollbar-color: white black;
+}
 
 /* Firefox */
 .no-scrollbar {
     -ms-overflow-style: none;
     scrollbar-width: none;
+
+    
 }
 
 /* Edge */
@@ -16,6 +22,7 @@
 .no-scrollbar::-webkit-scrollbar-button {
     display: none;
 }
+
 
 
 

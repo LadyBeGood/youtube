@@ -20,9 +20,9 @@ export default function Podcasts() {
                     </svg>
                 </div>
                 <div className="px-3 py-2.5">
-                    <p className="text-[10px] text-cool-gray uppercase tracking-wider mb-0.5">Latest episode</p>
+                    <p className="text-[10px] text-(--cool-gray) uppercase tracking-wider mb-0.5">Latest episode</p>
                     <p className="text-sm font-medium text-white">The Science of Lightning</p>
-                    <p className="text-[11px] text-cool-gray mt-0.5">Ep. 12 · 48 min · Apr 2</p>
+                    <p className="text-[11px] text-(--cool-gray) mt-0.5">Ep. 12 · 48 min · Apr 2</p>
                 </div>
             </div>
 

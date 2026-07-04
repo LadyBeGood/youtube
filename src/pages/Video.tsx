@@ -59,7 +59,7 @@ export default function Video() {
                         <button className="font-medium hover:bg-white/20 text-white grid place-items-center px-3 rounded-full text-[13px]">
                             Join
                         </button>
-                        <button className="font-medium text-eerie-black bg-white grid place-items-center px-3 rounded-full text-[13px]">
+                        <button className="font-medium text-(--eerie-black) bg-white grid place-items-center px-3 rounded-full text-[13px]">
                             Subscribe
                         </button>
                     </div>
@@ -67,7 +67,7 @@ export default function Video() {
 
                 <div className="px-3 h-12 py-2 flex overflow-x-auto gap-3 no-scrollbar select-none mb-4 text-xs">
                     {/* Like and Dislike Buttons */}
-                    <div className="flex items-center gap-2 px-3 bg-dark-gray rounded-full">
+                    <div className="flex items-center gap-2 px-3 bg-(--dark-gray) rounded-full">
                         <button className="flex gap-2 items-center">
                             <LikeIcon height={18} width={18} />
                             <div>129K</div>
@@ -82,32 +82,32 @@ export default function Video() {
                     </div>
 
                     {/* Comments Button */}
-                    <button className="pl-3 pr-4 bg-dark-gray rounded-full flex items-center text-xs gap-2" onClick={() => setIsCommentsBottomSheetOpen(!isCommentsBottomSheetOpen)}>
+                    <button className="pl-3 pr-4 bg-(--dark-gray) rounded-full flex items-center text-xs gap-2" onClick={() => setIsCommentsBottomSheetOpen(!isCommentsBottomSheetOpen)}>
                         {/* This was created by Gemini */}
                         <CommentIcon height={18} width={18} />
                         <div>3.1K</div>
                     </button>
 
                     {/* Share Button */}
-                    <button className="pl-3 pr-4 bg-dark-gray rounded-full flex items-center gap-1">
+                    <button className="pl-3 pr-4 bg-(--dark-gray) rounded-full flex items-center gap-1">
                         <ShareIcon size={20} />
                         <div>Share</div>
                     </button>
 
                     {/* Save Button */}
-                    <button className="pl-3 pr-4 bg-dark-gray rounded-full flex items-center gap-1">
+                    <button className="pl-3 pr-4 bg-(--dark-gray) rounded-full flex items-center gap-1">
                         <BookmarkIcon size={20} />
                         <div>Save</div>
                     </button>
 
                     {/* Download button */}
-                    <button className="pl-3 pr-4 bg-dark-gray rounded-full flex items-center gap-1">
+                    <button className="pl-3 pr-4 bg-(--dark-gray) rounded-full flex items-center gap-1">
                         <DownloadIcon size={20} />
                         <div>Download</div>
                     </button>
 
                     {/* Report button */}
-                    <button className="pl-3 pr-4 bg-dark-gray rounded-full flex items-center gap-1">
+                    <button className="pl-3 pr-4 bg-(--dark-gray) rounded-full flex items-center gap-1">
                         <FlagIcon size={20} />
                         <div>Report</div>
                     </button>

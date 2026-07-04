@@ -1,27 +1,7 @@
 import { NavLink, useSearchParams } from "react-router-dom"
 import { ExploreIcon } from "../Icons";
+import { HomeFilters, subscriptionsFilters } from "../../database/filters";
 
-
-const HomeFilters = [
-    "All",
-    "New to You",
-    "Gaming",
-    "News",
-    "Music",
-    "Mixes",
-    "Comedy",
-    "Recently uploaded",
-]
-
-const subscriptionsFilters = [
-    "All",
-    "Today",
-    "Videos",
-    "Live",
-    "Posts",
-    "Unwatched",
-    "Continue watching",
-]
 
 type RecommendationsBarProps = {
     isHomePage?: boolean,
@@ -37,7 +17,7 @@ export default function RecommendationsBar({ isHomePage = false, onExploreButton
             {isHomePage &&
                 <>
                     <button
-                        className="bg-dark-gray whitespace-nowrap h-8 px-2 cursor-pointer flex items-center rounded-sm"
+                        className="bg-(--dark-gray) whitespace-nowrap h-8 px-2 cursor-pointer flex items-center rounded-sm"
                         onClick={onExploreButtonClick}
                     >
                         <ExploreIcon />
@@ -63,7 +43,7 @@ export default function RecommendationsBar({ isHomePage = false, onExploreButton
                         key={recommendation}
                         to={to}
                         className={`whitespace-nowrap box-content px-3.5 py-1.5 rounded-lg text-sm
-                             ${isActive ? "bg-white text-dark-gray" : "bg-dark-gray text-white"}`}
+                             ${isActive ? "bg-white text-(--dark-gray)" : "bg-(--dark-gray) text-white"}`}
                     >
                         {recommendation}
                     </NavLink>

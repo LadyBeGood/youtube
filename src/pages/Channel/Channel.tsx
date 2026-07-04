@@ -14,15 +14,15 @@ import Videos from "./Videos";
 export default function Channel() {
 
     const tabs = [
-        { label: "About",     content: <About />     },
-        { label: "Videos",    content: <Videos />    },
-        { label: "Shorts",    content: <Shorts />    },
+        { label: "About", content: <About /> },
+        { label: "Videos", content: <Videos /> },
+        { label: "Shorts", content: <Shorts /> },
         { label: "Playlists", content: <Playlists /> },
         // { label: "Live",      content: <Live />      },
         // { label: "Podcasts",  content: <Podcasts />  },
         // { label: "Courses",   content: <Courses />   },
-        { label: "Posts",     content: <Posts />     },
-        { label: "Shop",      content: <Shop />      },
+        { label: "Posts", content: <Posts /> },
+        { label: "Shop", content: <Shop /> },
     ];
 
 
@@ -52,14 +52,14 @@ export default function Channel() {
                         Michael Faraday
                     </h1>
 
-                    <div className="text-sm whitespace-pre text-cool-gray">
+                    <div className="text-sm whitespace-pre text-(--cool-gray)">
                         @michaelfaraday
                     </div>
                 </div>
 
 
                 <div className="flex h-8 mt-5 mx-4 gap-2">
-                    <button className="flex font-medium text-eerie-black bg-white items-center px-3  rounded-full text-sm">
+                    <button className="flex font-medium text-(--eerie-black) bg-white items-center px-3  rounded-full text-sm">
                         Subscribe
                     </button>
                     <button className="font-medium hover:bg-white/20 text-white grid place-items-center px-3 rounded-full text-sm">

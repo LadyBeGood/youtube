@@ -24,10 +24,10 @@ export default function Comment() {
                         <span className="text-sm font-medium truncate text-white">
                             Michael Faraday
                         </span>
-                        <span className="text-cool-gray">
+                        <span className="text-(--cool-gray)">
                             ·
                         </span>
-                        <span className="text-xs text-cool-gray flex-shrink-0">
+                        <span className="text-xs text-(--cool-gray) flex-shrink-0">
                             2h ago
                         </span>
                         <button className="ml-auto p-1 hover:text-white rounded-full hover:bg-zinc-800 transition">

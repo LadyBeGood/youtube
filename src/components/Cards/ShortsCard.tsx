@@ -13,7 +13,7 @@ export default function ShortsCard({ thumbnail, title }: ShortsCardProps) {
         <div className="relative grid grid-cols-[4fr_6fr] gap-3">
             <NavLink className="relative cursor-pointer" to="/shorts">
                 <img className="object-cover aspect-[2/3] w-full" src={thumbnail} alt="thumbnail" />
-                
+
                 <div className="absolute bottom-1 right-1 bg-black/80 p-1 rounded">
                     <FilledShortsIcon size={16} />
                 </div>
@@ -35,10 +35,10 @@ export default function ShortsCard({ thumbnail, title }: ShortsCardProps) {
                     <div className="w-8 h-8">
                         <img className="rounded-full" src="./avatar3.jpg" alt="" />
                     </div>
-                    
+
                     <div>
                         <p className="text-sm  text-white leading-none mb-1">Michael Faraday</p>
-                        <p className="text-xs text-cool-gray mt-0.5 select-none">2.1M views · 5 days ago</p>
+                        <p className="text-xs text-(--cool-gray) mt-0.5 select-none">2.1M views · 5 days ago</p>
                     </div>
                 </NavLink>
             </div>

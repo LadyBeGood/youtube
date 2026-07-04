@@ -7,9 +7,9 @@ export default function Videos() {
         <div className="">
             <div className="h-12 flex justify-between items-center my-2 px-3">
                 <div className="flex gap-2 text-sm">
-                    {["Latest", "Popular", "Oldest"].map((item, i) => 
+                    {["Latest", "Popular", "Oldest"].map((item, i) =>
                         <button className={`whitespace-nowrap box-content px-2.5 py-1.5 rounded-lg text-sm
-                             ${i === 0 ? "bg-white text-dark-gray" : " text-white"}`}>
+                             ${i === 0 ? "bg-white text-(--dark-gray)" : " text-white"}`}>
                             {item}
                         </button>
                     )}

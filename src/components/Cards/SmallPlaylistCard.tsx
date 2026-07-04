@@ -19,7 +19,7 @@ export default function SmallPlaylistCard({ title, channel, thumbnailURL, videoC
             >
 
                 {/* <div className="w-full h-auto overflow-hidden grid place-items-center"> */}
-                    <img className="w-full aspect-video object-cover" src={thumbnailURL} alt="thumbnail" />
+                <img className="w-full aspect-video object-cover" src={thumbnailURL} alt="thumbnail" />
                 {/* </div> */}
 
                 <div className="absolute flex gap-1 rounded right-0.75 bottom-0.75 bg-black/70 text-xs text-white pl-0.75 pr-1 py-[1px] items-center">
@@ -31,7 +31,7 @@ export default function SmallPlaylistCard({ title, channel, thumbnailURL, videoC
                 <Link className="gap-1 flex flex-col" to="/video">
                     <div className="text-left text-sm/tight line-clamp-2">{title}</div>
 
-                    <div className="text-xs text-left text-cool-gray">
+                    <div className="text-xs text-left text-(--cool-gray)">
                         <span>{channel}</span>
                     </div>
                 </Link>

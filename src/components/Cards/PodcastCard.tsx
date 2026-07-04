@@ -9,7 +9,7 @@ export default function PodcastCard({ title, ep, duration, date }) {
             </div>
             <div className="flex-1 min-w-0">
                 <p className="text-[13px] font-medium text-white line-clamp-1">{title}</p>
-                <p className="text-[11px] text-cool-gray mt-0.5">Ep. {ep} · {duration} · {date}</p>
+                <p className="text-[11px] text-(--cool-gray) mt-0.5">Ep. {ep} · {duration} · {date}</p>
             </div>
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.3)" strokeWidth="2" className="flex-shrink-0">
                 <path d="M5 12h14M12 5l7 7-7 7" />

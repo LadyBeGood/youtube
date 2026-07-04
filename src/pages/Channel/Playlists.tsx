@@ -9,7 +9,7 @@ export default function Playlists() {
                 <div className="flex gap-2 text-sm">
                     {["Recently updated", "Alphabetical"].map((item, i) =>
                         <button className={`whitespace-nowrap box-content px-2.5 py-1.5 rounded-lg text-sm
-                                ${i === 0 ? "bg-white text-dark-gray" : " text-white"}`}>
+                                ${i === 0 ? "bg-white text-(--dark-gray)" : " text-white"}`}>
                             {item}
                         </button>
                     )}

@@ -22,7 +22,7 @@ export default function Post({ className = "", avatar, name, date, body, likes, 
                 </div>
                 <div>
                     <p className="text-sm  text-white leading-none">{name}</p>
-                    <p className="text-xs text-cool-gray mt-0.5 select-none">{date}</p>
+                    <p className="text-xs text-(--cool-gray) mt-0.5 select-none">{date}</p>
                 </div>
                 <button className="ml-auto p-1.5">
                     <MoreIcon size={20} />

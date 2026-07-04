@@ -1,4 +1,4 @@
-import { CommentIcon, DislikeIcon, MaximiseIcon, LikeIcon, ShareIcon, FullscreenIcon, DownArrowIcon, BackIcon, MoreIcon, BookmarkIcon } from "./Icons";
+import { CommentIcon, DislikeIcon, MaximiseIcon, LikeIcon, ShareIcon, FullscreenIcon, DownArrowIcon, BackIcon, MoreIcon, BookmarkIcon } from "../Icons";
 
 export default function Short() {
     return (
@@ -19,8 +19,8 @@ export default function Short() {
                         <div>Nikola Tesla</div>
                     </div>
                     <div className="pl-4">
-                        I Redesigned the ENTIRE YouTube User Interface from Scratch 
-                        <DownArrowIcon className="inline" size={20}/>
+                        I Redesigned the ENTIRE YouTube User Interface from Scratch
+                        <DownArrowIcon className="inline" size={20} />
                     </div>
                 </div>
 
@@ -38,7 +38,7 @@ export default function Short() {
                         <CommentIcon />
                         1.3K
                     </button>
-                    
+
                     <button className="flex flex-col items-center gap-1">
                         <BookmarkIcon />
                         Save

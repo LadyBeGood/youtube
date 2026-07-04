@@ -22,11 +22,11 @@ function LiveCard({ title, viewers, scheduledAt, isLive }) {
             {/* Meta */}
             <div className="flex-1 min-w-0 pt-0.5">
                 <p className="text-[13px] font-medium text-white leading-snug line-clamp-2 mb-1.5">{title}</p>
-                <p className="text-[11px] text-cool-gray">Michael Faraday</p>
+                <p className="text-[11px] text-(--cool-gray)">Michael Faraday</p>
                 {isLive ? (
-                    <p className="text-[11px] text-cool-gray mt-0.5">{viewers} watching now</p>
+                    <p className="text-[11px] text-(--cool-gray) mt-0.5">{viewers} watching now</p>
                 ) : (
-                    <p className="text-[11px] text-cool-gray mt-0.5">{scheduledAt}</p>
+                    <p className="text-[11px] text-(--cool-gray) mt-0.5">{scheduledAt}</p>
                 )}
             </div>
         </div>

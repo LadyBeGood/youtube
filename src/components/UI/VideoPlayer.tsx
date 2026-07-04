@@ -222,13 +222,13 @@ export default function VideoPlayer({ source, title }: VideoPlayerProps) {
 
                         {/* YouTube Red Scrubber */}
                         <div
-                            className="h-0.5 absolute bg-cool-gray/40 bottom-0 left-0 right-0 cursor-pointer"
+                            className="h-0.5 absolute bg-(--cool-gray)/40 bottom-0 left-0 right-0 cursor-pointer"
                             style={isFullscreen ? { marginInline: "16px" } : {}}>
                             {/* Progress Fill (Optional, but makes it look like YouTube) */}
-                            <div className="h-full bg-youtube-red w-[30%] relative">
+                            <div className="h-full bg-(--youtube-red) w-[30%] relative">
 
                                 {/* The Ball (Scrubber) */}
-                                <div className="absolute right-0 top-1/2 z-1000 -translate-y-1/2 translate-x-1/2 bg-youtube-red h-3 w-3 rounded-full shadow-md"></div>
+                                <div className="absolute right-0 top-1/2 z-1000 -translate-y-1/2 translate-x-1/2 bg-(--youtube-red) h-3 w-3 rounded-full shadow-md"></div>
 
                             </div>
                         </div>
@@ -290,7 +290,7 @@ export default function VideoPlayer({ source, title }: VideoPlayerProps) {
                         Playback speed
                     </div>
 
-                    <div className=" text-cool-gray flex items-center gap-1 ">
+                    <div className=" text-(--cool-gray) flex items-center gap-1 ">
                         1.0
                         <DownArrowIcon className="-rotate-90" />
                     </div>

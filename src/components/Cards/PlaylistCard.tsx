@@ -37,7 +37,7 @@ export default function PlaylistCard({ title, channel, profilePictureURL, videoC
 
                 <Link className="gap-1 flex flex-col" to="/video">
                     <div className="text-left">{title}</div>
-                    <div className="text-xs text-left text-cool-gray">
+                    <div className="text-xs text-left text-(--cool-gray)">
                         <span>{channel}</span> ·
                         <span> Updated {updatedAt}</span>
                     </div>

@@ -6,9 +6,9 @@ export default function Shorts() {
         <div>
             <div className="h-12 flex justify-between items-center my-2 px-3">
                 <div className="flex gap-2 text-sm">
-                    {["Latest", "Popular", "Oldest"].map((item, i) => 
+                    {["Latest", "Popular", "Oldest"].map((item, i) =>
                         <button className={`whitespace-nowrap box-content px-2.5 py-1.5 rounded-lg text-sm
-                                ${i === 0 ? "bg-white text-dark-gray" : " text-white"}`}>
+                                ${i === 0 ? "bg-white text-(--dark-gray)" : " text-white"}`}>
                             {item}
                         </button>
                     )}
@@ -24,7 +24,7 @@ export default function Shorts() {
                     </button>
                 </div>
             </div>
-            
+
             <div className="grid grid-cols-3 gap-0.75">
                 <ThinShortsCard thumbnail="./japan.jpg" title="Japan's Most Beautiful Restaurant 🍃" />
                 <ThinShortsCard thumbnail="./pink.webp" title="Japan's Most Beautiful Restaurant 🍃" />
@@ -44,7 +44,7 @@ export default function Shorts() {
                 <ThinShortsCard thumbnail="./pink.webp" title="Japan's Most Beautiful Restaurant 🍃" />
                 <ThinShortsCard thumbnail="./painting.jpg" title="Japan's Most Beautiful Restaurant 🍃" />
                 <ThinShortsCard thumbnail="./yellow.webp" title="Japan's Most Beautiful Restaurant 🍃" />
-                
+
             </div>
         </div>
     )

@@ -1,4 +1,4 @@
-import Short from "../components/Short";
+import Short from "../components/UI/Short";
 
 /**
  * This component use CSS's inbuilt scroll snapping feature for snapping. CSS's scroll snap's duration or 

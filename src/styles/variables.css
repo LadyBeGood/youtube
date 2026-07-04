@@ -1,9 +1,9 @@
-@import "tailwindcss";
 
-@theme {
-    --color-dark-gray: #272727;
-    --color-cool-gray: #888;
-    --color-eerie-black: #1a1a1a;
-    --color-dark-silver: #aeaeae;
-    --color-youtube-red: #fe0032;
+:root {
+    --dark-gray: #272727;
+    --cool-gray: #888;
+    --eerie-black: #1a1a1a;
+    --dark-silver: #aeaeae;
+    --youtube-red: #fe0032;
 }
+

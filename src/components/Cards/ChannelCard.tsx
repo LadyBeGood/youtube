@@ -14,7 +14,7 @@ export default function ChannelCard() {
                         Michael Faraday
                     </span>
 
-                    <div className="text-sm whitespace-pre text-cool-gray">
+                    <div className="text-sm whitespace-pre text-(--cool-gray)">
                         @michaelfaraday
                     </div>
                 </div>
@@ -24,17 +24,17 @@ export default function ChannelCard() {
             <div className="flex text-center items-center">
                 <div className="flex-1">
                     <div className="text-md font-medium text-white tracking-tight">242</div>
-                    <div className="text-[11px] font-medium text-cool-gray tracking-wider mt-0.5">Videos</div>
+                    <div className="text-[11px] font-medium text-(--cool-gray) tracking-wider mt-0.5">Videos</div>
                 </div>
 
                 <div className="flex-1">
                     <div className="text-md font-medium text-white tracking-tight">1.24M</div>
-                    <div className="text-[11px] font-medium text-cool-gray tracking-wider mt-0.5">Subscribers</div>
+                    <div className="text-[11px] font-medium text-(--cool-gray) tracking-wider mt-0.5">Subscribers</div>
                 </div>
 
                 <div className="flex-1">
                     <div className="text-md font-medium text-white tracking-tight">14.2M</div>
-                    <div className="text-[11px] font-medium text-cool-gray tracking-wider mt-0.5">Views</div>
+                    <div className="text-[11px] font-medium text-(--cool-gray) tracking-wider mt-0.5">Views</div>
                 </div>
             </div>
         </a>
