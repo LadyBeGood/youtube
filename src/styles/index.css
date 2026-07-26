@@ -1,34 +1,8 @@
 @import "tailwindcss";
 
-
-/* ==================== */
-/* Scrollbars           */
-/* ==================== */
-
-* {
-    scrollbar-color: white black;
-}
-
-/* Firefox */
-.no-scrollbar {
-    -ms-overflow-style: none;
-    scrollbar-width: none;
-
-    
-}
-
-/* Edge */
-.no-scrollbar::-webkit-scrollbar,
-.no-scrollbar::-webkit-scrollbar-button {
-    display: none;
-}
-
-
-
-
-/* ==================== */
+/*======================*/
 /* Loading spinner      */
-/* ==================== */
+/*======================*/
 .spinner {
     width: 40px;
     height: 40px;
@@ -47,6 +21,11 @@
 }
 
 
+
+
+/*======================*/
+/* Fullscreen           */
+/*======================*/
 /* 
 /* Fullscreen 
 .video-container:fullscreen {

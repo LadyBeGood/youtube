@@ -7,6 +7,9 @@ export default defineConfig({
     plugins: [react(), tailwindcss()],
     base: "/",
     appType: "spa",
+    build: {
+        minify: false
+    },
     server: {
         proxy: {
             "/api": "http://localhost:3000",
