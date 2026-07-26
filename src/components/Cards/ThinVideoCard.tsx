@@ -14,15 +14,15 @@ export default function ThinVideoCard({ isMusical = false, title, thumbnailURL, 
     const navigate = useNavigate();
 
     return (
-        <button className="select-none flex gap-2 pr-1 h-22" onClick={() => navigate("/video")}>
-            <div className="relative aspect-video h-full overflow-hidden shrink-0 grid place-items-center">
-                <img className="h-full w-auto" src={thumbnailURL} alt="thumbnail" />
+        <div className="select-none flex gap-2 pr-1 h-22" onClick={() => navigate("/video")}>
+            <button aria-label={`Play ${title}`} className="relative aspect-video h-full overflow-hidden shrink-0 grid place-items-center">
+                <img className="h-full w-auto" src={thumbnailURL} alt="" />
                 <div className="absolute rounded right-0.75 bottom-0.75 bg-black/70 text-xs justify-around text-white px-1 py-[1px]">
                     {duration}
                 </div>
-            </div>
+            </button>
 
-            <div className="">
+            <button aria-label={`Play ${title}`} className="">
                 <div className="gap-1 flex flex-col">
                     <div className="text-left text-sm line-clamp-3">{title}</div>
 
@@ -31,10 +31,12 @@ export default function ThinVideoCard({ isMusical = false, title, thumbnailURL, 
                         <span> {uploadDate}</span>
                     </div>
                 </div>
-            </div>
+            </button>
 
-            <MoreIcon className="shrink-0" size={20} />
-        </button>
+            <button aria-label={`More options for ${title}`}>
+                <MoreIcon className="shrink-0" size={20} />
+            </button>
+        </div>
     )
 }
 

@@ -34,7 +34,7 @@ export default function SmallVideoCard({ isMusical = false, title, channel, thum
                     </div>
                 </Link>
 
-                <button className="shrink-0">
+                <button aria-label={`More options for ${title}`} className="shrink-0">
                     <MoreIcon size={20} />
                 </button>
             </div>

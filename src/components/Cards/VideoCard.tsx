@@ -18,8 +18,8 @@ export default function VideoCard({ isMusical = false, title, channel, profilePi
 
     return (
         <div className="select-none">
-            <button className="relative" onClick={() => navigate("/video")}>
-                <img src={thumbnailURL} alt="thumbnail" />
+            <button aria-label={`Play ${title}`} className="relative" onClick={() => navigate("/video")}>
+                <img src={thumbnailURL} alt="" />
                 <div className="absolute rounded right-2 bottom-1 bg-[#00000090] flex text-xs justify-around text-white items-center px-1.5 py-0.5 ">
                     {isMusical &&
                         <span className="material-symbols-outlined" style={{ fontSize: "12px", fontVariationSettings: `"FILL" 1, "wght" 400,"GRAD" 0` }}>music_note</span>
@@ -29,11 +29,11 @@ export default function VideoCard({ isMusical = false, title, channel, profilePi
             </button>
 
             <div className="pt-2 gap-3 flex items-start ml-3 mr-1">
-                <button className="shrink-0" onClick={() => navigate("/channel")}>
+                <button aria-label={`Go to ${channel} channel`} className="shrink-0" onClick={() => navigate("/channel")}>
                     <img src={profilePictureURL} alt="channel" className="w-8 h-8 aspect-square rounded-full mt-2" />
                 </button>
 
-                <button className="gap-1 flex flex-col" onClick={() => navigate("/video")}>
+                <button aria-label={`Play ${title}`} className="gap-1 flex flex-col" onClick={() => navigate("/video")}>
                     <div className="text-left">{title}</div>
                     <div className="text-xs text-left text-(--cool-gray)">
                         <span>{channel}</span> ·
@@ -42,7 +42,7 @@ export default function VideoCard({ isMusical = false, title, channel, profilePi
                     </div>
                 </button>
 
-                <button className="shrink-0 px-1.5">
+                <button aria-label={`More options for ${title}`} className="shrink-0 px-1.5">
                     <MoreIcon size={20} />
                 </button>
             </div>

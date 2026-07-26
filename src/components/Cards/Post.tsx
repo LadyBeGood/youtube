@@ -24,7 +24,7 @@ export default function Post({ className = "", avatar, name, date, body, likes, 
                     <p className="text-sm  text-white leading-none">{name}</p>
                     <p className="text-xs text-(--cool-gray) mt-0.5 select-none">{date}</p>
                 </div>
-                <button className="ml-auto p-1.5">
+                <button aria-label={`More options for post: ${body.slice(0, 80)}`} className="ml-auto p-1.5">
                     <MoreIcon size={20} />
                 </button>
             </div>
@@ -41,15 +41,15 @@ export default function Post({ className = "", avatar, name, date, body, likes, 
 
             {/* Actions */}
             <div className="mx-3 flex items-center gap-4">
-                <button className="flex items-center gap-1.5 text-[12px]">
+                <button aria-label={`Like post. ${likes} likes`} className="flex items-center gap-1.5 text-[12px]">
                     <LikeIcon size={20} />
                     {likes}
                 </button>
-                <button className="flex items-center gap-1.5 text-[12px]">
+                <button aria-label="Dislike post" className="flex items-center gap-1.5 text-[12px]">
                     <DislikeIcon size={20} />
                     24
                 </button>
-                <button className="flex items-center gap-1.5 text-[12px] ml-auto">
+                <button aria-label={`View ${comments} comments`} className="flex items-center gap-1.5 text-[12px] ml-auto">
                     <CommentIcon size={20} />
                     {comments}
                 </button>

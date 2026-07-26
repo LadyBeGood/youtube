@@ -30,7 +30,7 @@ export default function Comment() {
                         <span className="text-xs text-(--cool-gray) flex-shrink-0">
                             2h ago
                         </span>
-                        <button className="ml-auto p-1 hover:text-white rounded-full hover:bg-zinc-800 transition">
+                        <button aria-label="More options" className="ml-auto p-1 hover:text-white rounded-full hover:bg-zinc-800 transition">
                             <MoreIcon size={18} />
                         </button>
                     </div>
@@ -43,12 +43,12 @@ export default function Comment() {
 
                     {/* Actions (YouTube layout style) */}
                     <div className="flex items-center gap-8 text-xs">
-                        <button className="flex items-center gap-1.5 hover:text-white transition group">
+                        <button aria-label="Like this comment" className="flex items-center gap-1.5 hover:text-white transition group">
                             <LikeIcon size={18} className="group-hover:scale-110 transition-transform" />
                             <span>2.1K</span>
                         </button>
 
-                        <button className="flex items-center hover:text-white transition group">
+                        <button aria-label="View replies" className="flex items-center hover:text-white transition group">
                             <CommentIcon size={18} className="group-hover:scale-110 transition-transform mr-1" />
                             <span>12</span>
                             <DownArrowIcon size={22} />

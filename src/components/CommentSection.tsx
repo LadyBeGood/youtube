@@ -14,11 +14,11 @@ export default function CommentSection({ onClose }: CommentSectionProps) {
                     {/* <span className="text-white/75 text-sm tracking-wider">724</span> */}
                 </div>
                 <div className="flex gap-5">
-                    <button>
+                    <button aria-label="Sort comments">
                         <TuneIcon />
                     </button>
 
-                    <button>
+                    <button aria-label="Close comment section">
                         <CloseIcon size={28} />
                     </button>
                 </div>

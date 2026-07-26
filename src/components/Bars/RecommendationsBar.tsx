@@ -17,6 +17,8 @@ export default function RecommendationsBar({ isHomePage = false, onExploreButton
             {isHomePage &&
                 <>
                     <button
+                        title="Explore"
+                        aria-label="Explore"
                         className="bg-(--dark-gray) whitespace-nowrap h-8 px-2 cursor-pointer flex items-center rounded-sm"
                         onClick={onExploreButtonClick}
                     >

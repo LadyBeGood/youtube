@@ -26,7 +26,7 @@ export default function ShortsCard({ thumbnail, title }: ShortsCardProps) {
                         {title}
                     </NavLink>
 
-                    <button className="self-start">
+                    <button aria-label={`More options for ${title}`} className="self-start">
                         <MoreIcon className="shrink-0 mr-1 px-1.5 box-content pb-1.5" size={20} />
                     </button>
                 </div>

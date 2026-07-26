@@ -253,7 +253,12 @@ export default function ScrollableTabs({ tabs, defaultIndex = 0, onChange }: Scr
                         <button
                             key={i}
                             ref={(el) => { tabRefs.current[i] = el; }}
+
+                            // Accessibility :)
                             role="tab"
+                            aria-selected={i === active}
+                            aria-controls={`panel-${i}`}
+                            
                             onClick={(e) => onTabClick(e, i)}
                             className={[
                                 "flex-shrink-0 h-full px-5",
@@ -293,6 +298,10 @@ export default function ScrollableTabs({ tabs, defaultIndex = 0, onChange }: Scr
                         
                         <div
                             key={i}
+
+                            // Accessibility
+                            role="tabpanel"
+                            aria-labelledby={`tab-${i}`}
 
                             // Minimum height = 100svh - Height of TopBar - Height of BottomBar - Height of Tab strip 
                             className="flex-shrink-0 w-full min-h-[calc(100svh-48px-48px-40px)]"

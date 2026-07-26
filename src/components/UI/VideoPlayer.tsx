@@ -162,7 +162,7 @@ export default function VideoPlayer({ source, title }: VideoPlayerProps) {
                         {/* Left */}
                         <div className="flex justify-baseline gap-3 min-w-0">
                             {/* Back Button */}
-                            <button data-action="minimise" className="flex-shrink-0 grid place-content-center hover:bg-white/10 aspect-square">
+                            <button aria-label="Minimise video player" data-action="minimise" className="flex-shrink-0 grid place-content-center hover:bg-white/10 aspect-square">
                                 <DownArrowIcon size={26} />
                             </button>
 
@@ -173,11 +173,11 @@ export default function VideoPlayer({ source, title }: VideoPlayerProps) {
                         {/* Right */}
                         <div className="flex gap-3">
                             {/* Caption */}
-                            <button data-action="captions" className="hover:bg-white/10 aspect-square p-1">
+                            <button aria-label="Select captions" data-action="captions" className="hover:bg-white/10 aspect-square p-1">
                                 <CaptionIcon size={28} />
                             </button>
                             {/* Settings Button */}
-                            <button data-action="settings" className="hover:bg-white/10 p-1 aspect-square grid place-items-center">
+                            <button aria-label="Open settings" data-action="settings" className="hover:bg-white/10 p-1 aspect-square grid place-items-center">
                                 <SettingsIcon />
                             </button>
                         </div>
@@ -185,18 +185,18 @@ export default function VideoPlayer({ source, title }: VideoPlayerProps) {
 
                     {/* Center Controls */}
                     <div className="absolute left-0 right-0 top-1/2 -translate-y-1/2  flex items-center justify-center gap-16">
-                        <button data-action="previous" className="hover:bg-white/10 p-2 rounded-full" onClick={(e) => { videoRef.current!.currentTime -= 10; }}>
+                        <button aria-label="Go to previous video" data-action="previous" className="hover:bg-white/10 p-2 rounded-full" onClick={(e) => { videoRef.current!.currentTime -= 10; }}>
                             <FilledPreviousIcon />
                         </button>
 
-                        <button data-action="play" onClick={(e) => { togglePlay(); }} className="p-2 rounded-full hover:bg-white/10">
+                        <button aria-label={`${isPlaying ? "Pause" : "Play"} video`} data-action="play" onClick={(e) => { togglePlay(); }} className="p-2 rounded-full hover:bg-white/10">
                             {isPlaying
                                 ? <FilledPauseIcon size={40} />
                                 : <FilledPlayIcon size={40} />
                             }
                         </button>
 
-                        <button data-action="next" className="hover:bg-white/10 p-2 rounded-full" onClick={(e) => { videoRef.current!.currentTime += 10; }}>
+                        <button aria-label="Go to next video" data-action="next" className="hover:bg-white/10 p-2 rounded-full" onClick={(e) => { videoRef.current!.currentTime += 10; }}>
                             <FilledNextIcon />
                         </button>
                     </div>
@@ -205,16 +205,22 @@ export default function VideoPlayer({ source, title }: VideoPlayerProps) {
                     <div className="pl-2 pr-3  relative w-full">
                         <div className="flex justify-between items-baseline text-white text-xs mt-2 mb-2">
                             {/* left */}
-                            <button data-action="duration" className="px-2 py-1 hover:bg-white/10">
+                            <button 
+                                aria-label={true // todo 
+                                    ? "Show elapsed time" 
+                                    : "Show remaining time"} 
+                                data-action="duration" 
+                                className="px-2 py-1 hover:bg-white/10"
+                            >
                                 <span className="pointer-events-none">0:07 / {Math.round(videoRef?.current?.duration ?? -1)}</span>
                             </button>
 
                             {/* right */}
                             <div className="flex gap-3">
-                                <button data-action="quality" className="hover:bg-white/10 px-2 py-1">
+                                <button aria-label="Change video quality" data-action="quality" className="hover:bg-white/10 px-2 py-1">
                                     {availableQualities.find(quality => quality.selected)!.value}
                                 </button>
-                                <button data-action="fullscreen" className="hover:bg-white/10 h-max p-2">
+                                <button aria-label="Fullscreen video" data-action="fullscreen" className="hover:bg-white/10 h-max p-2">
                                     <MaximiseIcon size={12} />
                                 </button>
                             </div>
@@ -258,6 +264,7 @@ export default function VideoPlayer({ source, title }: VideoPlayerProps) {
             <BottomSheet isBottomSheetOpen={isQualityBottomSheetOpen} middle={100} onBottomSheetClose={() => setIsQualityBottomSheetOpen(false)}>
                 {availableQualities.map((quality, index) =>
                     <button
+                        aria-pressed={quality.selected}
                         data-quality-value={quality.value}
                         className="h-13 px-4 w-full hover:bg-white/10 flex items-center gap-3"
                         key={index}
@@ -297,7 +304,7 @@ export default function VideoPlayer({ source, title }: VideoPlayerProps) {
 
                 </button>
 
-                <button className="flex gap-6 h-13 w-full hover:bg-white/10 items-center px-4" onClick={() => { setLoopVideo(!loopVideo) }}>
+                <button aria-pressed={loopVideo} className="flex gap-6 h-13 w-full hover:bg-white/10 items-center px-4" onClick={() => { setLoopVideo(!loopVideo) }}>
                     <LoopIcon />
 
                     <div className="mr-auto">

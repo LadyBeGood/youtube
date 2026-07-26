@@ -1,6 +1,6 @@
 import { CommentIcon, DislikeIcon, MaximiseIcon, LikeIcon, ShareIcon, FullscreenIcon, DownArrowIcon, BackIcon, MoreIcon, BookmarkIcon } from "../Icons";
 
-export default function Short() {
+export default function Short({ title = ""}) {
     return (
         <div className="h-full relative bg-red-900 snap-start snap-always">
             {/* <img src="./yellow.webp" className="h-full object-cover" /> */}
@@ -26,25 +26,25 @@ export default function Short() {
 
                 {/* Right */}
                 <div className="flex flex-col gap-6 pb-4 pr-4 text-xs items-center">
-                    <button className="flex flex-col items-center gap-1">
+                    <button aria-label="Like short. 34 likes." className="flex flex-col items-center gap-1">
                         <LikeIcon />
                         34K
                     </button>
-                    <button className="flex flex-col items-center gap-1">
+                    <button aria-label="Dislike short" className="flex flex-col items-center gap-1">
                         <DislikeIcon />
                         326
                     </button>
-                    <button className="flex flex-col items-center gap-1">
+                    <button aria-label="View 1.3K comments" className="flex flex-col items-center gap-1">
                         <CommentIcon />
                         1.3K
                     </button>
 
-                    <button className="flex flex-col items-center gap-1">
+                    <button aria-label="Bookmark short" className="flex flex-col items-center gap-1">
                         <BookmarkIcon />
                         Save
                     </button>
 
-                    <button className="flex flex-col items-center gap-1">
+                    <button aria-label="Share short" className="flex flex-col items-center gap-1">
                         <ShareIcon />
                         Share
                     </button>

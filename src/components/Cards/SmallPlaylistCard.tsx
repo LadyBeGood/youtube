@@ -36,7 +36,7 @@ export default function SmallPlaylistCard({ title, channel, thumbnailURL, videoC
                     </div>
                 </Link>
 
-                <button className="shrink-0">
+                <button aria-label={`More options for ${title}`} className="shrink-0">
                     <MoreIcon size={20} />
                 </button>
             </div>

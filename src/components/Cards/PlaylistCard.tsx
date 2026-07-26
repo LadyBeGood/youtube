@@ -43,7 +43,7 @@ export default function PlaylistCard({ title, channel, profilePictureURL, videoC
                     </div>
                 </Link>
 
-                <button className="shrink-0 px-1.5">
+                <button aria-label="More options" className="shrink-0 px-1.5">
                     <MoreIcon size={20} />
                 </button>
             </div>
