@@ -1,11 +1,11 @@
 
 import { useState } from "react";
 import Post from "../components/Cards/Post"
-import RecommendationsBar from "../components/Bars/RecommendationsBar"
+import RecommendationsBar from "../components/Navigation/RecommendationsBar"
 import ShortsCard from "../components/Cards/ShortsCard"
 import VideoCard from "../components/Cards/VideoCard"
-import BottomSheet from "../components/UI/BottomSheet";
-import ExploreMenu from "../components/ExploreMenu";
+import BottomSheet from "../components/Overlays/BottomSheet";
+import ExploreMenu from "../components/Overlays/ExploreMenu";
 import PlaylistCard from "../components/Cards/PlaylistCard";
 
 
@@ -16,10 +16,10 @@ export default function Home() {
 
     return (
         <>
-            <div className="overflow-y-auto no-scrollbar">
+            <main className="overflow-y-auto no-scrollbar">
                 <RecommendationsBar isHomePage={true} onExploreButtonClick={() => setIsExploreMenuOpen(!isExploreMenuOpen)} />
 
-                <div className=" space-y-6 pb-6">
+                <div className="space-y-6 pb-6">
                     <VideoCard title={"How I Animate In Desmos Graphing Calculator"} channel={"CodingHunger"} profilePictureURL={"./avatar1.webp"} views={"12K"} uploadDate={"1 year ago"} thumbnailURL={"./thumbnail1.webp"} duration={"9:38"} />
                     <PlaylistCard title={"How I Animate In Desmos Graphing Calculator"} channel={"CodingHunger"} profilePictureURL={"./avatar1.webp"} updatedAt={"1 year ago"} thumbnailURL={"./thumbnail1.webp"} videoCount={47} />
                     <ShortsCard thumbnail="./japan.jpg" title="Japan's Most Beautiful Restaurant 🍃" />
@@ -38,7 +38,7 @@ export default function Home() {
                     <VideoCard title={"How I Animate In Desmos Graphing Calculator"} channel={"CodingHunger"} profilePictureURL={"./avatar1.webp"} views={"12K"} uploadDate={"1 year ago"} thumbnailURL={"./thumbnail1.webp"} duration={"9:38"} />
                     <VideoCard title={"How I Animate In Desmos Graphing Calculator"} channel={"CodingHunger"} profilePictureURL={"./avatar1.webp"} views={"12K"} uploadDate={"1 year ago"} thumbnailURL={"./thumbnail1.webp"} duration={"9:38"} />
                 </div>
-            </div>
+            </main>
 
             <BottomSheet
                 middle={100}

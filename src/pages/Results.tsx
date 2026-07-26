@@ -1,5 +1,5 @@
 import { useNavigate } from "react-router-dom";
-import { BackIcon, FunnelIcon, MicrophoneIcon, SortIcon } from "../components/Icons";
+import { BackIcon, FunnelIcon, MicrophoneIcon, SortIcon } from "../components/Icons/Icons";
 import VideoCard from "../components/Cards/VideoCard";
 import ChannelCard from "../components/Cards/ChannelCard";
 
@@ -7,7 +7,7 @@ export default function Results() {
     const navigate = useNavigate();
 
     return (
-        <div className="overflow-hidden grid grid-rows-[56px_1fr]">
+        <main className="overflow-hidden grid grid-rows-[56px_1fr]">
             <div className="flex gap-3 pb-3 pt-3 px-3">
                 <button className="grid place-items-center cursor-pointer" onClick={() => window.history.state.idx ? navigate(-1) : navigate("/")}>
                     <BackIcon />
@@ -46,6 +46,6 @@ export default function Results() {
                     <VideoCard title={"How I Animate In Desmos Graphing Calculator"} channel={"CodingHunger"} profilePictureURL={"./avatar1.webp"} views={"12K"} uploadDate={"1 year ago"} thumbnailURL={"./thumbnail1.webp"} duration={"9:38"} />
                 </div>
             </div>
-        </div>
+        </main>
     )
 }

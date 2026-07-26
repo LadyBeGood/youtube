@@ -1,6 +1,6 @@
-import { CommentIcon, DislikeIcon, MaximiseIcon, LikeIcon, ShareIcon, FullscreenIcon, DownArrowIcon, BackIcon, MoreIcon, BookmarkIcon } from "../Icons";
+import { CommentIcon, DislikeIcon, MaximiseIcon, LikeIcon, ShareIcon, FullscreenIcon, DownArrowIcon, BackIcon, MoreIcon, BookmarkIcon } from "../Icons/Icons";
 
-export default function Short({ title = ""}) {
+export default function Short({ title = "" }) {
     return (
         <div className="h-full relative bg-red-900 snap-start snap-always">
             {/* <img src="./yellow.webp" className="h-full object-cover" /> */}

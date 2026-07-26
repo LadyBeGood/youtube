@@ -1,4 +1,4 @@
-import Short from "../components/UI/Short";
+import Short from "../components/Players/ShortPlayer";
 
 /**
  * This component use CSS's inbuilt scroll snapping feature for snapping. CSS's scroll snap's duration or 
@@ -7,7 +7,7 @@ import Short from "../components/UI/Short";
  */
 export default function Shorts() {
     return (
-        <div className="overflow-auto no-scrollbar snap-y snap-mandatory">
+        <main className="overflow-auto no-scrollbar snap-y snap-mandatory">
             <Short />
             <Short />
             <Short />
@@ -16,6 +16,6 @@ export default function Shorts() {
             <Short />
             <Short />
             <Short />
-        </div>
+        </main>
     )
 }

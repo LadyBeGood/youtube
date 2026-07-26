@@ -1,4 +1,4 @@
-import { ListViewIcon, List2ViewIcon } from "../../components/Icons";
+import { ListViewIcon, List2ViewIcon } from "../../components/Icons/Icons";
 import ThinShortsCard from "../../components/Cards/ThinShortsCard";
 
 export default function Shorts() {

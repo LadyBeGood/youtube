@@ -26,7 +26,7 @@ import {
     ATMCardIcon,
     SellIcon,
     type IconProps,
-} from "../components/Icons"
+} from "../components/Icons/Icons"
 
 
 

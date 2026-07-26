@@ -1,5 +1,5 @@
-import { explores, type Explore } from "../database/explores";
-import { moreFromYoutube, type MoreFromYoutube } from "../database/moreFromYoutube";
+import { explores, type Explore } from "../../database/explores";
+import { moreFromYoutube, type MoreFromYoutube } from "../../database/moreFromYoutube";
 
 
 type ExploreMenuProps = {

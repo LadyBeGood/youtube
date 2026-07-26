@@ -1,4 +1,4 @@
-import { CommentIcon, DislikeIcon, LikeIcon, MoreIcon } from "../Icons";
+import { CommentIcon, DislikeIcon, LikeIcon, MoreIcon } from "../Icons/Icons";
 
 type PostProps = {
     className?: string;

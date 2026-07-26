@@ -1,5 +1,5 @@
-import { FlagIcon, ShareIcon } from "../../components/Icons";
-import ScrollableTabs from "../../components/UI/ScrollableTabs";
+import { FlagIcon, ShareIcon } from "../../components/Icons/Icons";
+import ScrollableTabs from "../../components/Navigation/ScrollableTabs";
 import About from "./About";
 import Courses from "./Courses";
 import Shorts from "./Shorts";
@@ -27,7 +27,7 @@ export default function Channel() {
 
 
     return (
-        <div className="overflow-y-auto no-scrollbar">
+        <main className="overflow-y-auto no-scrollbar">
             <div className="relative h-48">
                 <img src="./thumbnail1.webp" alt="background" className="w-full h-24 block object-cover" />
 
@@ -77,6 +77,6 @@ export default function Channel() {
                 <ScrollableTabs tabs={tabs} defaultIndex={0} onChange={(i) => console.log(i)} />
             </div>
 
-        </div>
+        </main>
     )
 }

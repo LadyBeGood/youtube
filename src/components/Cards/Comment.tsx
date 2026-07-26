@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { BackIcon, CommentIcon, DislikeIcon, DownArrowIcon, LikeIcon, MoreIcon, ReplyIcon } from "../Icons";
+import { BackIcon, CommentIcon, DislikeIcon, DownArrowIcon, LikeIcon, MoreIcon, ReplyIcon } from "../Icons/Icons";
 
 export default function Comment() {
     return (

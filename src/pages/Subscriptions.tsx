@@ -1,7 +1,7 @@
-import { CalendarIcon } from "../components/Icons"
+import { CalendarIcon } from "../components/Icons/Icons"
 import Post from "../components/Cards/Post"
-import RecommendationsBar from "../components/Bars/RecommendationsBar"
-import SubscriptionsBar from "../components/Bars/SubscriptionsBar"
+import RecommendationsBar from "../components/Navigation/RecommendationsBar"
+import SubscriptionsBar from "../components/Navigation/SubscriptionsBar"
 import VideoCard from "../components/Cards/VideoCard"
 
 // type TimingProps = {
@@ -20,7 +20,7 @@ import VideoCard from "../components/Cards/VideoCard"
 export default function Subscriptions() {
 
     return (
-        <div className="overflow-y-auto no-scrollbar">
+        <main className="overflow-y-auto no-scrollbar">
             <SubscriptionsBar />
             <RecommendationsBar isHomePage={false} />
 
@@ -45,7 +45,7 @@ export default function Subscriptions() {
             <VideoCard title={"How I Animate In Desmos Graphing Calculator"} channel={"CodingHunger"} profilePictureURL={"./avatar1.webp"} views={"12K"} uploadDate={"1 year ago"} thumbnailURL={"./thumbnail1.webp"} duration={"9:38"} />
             <VideoCard title={"How I Animate In Desmos Graphing Calculator"} channel={"CodingHunger"} profilePictureURL={"./avatar1.webp"} views={"12K"} uploadDate={"1 year ago"} thumbnailURL={"./thumbnail1.webp"} duration={"9:38"} />
             <VideoCard title={"How I Animate In Desmos Graphing Calculator"} channel={"CodingHunger"} profilePictureURL={"./avatar1.webp"} views={"12K"} uploadDate={"1 year ago"} thumbnailURL={"./thumbnail1.webp"} duration={"9:38"} />
-        </div>
+        </main>
     )
 }
 

@@ -1,5 +1,5 @@
 import { Link, useNavigate } from "react-router-dom"
-import { BackIcon, HistoryIcon, MicrophoneIcon, NorthWestArrowIcon } from "../components/Icons";
+import { BackIcon, HistoryIcon, MicrophoneIcon, NorthWestArrowIcon } from "../components/Icons/Icons";
 import { searchHistory } from "../database/searchHistory";
 
 
@@ -7,7 +7,7 @@ export default function Search() {
     const navigate = useNavigate();
 
     return (
-        <div className="py-3 grid h-full overflow-hidden">
+        <main className="py-3 grid h-full overflow-hidden">
             <div className="flex gap-3 pb-2 px-4 ">
                 <button className="grid place-items-center cursor-pointer" onClick={() => window.history.state.idx ? navigate(-1) : navigate("/")}>
                     <BackIcon />
@@ -39,7 +39,7 @@ export default function Search() {
                     </Link>
                 )}
             </div>
-        </div>
+        </main>
     )
 }
 

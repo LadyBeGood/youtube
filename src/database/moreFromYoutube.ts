@@ -4,7 +4,7 @@ import {
     YoutubeKidsIcon,
     YoutubeMusicIcon,
     type IconProps
-} from "../components/Icons"
+} from "../components/Icons/Icons"
 
 export type MoreFromYoutube = {
     type: "more-from-youtube",

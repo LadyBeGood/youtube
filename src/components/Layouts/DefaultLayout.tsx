@@ -1,6 +1,6 @@
 import { Outlet } from "react-router-dom"
-import TopBar from "../Bars/TopBar"
-import BottomBar from "../Bars/BottomBar"
+import TopBar from "../Navigation/TopBar"
+import BottomBar from "../Navigation/BottomBar"
 
 const DefaultLayout = () => {
     return (

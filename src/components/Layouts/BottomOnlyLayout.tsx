@@ -1,5 +1,5 @@
 import { Outlet } from "react-router-dom"
-import BottomBar from "../Bars/BottomBar"
+import BottomBar from "../Navigation/BottomBar"
 
 function BottomOnlyLayout() {
     return (

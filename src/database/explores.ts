@@ -13,7 +13,7 @@ import {
     PodcastIcon,
     GamepadCircleRightIcon,
     StarInsideCircleIcon,
-} from "../components/Icons"
+} from "../components/Icons/Icons"
 
 export type Explore = {
     type: "explore",

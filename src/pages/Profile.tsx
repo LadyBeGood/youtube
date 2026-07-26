@@ -1,6 +1,6 @@
 import { useState } from "react";
 import SmallVideoCard from "../components/Cards/SmallVideoCard";
-import { AddIcon, BackIcon, BookmarkIcon, CommentIcon, DislikeIcon, DownArrowIcon, DownloadIcon, FlagIcon, LeaderboardIcon, LikeIcon, MaskIcon, FilledNextIcon, ProfileIcon, ShareIcon } from "../components/Icons";
+import { AddIcon, BackIcon, BookmarkIcon, CommentIcon, DislikeIcon, DownArrowIcon, DownloadIcon, FlagIcon, LeaderboardIcon, LikeIcon, MaskIcon, FilledNextIcon, ProfileIcon, ShareIcon } from "../components/Icons/Icons";
 import SmallPlaylistCard from "../components/Cards/SmallPlaylistCard";
 import { Link } from "react-router-dom";
 
@@ -10,7 +10,7 @@ import { Link } from "react-router-dom";
 
 export default function Profile() {
     return (
-        <div className="py-4 w-full overflow-x-hidden space-y-8 no-scrollbar">
+        <main className="py-4 w-full overflow-x-hidden space-y-8 no-scrollbar">
             <div className="mb-0">
                 <div className="flex items-center mb-3">
                     <div className="ml-3">
@@ -117,7 +117,7 @@ export default function Profile() {
                 </div>
             </div>
 
-        </div>
+        </main>
     )
 }
 

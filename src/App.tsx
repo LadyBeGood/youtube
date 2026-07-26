@@ -22,26 +22,26 @@ export function App() {
         <BrowserRouter>
             <Routes>
                 <Route path="/" element={<DefaultLayout />}>
-                    <Route index element={<Home />}></Route>
-                    <Route path="/profile" element={<Profile />}></Route>
-                    <Route path="/subscriptions" element={<Subscriptions />}></Route>
-                    <Route path="/notifications" element={<Notifications />}></Route>
-                    <Route path="/channel" element={<Channel />}></Route>
+                    <Route index element={<Home />} />
+                    <Route path="/profile" element={<Profile />} />
+                    <Route path="/subscriptions" element={<Subscriptions />} />
+                    <Route path="/notifications" element={<Notifications />} />
+                    <Route path="/channel" element={<Channel />} />
                 </Route>
 
                 <Route path="/" element={<BottomOnlyLayout />}>
-                    <Route path="/shorts" element={<Shorts />}></Route>
-                    <Route path="/results" element={<Results />}></Route>
+                    <Route path="/shorts" element={<Shorts />} />
+                    <Route path="/results" element={<Results />} />
                 </Route>
 
 
-                <Route path="/search" element={<Search />}></Route>
-                <Route path="/video" element={<Video />}></Route>
-                <Route path="/playlist" element={<Playlist />}></Route>
-                <Route path="/settings" element={<Settings />}></Route>
+                <Route path="/search" element={<Search />} />
+                <Route path="/video" element={<Video />} />
+                <Route path="/playlist" element={<Playlist />} />
+                <Route path="/settings" element={<Settings />} />
 
                 {/* 404 */}
-                <Route path="*" element={<NotFound />}></Route>
+                <Route path="*" element={<NotFound />} />
             </Routes>
         </BrowserRouter>
     )
@@ -51,11 +51,8 @@ export function App() {
 
 
 const rootElement = document.getElementById("root");
-if (!rootElement) {
-    throw new Error(
-        'Root element with id "root" not found in index.html.\n' +
-        'Make sure your index.html contains: <div id="root"></div>'
-    );
+if (rootElement === null) {
+    throw new Error("Expected a DOM element with id \"root\", but none was found.");
 }
 createRoot(rootElement).render(<App />);
 

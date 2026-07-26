@@ -1,5 +1,5 @@
 import { Link, useNavigate } from "react-router-dom";
-import { MoreIcon, FilledVideoIcon } from "../Icons";
+import { MoreIcon, FilledVideoIcon } from "../Icons/Icons";
 
 
 type ThinPlaylistCardProps = {

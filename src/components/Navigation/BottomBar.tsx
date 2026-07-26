@@ -1,5 +1,5 @@
 import { NavLink } from "react-router-dom"
-import { FilledHomeIcon, FilledShortsIcon, FilledSubscriptionsIcon, HomeIcon, ShortsIcon, SubscriptionsIcon } from "../Icons"
+import { FilledHomeIcon, FilledShortsIcon, FilledSubscriptionsIcon, HomeIcon, ShortsIcon, SubscriptionsIcon } from "../Icons/Icons"
 
 const BottomBar = () => {
     return (

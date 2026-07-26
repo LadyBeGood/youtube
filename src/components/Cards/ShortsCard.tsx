@@ -1,5 +1,5 @@
 import { NavLink } from "react-router-dom"
-import { MoreIcon, FilledShortsIcon } from "../Icons";
+import { MoreIcon, FilledShortsIcon } from "../Icons/Icons";
 
 
 type ShortsCardProps = {

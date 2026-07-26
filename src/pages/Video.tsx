@@ -1,12 +1,12 @@
 import { useEffect, useLayoutEffect, useRef, useState } from "react";
-import { LikeIcon, DislikeIcon, DownArrowIcon, CommentIcon, ShareIcon, BookmarkIcon, DownloadIcon, FlagIcon } from "../components/Icons"
+import { LikeIcon, DislikeIcon, DownArrowIcon, CommentIcon, ShareIcon, BookmarkIcon, DownloadIcon, FlagIcon } from "../components/Icons/Icons"
 import VideoCard from "../components/Cards/VideoCard"
-import VideoPlayer from "../components/UI/VideoPlayer"
-import BottomSheet from "../components/UI/BottomSheet";
+import VideoPlayer from "../components/Players/VideoPlayer"
+import BottomSheet from "../components/Overlays/BottomSheet";
 import { NavLink } from "react-router-dom";
 import Post from "../components/Cards/Post";
 import Comment from "../components/Cards/Comment";
-import CommentSection from "../components/CommentSection";
+import CommentSection from "../components/Overlays/CommentSection";
 
 
 export default function Video() {
@@ -29,7 +29,7 @@ export default function Video() {
 
     return (
         <>
-            <div className="min-w-full">
+            <main className="min-w-full">
                 <div ref={videoPlayerRef} className="sticky top-0 z-1">
                     <VideoPlayer source="./dog.mp4" title="What Does A Tiny Kitten Do When He Finds A Sleeping Golden Retriever Puppy" />
                 </div>
@@ -125,7 +125,7 @@ export default function Video() {
                 }} />
                 <VideoCard title={"How I Animate In Desmos Graphing Calculator"} channel={"CodingHunger"} profilePictureURL={"./avatar1.webp"} views={"12K"} uploadDate={"1 year ago"} thumbnailURL={"./thumbnail1.webp"} duration={"9:38"} />
 
-            </div>
+            </main>
 
             <BottomSheet type={2} overlay={false} isBottomSheetOpen={isCommentsBottomSheetOpen} height={"100svh"} middle={((window.innerHeight - videoPlayerHeight) / window.innerHeight) * 100} high={100} onBottomSheetClose={() => setIsCommentsBottomSheetOpen(false)}>
                 {/* <Comment /> */}

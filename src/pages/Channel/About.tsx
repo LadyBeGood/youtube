@@ -1,4 +1,4 @@
-import { CalendarIcon, InstagramIcon, LocationIcon, PatreonIcon, EarthIcon, VideoIcon, ViewIcon, LanguageIcon, XIcon } from "../../components/Icons"
+import { CalendarIcon, InstagramIcon, LocationIcon, PatreonIcon, EarthIcon, VideoIcon, ViewIcon, LanguageIcon, XIcon } from "../../components/Icons/Icons"
 
 export default function About() {
     return (

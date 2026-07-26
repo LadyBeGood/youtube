@@ -1,5 +1,5 @@
-import Comment from "./Cards/Comment"
-import { CloseIcon, SortIcon, TuneIcon } from "./Icons"
+import Comment from "../Cards/Comment"
+import { CloseIcon, SortIcon, TuneIcon } from "../Icons/Icons"
 
 type CommentSectionProps = {
     onClose: () => void

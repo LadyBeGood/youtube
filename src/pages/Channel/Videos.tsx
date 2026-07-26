@@ -1,4 +1,4 @@
-import { GridViewIcon, ListViewIcon, List2ViewIcon } from "../../components/Icons";
+import { GridViewIcon, ListViewIcon, List2ViewIcon } from "../../components/Icons/Icons";
 import ThinVideoCard from "../../components/Cards/ThinVideoCard";
 
 export default function Videos() {
@@ -6,9 +6,10 @@ export default function Videos() {
     return (
         <div className="">
             <div className="h-12 flex justify-between items-center my-2 px-3">
-                <div className="flex gap-2 text-sm">
+                <div role="radiogroup" className="flex gap-2 text-sm">
                     {["Latest", "Popular", "Oldest"].map((item, i) =>
-                        <button className={`whitespace-nowrap box-content px-2.5 py-1.5 rounded-lg text-sm
+                        // TODO
+                        <button role="radio" aria-checked={item === item} className={`whitespace-nowrap box-content px-2.5 py-1.5 rounded-lg text-sm
                              ${i === 0 ? "bg-white text-(--dark-gray)" : " text-white"}`}>
                             {item}
                         </button>

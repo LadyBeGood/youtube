@@ -1,8 +1,8 @@
 import { useRef, useState, useEffect, type RefObject } from "react";
 import { type ChangeEvent, type MouseEvent } from "react";
-import BottomSheet from "../UI/BottomSheet";
-import Toggle from "../UI/Toggle";
-import { AmbientIcon, CaptionIcon, DownArrowIcon, MaximiseIcon, LoopIcon, FilledNextIcon, FilledPauseIcon, PlaybackSpeedIcon, FilledPlayIcon, FilledPreviousIcon, SettingsIcon, TickIcon } from "../Icons";
+import BottomSheet from "../Overlays/BottomSheet";
+import Toggle from "../Controls/Toggle";
+import { AmbientIcon, CaptionIcon, DownArrowIcon, MaximiseIcon, LoopIcon, FilledNextIcon, FilledPauseIcon, PlaybackSpeedIcon, FilledPlayIcon, FilledPreviousIcon, SettingsIcon, TickIcon } from "../Icons/Icons";
 
 type VideoPlayerProps = {
     source: string;
@@ -205,11 +205,11 @@ export default function VideoPlayer({ source, title }: VideoPlayerProps) {
                     <div className="pl-2 pr-3  relative w-full">
                         <div className="flex justify-between items-baseline text-white text-xs mt-2 mb-2">
                             {/* left */}
-                            <button 
+                            <button
                                 aria-label={true // todo 
-                                    ? "Show elapsed time" 
-                                    : "Show remaining time"} 
-                                data-action="duration" 
+                                    ? "Show elapsed time"
+                                    : "Show remaining time"}
+                                data-action="duration"
                                 className="px-2 py-1 hover:bg-white/10"
                             >
                                 <span className="pointer-events-none">0:07 / {Math.round(videoRef?.current?.duration ?? -1)}</span>
