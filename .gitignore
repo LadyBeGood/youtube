@@ -70,3 +70,7 @@ lerna-debug.log*
 
 .vercel
 .env*.local
+
+
+# Personal
+visualiser.html

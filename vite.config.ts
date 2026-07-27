@@ -8,14 +8,13 @@ export default defineConfig({
     plugins: [
         react(), 
         tailwindcss(), 
+        process.env.ANALYZE === "true" &&
         visualizer({
-            filename: "visualizer.html",
             open: true,
-            template: "treemap",
-            // Use relative paths
-            projectRoot: /^.*?[\\/]youtube[\\/]?/
+            gzipSize: true,
+            filename: "stats.html",
         }),
-    ],
+    ].filter(Boolean),
     base: "/",
     appType: "spa",
     build: {
