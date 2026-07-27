@@ -4,8 +4,8 @@ import VideoCard from "../components/Cards/VideoCard"
 import VideoPlayer from "../components/Players/VideoPlayer"
 import BottomSheet from "../components/Overlays/BottomSheet";
 import { NavLink } from "react-router-dom";
-import Post from "../components/Cards/Post";
-import Comment from "../components/Cards/Comment";
+import Post from "../components/Cards/PostCard";
+import Comment from "../components/Cards/CommentCard";
 import CommentSection from "../components/Overlays/CommentSection";
 
 

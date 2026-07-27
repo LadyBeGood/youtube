@@ -9,6 +9,7 @@ export default defineConfig({
         react(), 
         tailwindcss(), 
         visualizer({
+            filename: "visualizer.html",
             open: true,
             template: "treemap",
             // Use relative paths

@@ -1,6 +1,6 @@
 
 import { useState } from "react";
-import Post from "../components/Cards/Post"
+import Post from "../components/Cards/PostCard"
 import RecommendationsBar from "../components/Navigation/RecommendationsBar"
 import ShortsCard from "../components/Cards/ShortsCard"
 import VideoCard from "../components/Cards/VideoCard"

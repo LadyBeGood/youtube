@@ -2,20 +2,8 @@ import { lazy } from "react"
 import { createRoot } from "react-dom/client"
 import { BrowserRouter, Routes, Route } from "react-router-dom"
 
-// import Home from "./pages/Home"
-// import NotFound from "./pages/NotFound"
-// import Profile from "./pages/Profile"
-// import Subscriptions from "./pages/Subscriptions"
 import DefaultLayout from "./components/Layouts/DefaultLayout"
-// import Search from "./pages/Search"
-// import Notifications from "./pages/Notifications"
-// import Video from "./pages/Video"
-// import Channel from "./pages/Channel/Channel"
-// import Shorts from "./pages/Shorts"
 import BottomOnlyLayout from "./components/Layouts/BottomOnlyLayout"
-// import Settings from "./pages/Settings"
-// import Playlist from "./pages/Playlist"
-// import Results from "./pages/Results"
 
 const Home = lazy(() => import("./pages/Home"));
 const Profile = lazy(() => import("./pages/Profile"));

@@ -12,7 +12,7 @@
 ###################################################
 ### Version Information ##
 
-# I have removed "archive.org_bot", which powers Wayback Machine, from this list
+# I have removed "archive.org_bot", which powers the Wayback Machine, from this list
 # as a moral obligation to support the openness of the web.
 
 User-agent: *

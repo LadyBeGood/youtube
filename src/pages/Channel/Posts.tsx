@@ -1,4 +1,4 @@
-import Post from "../../components/Cards/Post";
+import Post from "../../components/Cards/PostCard";
 import { posts } from "../../database/posts";
 
 

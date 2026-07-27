@@ -1,5 +1,5 @@
 import { CalendarIcon } from "../components/Icons/Icons"
-import Post from "../components/Cards/Post"
+import Post from "../components/Cards/PostCard"
 import RecommendationsBar from "../components/Navigation/RecommendationsBar"
 import SubscriptionsBar from "../components/Navigation/SubscriptionsBar"
 import VideoCard from "../components/Cards/VideoCard"

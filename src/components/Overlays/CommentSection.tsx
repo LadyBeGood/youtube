@@ -1,4 +1,4 @@
-import Comment from "../Cards/Comment"
+import Comment from "../Cards/CommentCard"
 import { CloseIcon, SortIcon, TuneIcon } from "../Icons/Icons"
 
 type CommentSectionProps = {
