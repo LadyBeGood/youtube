@@ -1,6 +1,6 @@
 import { lazy } from "react"
 import { createRoot } from "react-dom/client"
-import { BrowserRouter, Routes, Route } from "react-router-dom"
+import { BrowserRouter, Routes, Route } from "react-router"
 
 import DefaultLayout from "./components/Layouts/DefaultLayout"
 import BottomOnlyLayout from "./components/Layouts/BottomOnlyLayout"

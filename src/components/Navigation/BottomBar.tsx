@@ -1,4 +1,4 @@
-import { NavLink } from "react-router-dom"
+import { NavLink } from "react-router"
 import { FilledHomeIcon, FilledShortsIcon, FilledSubscriptionsIcon, HomeIcon, ShortsIcon, SubscriptionsIcon } from "../Icons/Icons"
 
 const BottomBar = () => {

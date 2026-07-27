@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link } from "react-router";
 import { FilledSubscriptionsIcon, FilledVideoIcon, MoreIcon } from "../Icons/Icons"
 
 

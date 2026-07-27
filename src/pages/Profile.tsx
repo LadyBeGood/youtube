@@ -2,7 +2,7 @@ import { useState } from "react";
 import SmallVideoCard from "../components/Cards/SmallVideoCard";
 import { AddIcon, BackIcon, BookmarkIcon, CommentIcon, DislikeIcon, DownArrowIcon, DownloadIcon, FlagIcon, LeaderboardIcon, LikeIcon, MaskIcon, FilledNextIcon, ProfileIcon, ShareIcon } from "../components/Icons/Icons";
 import SmallPlaylistCard from "../components/Cards/SmallPlaylistCard";
-import { Link } from "react-router-dom";
+import { Link } from "react-router";
 
 
 

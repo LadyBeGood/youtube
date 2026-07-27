@@ -1,4 +1,4 @@
-import { useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router";
 import { BackIcon, FunnelIcon, MicrophoneIcon, SortIcon } from "../components/Icons/Icons";
 import VideoCard from "../components/Cards/VideoCard";
 import ChannelCard from "../components/Cards/ChannelCard";

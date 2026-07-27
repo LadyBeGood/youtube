@@ -3,7 +3,7 @@ import { LikeIcon, DislikeIcon, DownArrowIcon, CommentIcon, ShareIcon, BookmarkI
 import VideoCard from "../components/Cards/VideoCard"
 import VideoPlayer from "../components/Players/VideoPlayer"
 import BottomSheet from "../components/Overlays/BottomSheet";
-import { NavLink } from "react-router-dom";
+import { NavLink } from "react-router";
 import Post from "../components/Cards/PostCard";
 import Comment from "../components/Cards/CommentCard";
 import CommentSection from "../components/Overlays/CommentSection";

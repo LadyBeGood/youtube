@@ -1,4 +1,4 @@
-import { NavLink, Link, useLocation } from "react-router-dom"
+import { NavLink, Link, useLocation } from "react-router"
 import { SearchIcon, NotificationsIcon, FilledNotificationsIcon, SettingsIcon } from "../Icons/Icons"
 
 

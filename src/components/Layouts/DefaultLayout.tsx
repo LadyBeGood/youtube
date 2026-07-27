@@ -1,5 +1,5 @@
 import { Suspense } from "react"
-import { Outlet } from "react-router-dom"
+import { Outlet } from "react-router"
 import TopBar from "../Navigation/TopBar"
 import BottomBar from "../Navigation/BottomBar"
 import LoadingSpinner from "../Loading/Spinner"
