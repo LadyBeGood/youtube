@@ -19,12 +19,12 @@ export default function Home() {
             <main className="overflow-y-auto no-scrollbar">
                 <RecommendationsBar isHomePage={true} onExploreButtonClick={() => setIsExploreMenuOpen(!isExploreMenuOpen)} />
 
-                <div className="space-y-6 pb-6">
+                <div className="space-y-6 pb-6 lg:grid lg:grid-cols-3">
                     <VideoCard title={"How I Animate In Desmos Graphing Calculator"} channel={"CodingHunger"} profilePictureURL={"./avatar1.webp"} views={"12K"} uploadDate={"1 year ago"} thumbnailURL={"./thumbnail1.webp"} duration={"9:38"} />
-                    <PlaylistCard title={"How I Animate In Desmos Graphing Calculator"} channel={"CodingHunger"} profilePictureURL={"./avatar1.webp"} updatedAt={"1 year ago"} thumbnailURL={"./thumbnail1.webp"} videoCount={47} />
-                    <ShortsCard thumbnail="./japan.jpg" title="Japan's Most Beautiful Restaurant 🍃" />
-                    <ShortsCard thumbnail="./pink.webp" title="A rich red bean paste and butter honey toast that gives you maximum guilty pleasure 🍞🧈" />
-                    <ShortsCard thumbnail="./painting.jpg" title="SUBLIMAL MSG" />
+                    {/* <PlaylistCard title={"How I Animate In Desmos Graphing Calculator"} channel={"CodingHunger"} profilePictureURL={"./avatar1.webp"} updatedAt={"1 year ago"} thumbnailURL={"./thumbnail1.webp"} videoCount={47} /> */}
+                    {/* <ShortsCard thumbnail="./japan.jpg" title="Japan's Most Beautiful Restaurant 🍃" /> */}
+                    {/* <ShortsCard thumbnail="./pink.webp" title="A rich red bean paste and butter honey toast that gives you maximum guilty pleasure 🍞🧈" /> */}
+                    {/* <ShortsCard thumbnail="./painting.jpg" title="SUBLIMAL MSG" /> */}
                     <VideoCard title={"How I Animate In Desmos Graphing Calculator"} channel={"CodingHunger"} profilePictureURL={"./avatar1.webp"} views={"12K"} uploadDate={"1 year ago"} thumbnailURL={"./thumbnail1.webp"} duration={"9:38"} />
                     <VideoCard title={"How I Animate In Desmos Graphing Calculator"} channel={"CodingHunger"} profilePictureURL={"./avatar1.webp"} views={"12K"} uploadDate={"1 year ago"} thumbnailURL={"./thumbnail1.webp"} duration={"9:38"} />
                     <VideoCard title={"How I Animate In Desmos Graphing Calculator"} channel={"CodingHunger"} profilePictureURL={"./avatar1.webp"} views={"12K"} uploadDate={"1 year ago"} thumbnailURL={"./thumbnail1.webp"} duration={"9:38"} />

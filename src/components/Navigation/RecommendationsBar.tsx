@@ -19,12 +19,12 @@ export default function RecommendationsBar({ isHomePage = false, onExploreButton
                     <button
                         title="Explore"
                         aria-label="Explore"
-                        className="bg-(--dark-gray) whitespace-nowrap h-8 px-2 cursor-pointer flex items-center rounded-sm"
+                        className="lg:hidden bg-(--dark-gray) whitespace-nowrap h-8 px-2 cursor-pointer flex items-center rounded-sm"
                         onClick={onExploreButtonClick}
                     >
                         <ExploreIcon />
                     </button>
-                    <div className="w-[1px] shrink-0 h-5 mx-1.5 bg-white/30 select-none"></div>
+                    <div className="lg:hidden w-[1px] shrink-0 h-5 mx-1.5 bg-white/30 select-none"></div>
                 </>
             }
 
