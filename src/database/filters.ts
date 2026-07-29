@@ -8,6 +8,14 @@ export const HomeFilters = [
     "Music",
     "Mixes",
     "Comedy",
+    "Academics",
+    "Live",
+    "Tourism",
+    "Science fiction",
+    "Trailers",
+    "Video essays",
+    "Cats",
+    "Watched",
     "Recently uploaded",
 ]
 

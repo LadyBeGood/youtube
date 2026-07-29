@@ -13,7 +13,7 @@ export default function RecommendationsBar({ isHomePage = false, onExploreButton
     const activeFilter = Props.get("filter") ?? "All";
 
     return (
-        <nav className="flex no-scrollbar items-center overflow-y-auto pb-3 px-3 flex-nowrap gap-2 select-none">
+        <nav className="flex no-scrollbar items-center overflow-y-auto pb-3 px-3 lg:h-14 flex-nowrap gap-2 select-none">
             {isHomePage &&
                 <>
                     <button
