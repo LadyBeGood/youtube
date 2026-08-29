@@ -7,7 +7,7 @@ type BottomBarProps = {
 
 function BottomBar({ className = "" }: BottomBarProps) {
     return (
-        <nav className={`flex justify-around items-center text-[10px] h-12 border-t-1 border-(--dark-gray) select-none ${className}`}>
+        <nav className={`flex justify-around items-center text-[10px] h-12 border-t border-(--dark-gray) select-none ${className}`}>
             <NavLink to="/" end className="h-10 flex items-center flex-col  justify-between">
                 {({ isActive }) => <>
                     {isActive ? <FilledHomeIcon /> : <HomeIcon />}

@@ -346,13 +346,12 @@ export default function VideoPlayer({ source, title }: VideoPlayerProps) {
                         {/* YouTube Red Scrubber */}
                         <div className="relative w-full m-0 p-0">
                             <div
-                                className="h-0.5 w-full absolute bg-(--cool-gray)/40 bottom-0 left-0 right-0 cursor-pointer"
-                                >
+                                className="h-0.5 w-full absolute bg-(--cool-gray)/40 bottom-0 left-0 right-0 cursor-pointer">
                                 {/* Progress Fill, driven by real playback progress */}
                                 <div className="h-full bg-(--youtube-red) relative" style={{ width: `${progress}%` }}>
  
                                     {/* The Ball (Scrubber) */}
-                                    <div className="absolute right-0 top-1/2 z-1000 -translate-y-1/2 translate-x-1/2 bg-(--youtube-red) h-3 w-3 rounded-full shadow-md"></div>
+                                    <div className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-1/2 bg-(--youtube-red) h-3 w-3 rounded-full shadow-md"></div>
  
                                 </div>
                             </div>
@@ -376,18 +375,7 @@ export default function VideoPlayer({ source, title }: VideoPlayerProps) {
                         </div>
 
 
-                        {/* Bottom */}
-                        {isFullscreen &&
-                            <div>
-                                aaa
-                                aaa
-                                aaa
-                                aaa
-                                aaa
-                                aaa
-                                aaa
-                            </div>
-                        }
+                        
 
                     </div>
 
