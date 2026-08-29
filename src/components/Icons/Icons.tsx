@@ -85,16 +85,16 @@ export function YoutubeKidsIcon(props: IconProps) {
 
 export function HomeIcon(props: IconProps) {
     return (
-        <IconWrapper {...props}>
-            <path d="M240-200h147.69v-235.38h184.62V-200H720v-360L480-741.54 240-560v360Zm-40 40v-420l280-211.54L760-580v420H532.31v-235.38H427.69V-160H200Zm280-310.77Z" />
+        <IconWrapper fill="none" viewBox="0 0 24 24" {...props}>
+            <path d="M12 4L3 11.9412H5.7V19.5H10.2V13.7059H13.8V19.5H18.3V11.9412H21L12 4Z" stroke="currentColor" />
         </IconWrapper>
     );
 }
 
 export function FilledHomeIcon(props: IconProps) {
     return (
-        <IconWrapper {...props}>
-            <path d="M180-140v-450l300-225.77L780-590v450H556.15v-267.69h-152.3V-140H180Z" />
+        <IconWrapper viewBox="0 0 24 24" {...props}>
+            <path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z" />
         </IconWrapper>
     )
 }

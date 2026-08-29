@@ -13,7 +13,7 @@ export default function SideBar() {
             {
                 Object.entries({ 
                     "": routes,
-                    "Explore": explores.slice(0, 6), 
+                    "Explore": explores.slice(0, 8), 
                     "More from Youtube": moreFromYoutube,
                 }).map(([key, value]) =>
                     <div key={key}>
@@ -46,7 +46,7 @@ export default function SideBar() {
                 )
             }
 
-            <div className="w-full px-4 mt-4">
+            <div className="w-full px-4 mt-100">
                 <div className="flex items-center justify-between">
                     <div>
                         <p className="text-sm">By LadyBeGood</p>

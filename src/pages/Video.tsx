@@ -31,16 +31,14 @@ export default function Video() {
         <>
             <main className="min-w-full">
                 <div ref={videoPlayerRef} className="sticky top-0 z-1">
-                    <VideoPlayer source="./dog.mp4" title="What Does A Tiny Kitten Do When He Finds A Sleeping Golden Retriever Puppy" />
+                    <VideoPlayer source="./videos/rickroll.mp4" title="What Does A Tiny Kitten Do When He Finds A Sleeping Golden Retriever Puppy" />
                 </div>
 
                 <button className="px-3 pt-3 pb-2 flex text-start select-text" onClick={() => setIsDescriptionBottomSheetOpen(!isDescriptionBottomSheetOpen)}>
                     <div className="text-lg/tight font-medium">
                         I Redesigned the ENTIRE YouTube UI from Scratch
                     </div>
-                    {/* <div className="text-[12px] whitespace-pre py-1 text-white/60">
-                        270K views  •  3 days ago 
-                    </div> */}
+
                     <div>
                         <DownArrowIcon />
                     </div>

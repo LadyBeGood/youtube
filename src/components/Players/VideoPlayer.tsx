@@ -9,75 +9,131 @@ type VideoPlayerProps = {
     title: string;
 }
 
+
+function formatTime(totalSeconds: number) {
+    if (!Number.isFinite(totalSeconds) || totalSeconds < 0) return "0:00";
+    const minutes = Math.floor(totalSeconds / 60);
+    const seconds = Math.floor(totalSeconds % 60);
+    return `${minutes}:${seconds.toString().padStart(2, "0")}`;
+}
+
+
 export default function VideoPlayer({ source, title }: VideoPlayerProps) {
 
-    // in ms
+    /*=======================================*/
+    /* State                                 */
+    /*=======================================*/
     const BOTTOM_SHEET_CLOSE_DELAY = 150;
+    const CONTROLS_HIDE_DELAY = 3000;
 
+    /*=======================================*/
+    /* Refs                                  */
+    /*=======================================*/
     const videoRef = useRef<HTMLVideoElement>(null);
+    const controlsTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+    const videoContainerRef = useRef<HTMLDivElement>(null);
+    const wasPlayingBeforeSeekRef = useRef(false);
+
+    /*=======================================*/
+    /* State                                 */
+    /*=======================================*/
     const [isPlaying, setIsPlaying] = useState(false);
     const [progress, setProgress] = useState(0);
+    const [currentTime, setCurrentTime] = useState(0);
+    const [duration, setDuration] = useState(0);
+    const [showRemainingTime, setShowRemainingTime] = useState(false);
     const [showControls, setShowControls] = useState(true);
     const [isFullscreen, setIsFullscreen] = useState(false);
 
     const [loopVideo, setLoopVideo] = useState(false);
     const [ambientMode, setAmbientMode] = useState(true);
+    const [playbackRate, setPlaybackRate] = useState(1);
 
     const [isQualityBottomSheetOpen, setIsQualityBottomSheetOpen] = useState(false);
     const [isSettingsBottomSheetOpen, setIsSettingsBottomSheetOpen] = useState(false);
     const [isCaptionsBottomSheetOpen, setIsCaptionsBottomSheetOpen] = useState(false);
 
-
-
-    const videoContainerRef = useRef<HTMLDivElement>(null)
-
     const [availableQualities, setAvailableQualities] = useState([
         { value: "1080p", selected: false },
-        { value: "720p", selected: false },
-        { value: "480p", selected: true },
-        { value: "360p", selected: false },
-        { value: "240p", selected: false },
-        { value: "144p", selected: false },
+        { value: "720p",  selected: false },
+        { value: "480p",  selected: true  },
+        { value: "360p",  selected: false },
+        { value: "240p",  selected: false },
+        { value: "144p",  selected: false },
     ]);
 
     const [availableCaptions, setAvailableCaptions] = useState([
-        { value: "English", selected: true },
-        { value: "Hindi", selected: false },
-        { value: "French", selected: false },
+        { value: "English", selected: true  },
+        { value: "Hindi",   selected: false },
+        { value: "French",  selected: false },
     ]);
 
-    // Toggle Play/Pause
-    const togglePlay = () => {
-        if (videoRef.current) {
-            if (isPlaying) videoRef.current.pause();
-            else videoRef.current.play();
-            setIsPlaying(!isPlaying);
-        }
+    const [availablePlaybackSpeeds, setAvailablePlaybackSpeeds] = useState([
+        { value: 0.25, display: "0.25x",  selected: false },
+        { value: 0.5,  display: "0.5x",   selected: false },
+        { value: 0.75, display: "0.75x",  selected: false },
+        { value: 1,    display: "Normal", selected: true  },
+        { value: 1.25, display: "1.25x",  selected: false },
+        { value: 1.5,  display: "1.5x",   selected: false },
+        { value: 1.75, display: "1.75x",  selected: false },
+        { value: 2,    display: "2x",     selected: false },
+    ]);
+
+    /*=======================================*/
+    /* Handlers                              */
+    /*=======================================*/
+    function togglePlay() {
+        if (videoRef.current === null) return;
+        if (isPlaying) videoRef.current.pause();
+        else videoRef.current.play();
+    }
+
+
+    function handlePlay() {
+        setIsPlaying(true);
+        resetControlsTimer(true);
+    }
+
+    function handlePause() {
+        setIsPlaying(false);
+        resetControlsTimer(false);
+    }
+
+    const handleEnded = () => {
+        if (!loopVideo) setIsPlaying(false);
     };
+
+    const handleLoadedMetadata = () => {
+        if (videoRef.current) setDuration(videoRef.current.duration);
+    };
+
+
 
     // Update progress bar
-    const handleTimeUpdate = () => {
-        if (videoRef.current) {
-            const currentProgress = (videoRef.current.currentTime / videoRef.current.duration) * 100;
-            setProgress(currentProgress);
-        }
-    };
+    function handleTimeUpdate() {
+        if (videoRef.current === null) return; 
+        const { currentTime: time, duration } = videoRef.current;
+        setCurrentTime(time);
+        if (duration > 0) setProgress((time / duration) * 100);
+
+    }
 
     // Seek video
-    const handleSeek = (e: ChangeEvent<HTMLInputElement>) => {
-        if (videoRef.current) {
-            const seekTo = (Number(e.target.value) / 100) * videoRef.current.duration;
-            videoRef.current.currentTime = seekTo;
-            setProgress(Number(e.target.value));
-        }
-    };
+    function handleSeek(event: ChangeEvent<HTMLInputElement>) {
+        if (videoRef.current === null) return; 
+        const duration = videoRef.current.duration ?? 0;
+        const seekTo = (Number(event.target.value) / 100) * duration;
+        videoRef.current.currentTime = seekTo;
+        setProgress(Number(event.target.value));
+        setCurrentTime(seekTo);
+    }
 
 
     async function toggleFullscreen() {
-        if (!videoContainerRef.current) return;
+        if (videoContainerRef.current === null) return;
 
         try {
-            if (!document.fullscreenElement) {
+            if (document.fullscreenElement === null) {
                 await videoContainerRef.current.requestFullscreen();
 
                 // Typescript gives error on this line if not written this way
@@ -100,15 +156,22 @@ export default function VideoPlayer({ source, title }: VideoPlayerProps) {
     }
 
 
-
-
     function handleClick(event: MouseEvent<HTMLDivElement>) {
         // document and window can also be an EventTarget, we only want html button elements
         // Source - https://stackoverflow.com/a/49632054
-        if (!(event.target instanceof HTMLButtonElement)) return;
+        if (!(event.target instanceof HTMLButtonElement)) {
+            // Tapped the video/backdrop itself (not a control) - toggle the controls overlay.
+            if (showControls) {
+                setShowControls(false);
+                if (controlsTimeoutRef.current) clearTimeout(controlsTimeoutRef.current);
+            } else {
+                resetControlsTimer(isPlaying);
+            }
+        
+            return;
+        }
 
         const action = event.target.dataset.action;
-        console.log(action)
 
         switch (action) {
             case "settings":
@@ -118,7 +181,7 @@ export default function VideoPlayer({ source, title }: VideoPlayerProps) {
                 setIsCaptionsBottomSheetOpen(!isCaptionsBottomSheetOpen)
                 break;
             case "minimise":
-
+                if (isFullscreen) toggleFullscreen();
                 break;
             case "quality":
                 setIsQualityBottomSheetOpen(!isQualityBottomSheetOpen)
@@ -127,12 +190,45 @@ export default function VideoPlayer({ source, title }: VideoPlayerProps) {
                 toggleFullscreen();
                 break;
             case "duration":
-
+                setShowRemainingTime(previous => !previous);
                 break;
-            default:
-                null
+        }
+
+        resetControlsTimer(isPlaying);
+    }
+
+    function handleSeekStart() {
+        if (controlsTimeoutRef.current) clearTimeout(controlsTimeoutRef.current);
+        setShowControls(true);
+        wasPlayingBeforeSeekRef.current = isPlaying;
+        if (isPlaying) videoRef.current?.pause();
+    }
+
+    function handleSeekEnd() {
+        if (wasPlayingBeforeSeekRef.current) {
+            videoRef.current?.play().catch(() => {});
+        } else {
+            resetControlsTimer(false);
         }
     }
+
+
+
+    function resetControlsTimer(autoHide: boolean) {
+        if (controlsTimeoutRef.current) clearTimeout(controlsTimeoutRef.current);
+        setShowControls(true);
+        if (autoHide) {
+            controlsTimeoutRef.current = setTimeout(() => setShowControls(false), CONTROLS_HIDE_DELAY);
+        }
+    }
+
+
+    useEffect(() => {
+        return () => {
+            if (controlsTimeoutRef.current) clearTimeout(controlsTimeoutRef.current);
+        };
+    }, []);
+
 
 
     return (
@@ -141,12 +237,20 @@ export default function VideoPlayer({ source, title }: VideoPlayerProps) {
                 ref={videoContainerRef}
                 className="relative w-full grid place-items-center"
                 onClick={handleClick}
+                onMouseMove={() => {
+                    resetControlsTimer(isPlaying);
+                }}
             >
                 <video
                     ref={videoRef}
                     src={source}
                     className={isFullscreen ? "h-full w-auto" : "w-full h-auto"}
                     onTimeUpdate={handleTimeUpdate}
+                    onLoadedMetadata={handleLoadedMetadata}
+                    onPlay={handlePlay}
+                    onPause={handlePause}
+                    onEnded={handleEnded}
+                    loop={loopVideo}
                     playsInline
                     disablePictureInPicture
                 />
@@ -162,7 +266,7 @@ export default function VideoPlayer({ source, title }: VideoPlayerProps) {
                         {/* Left */}
                         <div className="flex justify-baseline gap-3 min-w-0">
                             {/* Back Button */}
-                            <button aria-label="Minimise video player" data-action="minimise" className="flex-shrink-0 grid place-content-center hover:bg-white/10 aspect-square">
+                            <button aria-label="Minimise video player" data-action="minimise" className="shrink-0 grid place-content-center hover:bg-white/10 aspect-square">
                                 <DownArrowIcon size={26} />
                             </button>
 
@@ -185,7 +289,10 @@ export default function VideoPlayer({ source, title }: VideoPlayerProps) {
 
                     {/* Center Controls */}
                     <div className="absolute left-0 right-0 top-1/2 -translate-y-1/2  flex items-center justify-center gap-16">
-                        <button aria-label="Go to previous video" data-action="previous" className="hover:bg-white/10 p-2 rounded-full" onClick={(e) => { videoRef.current!.currentTime -= 10; }}>
+                        <button aria-label="Go to previous video" data-action="previous" className="hover:bg-white/10 p-2 rounded-full" onClick={(e) => { 
+                            if (videoRef.current === null) return;
+                            videoRef.current.currentTime = Math.max(videoRef.current.currentTime - 10, 0);
+                        }}>
                             <FilledPreviousIcon />
                         </button>
 
@@ -196,24 +303,34 @@ export default function VideoPlayer({ source, title }: VideoPlayerProps) {
                             }
                         </button>
 
-                        <button aria-label="Go to next video" data-action="next" className="hover:bg-white/10 p-2 rounded-full" onClick={(e) => { videoRef.current!.currentTime += 10; }}>
+                        <button aria-label="Go to next video" data-action="next" className="hover:bg-white/10 p-2 rounded-full" onClick={(e) => {
+                            if (!videoRef.current) return;
+                            const duration = videoRef.current.duration ?? (videoRef.current.currentTime + 10);
+                            videoRef.current.currentTime = Math.min(videoRef.current.currentTime + 10, duration);
+
+                        }}>
                             <FilledNextIcon />
                         </button>
                     </div>
 
                     {/* Bottom Controls */}
-                    <div className="pl-2 pr-3  relative w-full">
-                        <div className="flex justify-between items-baseline text-white text-xs mt-2 mb-2">
+                    <div className="relative w-full">
+                        <div className="pl-2 pr-3 flex justify-between items-baseline text-white text-xs mt-2 mb-2">
                             {/* left */}
                             <button
-                                aria-label={true // todo 
+                                aria-label={showRemainingTime
                                     ? "Show elapsed time"
                                     : "Show remaining time"}
                                 data-action="duration"
                                 className="px-2 py-1 hover:bg-white/10"
                             >
-                                <span className="pointer-events-none">0:07 / {Math.round(videoRef?.current?.duration ?? -1)}</span>
+                                <span className="pointer-events-none">
+                                    {showRemainingTime
+                                        ? `-${formatTime(Math.max(duration - currentTime, 0))} / ${formatTime(duration)}`
+                                        : `${formatTime(currentTime)} / ${formatTime(duration)}`}
+                                </span>
                             </button>
+
 
                             {/* right */}
                             <div className="flex gap-3">
@@ -227,17 +344,37 @@ export default function VideoPlayer({ source, title }: VideoPlayerProps) {
                         </div>
 
                         {/* YouTube Red Scrubber */}
-                        <div
-                            className="h-0.5 absolute bg-(--cool-gray)/40 bottom-0 left-0 right-0 cursor-pointer"
-                            style={isFullscreen ? { marginInline: "16px" } : {}}>
-                            {/* Progress Fill (Optional, but makes it look like YouTube) */}
-                            <div className="h-full bg-(--youtube-red) w-[30%] relative">
-
-                                {/* The Ball (Scrubber) */}
-                                <div className="absolute right-0 top-1/2 z-1000 -translate-y-1/2 translate-x-1/2 bg-(--youtube-red) h-3 w-3 rounded-full shadow-md"></div>
-
+                        <div className="relative w-full m-0 p-0">
+                            <div
+                                className="h-0.5 w-full absolute bg-(--cool-gray)/40 bottom-0 left-0 right-0 cursor-pointer"
+                                >
+                                {/* Progress Fill, driven by real playback progress */}
+                                <div className="h-full bg-(--youtube-red) relative" style={{ width: `${progress}%` }}>
+ 
+                                    {/* The Ball (Scrubber) */}
+                                    <div className="absolute right-0 top-1/2 z-1000 -translate-y-1/2 translate-x-1/2 bg-(--youtube-red) h-3 w-3 rounded-full shadow-md"></div>
+ 
+                                </div>
                             </div>
+ 
+
+                            <input
+                                type="range"
+                                min={0}
+                                max={100}
+                                step={0.1}
+                                value={Number.isFinite(progress) ? progress : 0}
+                                onChange={handleSeek}
+                                onClick={(e) => e.stopPropagation()}
+                                onPointerDown={handleSeekStart}
+                                onPointerUp={handleSeekEnd}
+                                onPointerCancel={handleSeekEnd}
+                                aria-label="Seek video"
+                                className="absolute left-0 right-0 bottom-0 h-5 translate-y-1/2 opacity-0 cursor-pointer appearance-none"
+                                style={isFullscreen ? { marginInline: "16px", width: "calc(100% - 32px)" } : { width: "100%" }}
+                            />
                         </div>
+
 
                         {/* Bottom */}
                         {isFullscreen &&
