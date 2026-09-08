@@ -39,7 +39,7 @@ export default function Video() {
 
                 <button className="px-3 pt-3 pb-2 flex text-start select-text" onClick={() => setIsDescriptionBottomSheetOpen(!isDescriptionBottomSheetOpen)}>
                     <div className="text-lg/tight font-medium">
-                        I Redesigned the ENTIRE YouTube UI from Scratch
+                        Baby Cats - Cute and Funny Cat Videos Compilation
                     </div>
 
                     <div>
@@ -50,8 +50,8 @@ export default function Video() {
                 {/* Channel Details */}
                 <div className="px-3 h-12 py-2 flex justify-between gap-2 no-scrollbar">
                     <NavLink to="/channel" className="shrink-0 flex items-center gap-3 select-text" >
-                        <img className="rounded-full select-none" src="./avatar.webp" alt="channel" height="32px" width="32px" />
-                        <span className="font-medium text-sm">Figma</span>
+                        <img className="rounded-full select-none" src="./avatar3.jpg" alt="channel" height="32px" width="32px" />
+                        <span className="font-medium text-sm">Pet collective</span>
                         {/* This text is smaller than Channel name, hence requires to be translated a few pixels to align to baseline */}
                         {/* <span className="text-[12px] opacity-80 select-none translate-y-[1.5px]">62.4K</span> */}
                     </NavLink>

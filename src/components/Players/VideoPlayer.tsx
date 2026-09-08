@@ -251,6 +251,7 @@ export default function VideoPlayer({ source, title }: VideoPlayerProps) {
                     onPause={handlePause}
                     onEnded={handleEnded}
                     loop={loopVideo}
+                    poster="./thumbnails/cute-cats.webp"
                     playsInline
                     disablePictureInPicture
                 />
