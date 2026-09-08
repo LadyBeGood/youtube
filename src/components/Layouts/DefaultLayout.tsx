@@ -9,7 +9,7 @@ import SideBar from "../Navigation/SideBar"
 const DefaultLayout = () => {
     return (
         // <div className="max-w-90 h-svh overflow-hidden grid grid-rows-[auto_1fr_auto] lg:grid-rows-[auto_1fr] lg:grid-cols-[240px_1fr]">
-        <div className="max-w-90 h-svh overflow-hidden grid grid-rows-[auto_1fr_auto]">
+        <div className="max-w-90 h-svh relative overflow-hidden grid grid-rows-[auto_1fr_auto]">
             {/* <TopBar className="lg:col-span-2" /> */}
             <TopBar />
             

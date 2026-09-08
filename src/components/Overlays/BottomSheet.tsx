@@ -243,7 +243,8 @@ function BottomSheet({
             <div
                 ref={bottomSheetRef}
 
-                className={debug(`touch-none select-none max-h-[100svh] fixed bottom-0 left-0 right-0 z-999 transition-transform duration-${ANIMATION_DURATION} ` + (type === 1 ? `pb-2 px-2` : "bg-black"))}
+                // className={debug(`touch-none select-none max-h-[100svh] fixed bottom-0 left-0 right-0 z-999 transition-transform duration-${ANIMATION_DURATION} ` + (type === 1 ? `pb-2 px-2` : "bg-black"))}
+                className={debug(`touch-none select-none grid justify-center max-h-svh fixed bottom-0 left-0 right-0 z-999 transition-transform duration-${ANIMATION_DURATION} ` + (type === 1 ? `pb-2 px-2` : "bg-black"))}
                 style={{
                     transform: `translateY(${isBottomSheetOpen ? String(bottomSheetTranslateY) : "100"}%)`,
                     transitionProperty: isPointerDown ? "none" : "transform",
@@ -280,7 +281,9 @@ function BottomSheet({
                 {/* Content */}
                 <div 
                     ref={bottomSheetContentRef}
-                    className={type === 1 ? "bg-[#212121] pb-2 rounded-xl relative" : "h-full grid grid-rows-[auto_1fr]"}
+                    // Hardcoded some values for 360 res, will remove later
+                    // className={type === 1 ? "bg-[#212121] pb-2 rounded-xl relative" : "h-full grid grid-rows-[auto_1fr]"}
+                    className={(type === 1 ? " bg-[#212121] pb-2 rounded-xl relative w-86" : " h-full w-90 grid grid-rows-[auto_1fr] ")}
                 >
                     {/* Drag Handle */}
                     <div className="grid place-items-center h-5">

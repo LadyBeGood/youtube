@@ -6,9 +6,9 @@ import SideBar from "../Navigation/SideBar"
 
 function BottomOnlyLayout() {
     return (
-        <div className="h-svh grid grid-rows-[1fr_auto]">
+        <div className="h-svh w-90 grid grid-rows-[1fr_auto]">
             
-            <SideBar />
+            {/* <SideBar /> */}
             
             <div className="min-h-0 relative">
                 <Suspense fallback={<LoadingSpinner />}>

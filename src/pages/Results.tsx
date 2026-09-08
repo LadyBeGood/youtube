@@ -7,7 +7,7 @@ export default function Results() {
     const navigate = useNavigate();
 
     return (
-        <main className="overflow-hidden grid grid-rows-[56px_1fr]">
+        <main className="overflow-hidden h-full grid grid-rows-[56px_1fr]">
             <div className="flex gap-3 pb-3 pt-3 px-3">
                 <button className="grid place-items-center cursor-pointer" onClick={() => window.history.state.idx ? navigate(-1) : navigate("/")}>
                     <BackIcon />
@@ -23,7 +23,7 @@ export default function Results() {
                 </button>
             </div>
 
-            <div className="overflow-auto no-scrollbar">
+            <div className="overflow-auto h-full no-scrollbar">
                 {/* <div className="flex justify-between px-4 py-2">
                     <div>
                         <SortIcon />

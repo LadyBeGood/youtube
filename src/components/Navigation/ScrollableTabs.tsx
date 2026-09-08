@@ -235,9 +235,9 @@ export default function ScrollableTabs({ tabs, defaultIndex = 0, onChange }: Scr
 
 
     return (
-        <div className="w-[100vw]">
+        <div className="w-full">
             {/* Tab strip */}
-            <div className="border-b h-10 bg-black z-1 border-white/20  w-[100vw] overflow-x-auto no-scrollbar sticky top-0">
+            <div className="border-b h-10 bg-black z-1 border-white/20  w-full overflow-x-auto no-scrollbar sticky top-0">
                 {/* This ref is also useless, I will refactor it later */}
                 <div
                     ref={stripRef}

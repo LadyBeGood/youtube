@@ -17,7 +17,7 @@ export default function SubscriptionsBar() {
             {subscriptions.map((subscription, index) =>
                 <button key={index} className="grid grid-rows-[1fr_20px] h-full place-items-center aspect-square">
                     <img src="./avatar.webp" alt="" className="h-full w-auto block rounded-full" />
-                    <span className="block w-full px-2 text-xs truncate ">
+                    <span className="block w-full px-2 text-xs truncate  text-center">
                         {subscription}
                     </span>
                 </button>

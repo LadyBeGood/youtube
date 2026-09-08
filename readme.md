@@ -81,19 +81,24 @@ A mobile-first, YouTube frontend clone featuring 20+ screens, 30+ reusable compo
     - [x] Podcast card
     - [x] Shop card
     - [x] Comment card
-- [x] Responsiveness
 - [x] Accessibility
     - [x] aria
     - [ ] Keyboard navigation
     - [ ] Accessible video players
-- [ ] Responsiveness
+- [ ] Responsiveness (Put on hold for now)
     - [x] Home page
     - [x] Search bar/page
     - [ ] Shorts page
     - [ ] Results
     - [ ] Profile
     - [x] Subscription page
-
+- [ ] Mock data
+    - [ ] Videos
+    - [ ] Users (with profile pictures)
+    - [ ] Comments
+    - [ ] Posts
+    - [ ] Playlists
+    - [ ] Channels
 
 ## Screenshots
 

@@ -10,7 +10,7 @@ type ExploreMenuProps = {
 export default function ExploreMenu({ isOpen, onClose }: ExploreMenuProps) {
     return (
         <>
-            <div className={"bg-black w-[75vw] fixed z-2 flex flex-col overflow-auto no-scrollbar transition-all py-8 space-y-8 " + (isOpen ? " left-0 top-0 bottom-0" : " -left-full")}>
+            <div className={"bg-black w-3/4 absolute z-2 flex flex-col overflow-auto no-scrollbar transition-all py-8 space-y-8 " + (isOpen ? " left-0 top-0 bottom-0" : " -left-full")}>
                 {
                     Object.entries({ "Explore": explores, "More from Youtube": moreFromYoutube }).map(([key, value]) =>
                         <div key={key}>
