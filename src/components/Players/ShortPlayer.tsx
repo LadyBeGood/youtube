@@ -12,7 +12,6 @@ type ShortProps = {
 }
 
 
-// Simple icons – replace with your own if you already have them
 function VolumeOffIcon({ size = 48 }: { size?: number }) {
     return (
         <svg width={size} height={size} viewBox="0 0 24 24" fill="white">

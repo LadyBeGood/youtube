@@ -16,10 +16,12 @@ export default function Home() {
 
     return (
         <>
-            <main className="overflow-y-auto no-scrollbar lg:hidden">
+            {/* <main className="overflow-y-auto no-scrollbar lg:hidden"> */}
+            <main className="overflow-y-auto no-scrollbar">
                 <RecommendationsBar isHomePage={true} onExploreButtonClick={() => setIsExploreMenuOpen(!isExploreMenuOpen)} />
 
-                <div className="space-y-6 pb-6 lg:grid lg:grid-cols-3">
+                {/* <div className="space-y-6 pb-6 lg:grid lg:grid-cols-3"> */}
+                <div className="space-y-6 pb-6">
                     <VideoCard title={"How I Animate In Desmos Graphing Calculator"} channel={"CodingHunger"} profilePictureURL={"./avatar1.webp"} views={"12K"} uploadDate={"1 year ago"} thumbnailURL={"./thumbnail1.webp"} duration={"9:38"} />
                     <PlaylistCard title={"How I Animate In Desmos Graphing Calculator"} channel={"CodingHunger"} profilePictureURL={"./avatar1.webp"} updatedAt={"1 year ago"} thumbnailURL={"./thumbnail1.webp"} videoCount={47} />
                     <ShortsCard thumbnail="./japan.jpg" title="Japan's Most Beautiful Restaurant 🍃" />
@@ -40,10 +42,12 @@ export default function Home() {
                 </div>
             </main>
 
-            <main className="hidden lg:block overflow-y-auto no-scrollbar">
+            {/* <main className="hidden lg:block overflow-y-auto no-scrollbar"> */}
+            <main className="hidden overflow-y-auto no-scrollbar">
                 <RecommendationsBar isHomePage={true} onExploreButtonClick={() => setIsExploreMenuOpen(!isExploreMenuOpen)} />
 
-                <div className="space-y-6 pb-6 lg:grid lg:grid-cols-3 gap-4 px-4">
+                {/* <div className="space-y-6 pb-6 lg:grid lg:grid-cols-3 gap-4 px-4"> */}
+                <div className="space-y-6 pb-6 gap-4 px-4">
                     <VideoCard title={"How I Animate In Desmos Graphing Calculator"} channel={"CodingHunger"} profilePictureURL={"./avatar1.webp"} views={"12K"} uploadDate={"1 year ago"} thumbnailURL={"./thumbnail1.webp"} duration={"9:38"} />
                     <VideoCard title={"How I Animate In Desmos Graphing Calculator"} channel={"CodingHunger"} profilePictureURL={"./avatar1.webp"} views={"12K"} uploadDate={"1 year ago"} thumbnailURL={"./thumbnail1.webp"} duration={"9:38"} />
                     <VideoCard title={"How I Animate In Desmos Graphing Calculator"} channel={"CodingHunger"} profilePictureURL={"./avatar1.webp"} views={"12K"} uploadDate={"1 year ago"} thumbnailURL={"./thumbnail1.webp"} duration={"9:38"} />

@@ -9,7 +9,8 @@ import { routes, type Route } from "../../database/routes";
 
 export default function SideBar() {
     return (
-        <aside className={"hidden lg:flex flex-col overflow-auto no-scrollbar transition-all pt-2 pb-8 space-y-8"}>
+        // <aside className={"hidden lg:flex flex-col overflow-auto no-scrollbar transition-all pt-2 pb-8 space-y-8"}>
+        <aside className={"hidden overflow-auto no-scrollbar transition-all pt-2 pb-8 space-y-8"}>
             {
                 Object.entries({ 
                     "": routes,
