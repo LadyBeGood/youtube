@@ -7,7 +7,7 @@ export default function Search() {
     const navigate = useNavigate();
 
     return (
-        <main className="py-3 grid h-full overflow-hidden">
+        <main className="pt-3 grid h-full overflow-hidden w-90">
             <div className="flex gap-3 pb-2 px-4 ">
                 <button className="grid place-items-center cursor-pointer" onClick={() => window.history.state.idx ? navigate(-1) : navigate("/")}>
                     <BackIcon />

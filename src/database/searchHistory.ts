@@ -21,7 +21,7 @@ export const searchHistory: SearchHistory[] = [
     { 
         type: "search-history",
         id: "search-history-3",
-        name: "bihar news live",
+        name: "News live",
     },
     { 
         type: "search-history",
