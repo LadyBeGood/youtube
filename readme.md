@@ -6,10 +6,12 @@
 
 A mobile-first, YouTube frontend clone featuring 20+ screens, 30+ reusable components, a custom icon system, and app-like navigation with zero-dependency bottom sheets and swipeable tabs.
 
+
+
 ## Screenshots
 
+<img src="public/screenshots/narrow/home.png" alt="Home page" width="200px" /> <img src="public/screenshots/narrow/shorts.png" alt="Shorts page" width="200px" /> <img src="public/screenshots/narrow/subscriptions.png" alt="Subscriptions page" width="200px" /> <img src="public/screenshots/narrow/profile.png" alt="Profile page" width="200px" /> <img src="public/screenshots/narrow/video.png" alt="Video page" width="200px" /> <img src="public/screenshots/narrow/search.png" alt="Search page" width="200px" />  <img src="public/screenshots/narrow/notifications.png" alt="Notifications page" width="200px" /> <img src="public/screenshots/narrow/channel-1.png" alt="Channel page 1" width="200px" /> <img src="public/screenshots/narrow/channel-3.png" alt="Channel page 2" width="200px" />  <img src="public/screenshots/narrow/results.png" alt="Results page" width="200px" />  <img src="public/screenshots/narrow/channel-2.png" alt="Channel page 2" width="200px" />
 
-<img src="public/screenshots/mobile.home.png" alt="Home page" width="200px" /> <img src="public/screenshots/mobile.shorts.png" alt="Shorts page" width="200px" /> <img src="public/screenshots/mobile.subscriptions.png" alt="Subscriptions page" width="200px" /> <img src="public/screenshots/mobile.profile.png" alt="Profile page" width="200px" /> <img src="public/screenshots/mobile.video.png" alt="Video page" width="200px" /> <img src="public/screenshots/mobile.search.png" alt="Search page" width="200px" />  <img src="public/screenshots/mobile.notifications.png" alt="Notifications page" width="200px" /> <img src="public/screenshots/mobile.channel-1.png" alt="Channel page 1" width="200px" /> <img src="public/screenshots/mobile.channel-3.png" alt="Channel page 2" width="200px" />  <img src="public/screenshots/mobile.results.png" alt="Results page" width="200px" />  <img src="public/screenshots/mobile.channel-2.png" alt="Channel page 2" width="200px" />
 
 
 ## Tech Stack
@@ -20,7 +22,6 @@ A mobile-first, YouTube frontend clone featuring 20+ screens, 30+ reusable compo
 [![React Router](https://img.shields.io/badge/React_Router-20232A?logo=react-router&logoColor=CA4245)](https://reactrouter.com/)
 [![Vite](https://img.shields.io/badge/Vite-20232A?logo=vite&logoColor=646CFF)](https://vitejs.dev/)
 [![Vercel](https://img.shields.io/badge/Vercel-20232A?logo=vercel&logoColor=white)](https://vercel.com/)
-
 
 * **Framework:** [React](https://react.dev/)
 * **Language:** [TypeScript](https://www.typescriptlang.org/)
@@ -33,23 +34,21 @@ A mobile-first, YouTube frontend clone featuring 20+ screens, 30+ reusable compo
 
 ## Installation
 
+Clone and enter the repository:
+```
+git clone https://github.com/LadyBeGood/youtube.git
+cd youtube
+```
 
-1. Clone the repository:
-    
-    ```
-    git clone https://github.com/LadyBeGood/youtube.git
-    ```
-2. Install dependencies:
+Install dependencies:
+```
+npm install
+```
 
-    ```
-    npm install
-    ```
-
-3. Run the development server:
-
-    ```
-    npm run host
-    ```
+Run the development server:
+```
+npm run host
+```
 
 
 ## Roadmap
