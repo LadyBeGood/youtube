@@ -521,6 +521,14 @@ export function ShoppingIcon(props: IconProps) {
     )
 }
 
+export function FilledMusicIcon(props: IconProps) {
+    return (
+        <IconWrapper {...props}>
+            <path d="M287-167q-47-47-47-113t47-113q47-47 113-47 23 0 42.5 5.5T480-418v-422h240v160H560v400q0 66-47 113t-113 47q-66 0-113-47Z" />
+        </IconWrapper>
+    )
+}
+
 export function Music2Icon(props: IconProps) {
     return (
         <IconWrapper viewBox="0 0 12 12" fill="none" {...props}>

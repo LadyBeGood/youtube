@@ -1,5 +1,5 @@
 import { useNavigate } from "react-router";
-import { FilledSubscriptionsIcon, MoreIcon } from "../Icons/Icons"
+import { FilledMusicIcon, FilledSubscriptionsIcon, MoreIcon } from "../Icons/Icons"
 
 
 type VideoProps = {
@@ -20,11 +20,13 @@ export default function VideoCard({ isMusical = false, title, channel, profilePi
         <div className="select-none">
             <button aria-label={`Play ${title}`} className="relative" onClick={() => navigate("/video")}>
                 <img src={thumbnailURL} alt="" />
-                <div className="absolute rounded right-2 bottom-1 bg-[#00000090] flex text-xs justify-around text-white items-center px-1.5 py-0.5 ">
+                <div className="absolute  right-2 bottom-1 flex text-xs justify-between gap-1 text-white items-center ">
                     {isMusical &&
-                        <span className="material-symbols-outlined" style={{ fontSize: "12px", fontVariationSettings: `"FILL" 1, "wght" 400,"GRAD" 0` }}>music_note</span>
+                        <span className="bg-[#00000090] h-5 w-5 rounded grid place-items-center">
+                            <FilledMusicIcon size={12} />
+                        </span>
                     }
-                    <span>{duration}</span>
+                    <span className="bg-[#00000090] h-full px-1.5 py-0.5 rounded">{duration}</span>
                 </div>
             </button>
 
@@ -34,7 +36,7 @@ export default function VideoCard({ isMusical = false, title, channel, profilePi
                 </button>
 
                 <button aria-label={`Play ${title}`} className="gap-1 flex flex-col" onClick={() => navigate("/video")}>
-                    <div className="text-left">{title}</div>
+                    <div className="text-left line-clamp-2">{title}</div>
                     <div className="text-xs text-left text-(--cool-gray)">
                         <span>{channel}</span> ·
                         <span> {views} views</span> ·
