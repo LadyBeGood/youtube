@@ -36,7 +36,7 @@ export default function VideoCard({ isMusical = false, title, channel, profilePi
                 </button>
 
                 <button aria-label={`Play ${title}`} className="gap-1 flex flex-col" onClick={() => navigate("/video")}>
-                    <div className="text-left line-clamp-2">{title}</div>
+                    <div className="text-left line-clamp-2 min-h-[1.5em]">{title}</div>
                     <div className="text-xs text-left text-(--cool-gray)">
                         <span>{channel}</span> ·
                         <span> {views} views</span> ·
@@ -44,7 +44,7 @@ export default function VideoCard({ isMusical = false, title, channel, profilePi
                     </div>
                 </button>
 
-                <button aria-label={`More options for ${title}`} className="shrink-0 px-1.5">
+                <button aria-label={`More options for ${title}`} className="shrink-0 px-1.5 ml-auto">
                     <MoreIcon size={20} />
                 </button>
             </div>
