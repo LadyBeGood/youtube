@@ -23,21 +23,19 @@ export default function Home() {
 
                 {/* <div className="space-y-6 pb-6 lg:grid lg:grid-cols-3"> */}
                 <div className="space-y-6 pb-6">
-                    {videos.map((video, index) => 
-                        <>
-                            <VideoCard key={video.id} isMusical={video.isMusical} title={video.title} channel={video.channel} profilePictureURL={video.profilePictureURL} views={video.views} uploadDate={video.uploadDate} thumbnailURL={video.thumbnailURL} duration={video.duration} />
-                            {index === 0 && 
-                                <>
-                                    <ShortsCard thumbnail="./japan.jpg" title="Japan's Most Beautiful Restaurant 🍃" />
-                                    <ShortsCard thumbnail="./pink.webp" title="A rich red bean paste and butter honey toast that gives you maximum guilty pleasure 🍞🧈" />
-                                    <ShortsCard thumbnail="./painting.jpg" title="SUBLIMAL MSG" />
-                                </>
-                            }
-                        </>
-                    )}
-
-                    {videos.map(video => 
-                        <VideoCard key={video.id} isMusical={video.isMusical} title={video.title} channel={video.channel} profilePictureURL={video.profilePictureURL} views={video.views} uploadDate={video.uploadDate} thumbnailURL={video.thumbnailURL} duration={video.duration} />
+                    {Array(2).fill(undefined).map((_, x) => 
+                        videos.map((video, index) =>
+                            <>
+                                <VideoCard key={video.id} isMusical={video.isMusical} title={video.title} channel={video.channel} profilePictureURL={video.profilePictureURL} views={video.views} uploadDate={video.uploadDate} thumbnailURL={video.thumbnailURL} duration={video.duration} />
+                                {index === 0 &&
+                                    <>
+                                        <ShortsCard thumbnail="./japan.jpg" title="Japan's Most Beautiful Restaurant 🍃" />
+                                        <ShortsCard thumbnail="./pink.webp" title="A rich red bean paste and butter honey toast that gives you maximum guilty pleasure 🍞🧈" />
+                                        <ShortsCard thumbnail="./painting.jpg" title="SUBLIMAL MSG" />
+                                    </>
+                                }
+                            </>
+                        )
                     )}
                 </div>
             </main>
