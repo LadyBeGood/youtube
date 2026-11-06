@@ -1,6 +1,6 @@
 import { Link, useNavigate } from "react-router"
 import { BackIcon, HistoryIcon, MicrophoneIcon, NorthWestArrowIcon } from "../components/Icons/Icons";
-import { searchHistory } from "../database/searchHistory";
+import { searchHistory } from "../data/searchHistory";
 
 
 export default function Search() {

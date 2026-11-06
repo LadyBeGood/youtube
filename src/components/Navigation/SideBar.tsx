@@ -1,8 +1,8 @@
 import { NavLink } from "react-router";
-import { explores, type Explore } from "../../database/explores";
-import { moreFromYoutube, type MoreFromYoutube } from "../../database/moreFromYoutube";
+import { explores, type Explore } from "../../data/explores";
+import { moreFromYoutube, type MoreFromYoutube } from "../../data/moreFromYoutube";
 import { DownArrowIcon, HomeIcon } from "../Icons/Icons";
-import { routes, type Route } from "../../database/routes";
+import { routes, type Route } from "../../data/routes";
 
 
 
@@ -12,13 +12,13 @@ export default function SideBar() {
         // <aside className={"hidden lg:flex flex-col overflow-auto no-scrollbar transition-all pt-2 pb-8 space-y-8"}>
         <aside className={"hidden overflow-auto no-scrollbar transition-all pt-2 pb-8 space-y-8"}>
             {
-                Object.entries({ 
+                Object.entries({
                     "": routes,
-                    "Explore": explores.slice(0, 8), 
+                    "Explore": explores.slice(0, 8),
                     "More from Youtube": moreFromYoutube,
                 }).map(([key, value]) =>
                     <div key={key}>
-                        {key !== "" && 
+                        {key !== "" &&
                             <div className="text-lg font-medium mb-3 px-4 flex justify-between items-center">
                                 <div>
                                     {key}
@@ -35,8 +35,8 @@ export default function SideBar() {
                             <NavLink to={item.link ?? "#"} key={item.id} className={`flex h-11 items-center gap-4 hover:bg-white/20 w-full px-4`}>
                                 {({ isActive }) => <>
                                     {isActive && item.filledIcon
-                                        ? <item.filledIcon size={24} /> 
-                                        : <item.icon size={24} /> 
+                                        ? <item.filledIcon size={24} />
+                                        : <item.icon size={24} />
                                     }
 
                                     <p>{item.title}</p>

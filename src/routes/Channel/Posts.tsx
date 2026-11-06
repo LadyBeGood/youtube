@@ -1,5 +1,5 @@
 import Post from "../../components/Cards/PostCard";
-import { posts } from "../../database/posts";
+import { posts } from "../../data/posts";
 
 
 

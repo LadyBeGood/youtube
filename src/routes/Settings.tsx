@@ -1,4 +1,4 @@
-import { settings } from "../database/settings";
+import { settings } from "../data/settings";
 
 const sectionTitles: Record<string, string> = {
     accountSettings: "Account",

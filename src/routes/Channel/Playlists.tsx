@@ -1,5 +1,5 @@
 import ThinPlaylistCard from "../../components/Cards/ThinPlaylistCard";
-import { playlists } from "../../database/playlist";
+import { playlists } from "../../data/playlist";
 
 
 export default function Playlists() {

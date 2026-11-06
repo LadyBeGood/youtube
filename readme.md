@@ -1,8 +1,12 @@
 
-
-
-
 # YouTube Mobile Frontend Clone
+
+[![React](https://img.shields.io/badge/React-20232A?logo=react&logoColor=61DAFB)](https://react.dev/)
+[![TypeScript](https://img.shields.io/badge/TypeScript-20232A?logo=typescript&logoColor=3178C6)](https://www.typescriptlang.org/)
+[![TailwindCSS](https://img.shields.io/badge/Tailwind_CSS-20232A?logo=tailwind-css&logoColor=06B6D4)](https://tailwindcss.com/)
+[![React Router](https://img.shields.io/badge/React_Router-20232A?logo=react-router&logoColor=CA4245)](https://reactrouter.com/)
+[![Vite](https://img.shields.io/badge/Vite-20232A?logo=vite&logoColor=646CFF)](https://vitejs.dev/)
+[![Vercel](https://img.shields.io/badge/Vercel-20232A?logo=vercel&logoColor=white)](https://vercel.com/)
 
 A mobile-first, YouTube frontend clone featuring 20+ screens, 30+ reusable components, a custom icon system, and app-like navigation with zero-dependency bottom sheets and swipeable tabs.
 
@@ -12,23 +16,6 @@ A mobile-first, YouTube frontend clone featuring 20+ screens, 30+ reusable compo
 
 <img src="public/screenshots/narrow/home.png" alt="Home page" width="200px" /> <img src="public/screenshots/narrow/shorts.png" alt="Shorts page" width="200px" /> <img src="public/screenshots/narrow/subscriptions.png" alt="Subscriptions page" width="200px" /> <img src="public/screenshots/narrow/profile.png" alt="Profile page" width="200px" /> <img src="public/screenshots/narrow/video.png" alt="Video page" width="200px" /> <img src="public/screenshots/narrow/search.png" alt="Search page" width="200px" />  <img src="public/screenshots/narrow/notifications.png" alt="Notifications page" width="200px" /> <img src="public/screenshots/narrow/channel-1.png" alt="Channel page 1" width="200px" /> <img src="public/screenshots/narrow/channel-3.png" alt="Channel page 2" width="200px" />  <img src="public/screenshots/narrow/results.png" alt="Results page" width="200px" />  <img src="public/screenshots/narrow/channel-2.png" alt="Channel page 2" width="200px" />
 
-
-
-## Tech Stack
-
-[![React](https://img.shields.io/badge/React-20232A?logo=react&logoColor=61DAFB)](https://react.dev/)
-[![TypeScript](https://img.shields.io/badge/TypeScript-20232A?logo=typescript&logoColor=3178C6)](https://www.typescriptlang.org/)
-[![TailwindCSS](https://img.shields.io/badge/Tailwind_CSS-20232A?logo=tailwind-css&logoColor=06B6D4)](https://tailwindcss.com/)
-[![React Router](https://img.shields.io/badge/React_Router-20232A?logo=react-router&logoColor=CA4245)](https://reactrouter.com/)
-[![Vite](https://img.shields.io/badge/Vite-20232A?logo=vite&logoColor=646CFF)](https://vitejs.dev/)
-[![Vercel](https://img.shields.io/badge/Vercel-20232A?logo=vercel&logoColor=white)](https://vercel.com/)
-
-* **Framework:** [React](https://react.dev/)
-* **Language:** [TypeScript](https://www.typescriptlang.org/)
-* **Styling:** [Tailwind CSS](https://tailwindcss.com/)
-* **Routing:** [React Router](https://reactrouter.com/)
-* **Build tool:** [Vite](https://vitejs.dev/)
-* **Platform:** [Vercel](https://vercel.com/)
 
 
 

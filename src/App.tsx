@@ -1,23 +1,23 @@
 import { createRoot } from "react-dom/client"
 import { BrowserRouter, Routes, Route } from "react-router"
 
-// These routes are not lazy loaded because their size is minuscule
-// compared to initial load size. Lazy loading them makes navigation
-// sluggish.
-import Home from "./pages/Home"
-import NotFound from "./pages/NotFound"
-import Profile from "./pages/Profile"
-import Subscriptions from "./pages/Subscriptions"
-import DefaultLayout from "./components/Layouts/DefaultLayout"
-import Search from "./pages/Search"
-import Notifications from "./pages/Notifications"
-import Video from "./pages/Video"
-import Channel from "./pages/Channel/Channel"
-import Shorts from "./pages/Shorts"
-import BottomOnlyLayout from "./components/Layouts/BottomOnlyLayout"
-import Settings from "./pages/Settings"
-import Playlist from "./pages/Playlist"
-import Results from "./pages/Results"
+// These routes are not lazy loaded because their sizes are minuscule
+// compared to initial load size. Lazy loading them makes the navigation
+// even more sluggish.
+import Home from "./routes/Home";
+import NotFound from "./routes/NotFound";
+import Profile from "./routes/Profile";
+import Subscriptions from "./routes/Subscriptions";
+import DefaultLayout from "./components/Layouts/DefaultLayout";
+import Search from "./routes/Search";
+import Notifications from "./routes/Notifications";
+import Video from "./routes/Video";
+import Channel from "./routes/Channel/Channel";
+import Shorts from "./routes/Shorts";
+import BottomOnlyLayout from "./components/Layouts/BottomOnlyLayout";
+import Settings from "./routes/Settings";
+import Playlist from "./routes/Playlist";
+import Results from "./routes/Results";
 
 
 export function App() {

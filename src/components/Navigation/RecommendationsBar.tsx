@@ -1,6 +1,6 @@
 import { NavLink, useSearchParams } from "react-router"
 import { ExploreIcon } from "../Icons/Icons";
-import { HomeFilters, subscriptionsFilters } from "../../database/filters";
+import { HomeFilters, subscriptionsFilters } from "../../data/filters";
 
 
 type RecommendationsBarProps = {

@@ -7,7 +7,7 @@ import VideoCard from "../components/Cards/VideoCard"
 import BottomSheet from "../components/Overlays/BottomSheet";
 import ExploreMenu from "../components/Overlays/ExploreMenu";
 import PlaylistCard from "../components/Cards/PlaylistCard";
-import { videos } from "../database/videos";
+import { videos } from "../data/videos";
 
 
 
@@ -23,7 +23,7 @@ export default function Home() {
 
                 {/* <div className="space-y-6 pb-6 lg:grid lg:grid-cols-3"> */}
                 <div className="space-y-6 pb-6">
-                    {Array(2).fill(undefined).map((_, x) => 
+                    {Array(2).fill(undefined).map((_, x) =>
                         videos.map((video, index) =>
                             <>
                                 <VideoCard key={video.id} isMusical={video.isMusical} title={video.title} channel={video.channel} profilePictureURL={video.profilePictureURL} views={video.views} uploadDate={video.uploadDate} thumbnailURL={video.thumbnailURL} duration={video.duration} />
@@ -53,7 +53,7 @@ export default function Home() {
                     <ShortsCard thumbnail="./japan.jpg" title="Japan's Most Beautiful Restaurant 🍃" />
                     <ShortsCard thumbnail="./pink.webp" title="A rich red bean paste and butter honey toast that gives you maximum guilty pleasure 🍞🧈" />
                     <ShortsCard thumbnail="./painting.jpg" title="SUBLIMAL MSG" />
-                    
+
                     <VideoCard title={"How I Animate In Desmos Graphing Calculator"} channel={"CodingHunger"} profilePictureURL={"./avatar1.webp"} views={"12K"} uploadDate={"1 year ago"} thumbnailURL={"./thumbnail1.webp"} duration={"9:38"} />
                     <VideoCard title={"How I Animate In Desmos Graphing Calculator"} channel={"CodingHunger"} profilePictureURL={"./avatar1.webp"} views={"12K"} uploadDate={"1 year ago"} thumbnailURL={"./thumbnail1.webp"} duration={"9:38"} />
                     <VideoCard title={"How I Animate In Desmos Graphing Calculator"} channel={"CodingHunger"} profilePictureURL={"./avatar1.webp"} views={"12K"} uploadDate={"1 year ago"} thumbnailURL={"./thumbnail1.webp"} duration={"9:38"} />
